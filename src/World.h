@@ -5,12 +5,13 @@
 #include <array>
 
 using playfield = std::array <std::array <LandmarkType, MAP_SIZE_Y>, MAP_SIZE_X>;
+class Player;
 
 class World
 {
 	public:
 		void fillWorld();
-		void printWorld() const;
+		void printWorld(const Player& player) const;
 
 
 	private:

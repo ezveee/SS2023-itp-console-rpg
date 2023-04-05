@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Player.h"
 
 using namespace mapConstants;
 
@@ -27,7 +28,7 @@ void World::fillWorld(/*Screen currentScreen OR vector<Landmark> landmarks inste
 
 }
 
-void World::printWorld() const
+void World::printWorld(const Player& player) const
 {
 	int realSizeX = MAP_SIZE_X * (SCALE_FACTOR_X + 1) + 1;
 	int realSizeY = MAP_SIZE_Y * (SCALE_FACTOR_Y + 1) + 1;
@@ -71,6 +72,14 @@ void World::printWorld() const
 
 			int xPos = guiX / (SCALE_FACTOR_X + 1);
 			int yPos = guiY / (SCALE_FACTOR_Y + 1);
+
+			Position playerPosition = player.getPosition();
+
+			if (playerPosition.x == xPos && playerPosition.y == yPos)
+			{
+				std::wcout << PLAYER_CHAR;
+				continue;
+			}
 
 			std::cout << (char)this->world[xPos][yPos];
 		}
