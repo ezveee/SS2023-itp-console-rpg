@@ -1,8 +1,9 @@
 #pragma once
 
+#include "Team.h"
+#include "Ability.h"
 
-
-typedef struct Stats
+struct Stats
 {
 	int level;
 	int maxHealth;
@@ -35,6 +36,10 @@ class Entity
 		void useAbilityOnTeam(Ability* ability, Team* targets);
 
 		int getSpeed() const;
+
+	protected:
+		Ability* defaultAttack;
+
 
 	private:
 		Stats stat;

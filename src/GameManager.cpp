@@ -12,36 +12,41 @@ void GameManager::randomEnemyEncounter()
 
 std::vector<Entity*> GameManager::setFightOrder(Team* teamA, Team* teamB)
 {
+	/*
 	std::vector<Entity*> fightOrder;
 
-	Entity* curEntity = nullptr;
+	Entity* currEntity = nullptr;
 	Entity* highestSpeed = nullptr;
 
 	int index = 0;
 
 	while (index < (teamA->members.size() + teamB->members.size()))
 	{
+		
 		//Team A
 		for (int i = 0; i < teamA->members.size(); i++)
 		{
-			curEntity = teamA->members[i];
+			currEntity = teamA->members[i];
 
 			//set highestSpeed to the first Entity
 			if (highestSpeed == nullptr)
-				highestSpeed = curEntity;
+				highestSpeed = currEntity;
 
 			//set highestSpeed, when curEntity has higher Speed
-			if(highestSpeed->getSpeed() < curEntity->getSpeed())
-				highestSpeed = curEntity;
+			if (highestSpeed->getSpeed() < currEntity->getSpeed())
+			{
+				if (!(std::find(fightOrder.begin(), fightOrder.end(), currEntity) != fightOrder.end()))
+					highestSpeed = currEntity;
+			}
 		}
 		//Team B
 		for (int i = 0; i < teamB->members.size(); i++)
 		{
-			curEntity = teamB->members[i];
+			currEntity = teamB->members[i];
 
 			//set highestSpeed, when curEntity has higher Speed
-			if (highestSpeed->getSpeed() < curEntity->getSpeed())
-				highestSpeed = curEntity;
+			if (highestSpeed->getSpeed() < currEntity->getSpeed())
+				highestSpeed = currEntity;
 		}
 		//add highestSpeed to fightOrder
 		fightOrder.push_back(highestSpeed);
@@ -51,23 +56,30 @@ std::vector<Entity*> GameManager::setFightOrder(Team* teamA, Team* teamB)
 	}
 
 	return fightOrder;
+	*/
 }
 
 void GameManager::fight(std::vector<Entity*> entities /*, Team* teamA, Team* teamB*/)
-{
+{ 
+	/*
 	bool fighting = true;
+
+	//Fight is lasting until one Team is dead
 	while (fighting != false)
 	{
 		for (int i = 0; i < entities.size(); i++)
 		{
-			//choose an ability if alive
+			//do something when alive
 			if(entities[i]->isAlive())
-				entities[i]->chooseAbility();
+			{
+
+			}
 
 			//check if Other-Team is alive
-			fighting = isTeamAlive();
+			fighting = ;
 		}
 	}
+	*/
 }
 
 void GameManager::transition()
