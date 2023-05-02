@@ -4,14 +4,17 @@
 #include "Position.h"
 
 enum class LandmarkType
-{
-	//CornerBorder = CORNER_BORDER,
-	//HorizontalBorder = HORIZONTAL_BORDER,
-	//VerticalBorder = VERTICAL_BORDER,
-	
+{	
 	EmptyField = EMPTY_FIELD,
+	Dungeon = LANDMARK_DUNGEON,
 	House = LANDMARK_HOUSE,
-	Dungeon = LANDMARK_DUNGEON
+	Shop = LANDMARK_SHOP,
+	Blacksmith = LANDMARK_BLACKSMITH,
+	Inn = LANDMARK_INN,
+
+	PathCorner = '+',
+	PathHorizontal = '-',
+	PathVertical = '|'
 };
 
 struct Landmark
@@ -30,3 +33,18 @@ namespace mapConstants
 		constexpr char emptyField = ' ';
 	}
 }
+
+// temp
+enum class PathType
+{
+	Corner = '+',
+	Horizontal = '-',
+	Vertical = '|'
+};
+
+struct Path
+{
+	PathType type;
+	Position position;
+};
+

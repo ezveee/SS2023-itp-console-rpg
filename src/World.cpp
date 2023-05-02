@@ -1,15 +1,11 @@
 #include "World.h"
 
 #include <iostream>
-#include <vector>
 #include "Player.h"
 
 using namespace mapConstants;
 
-// TEMP should be a vector for each screen
-const std::vector<Landmark> landmarks = { {LandmarkType::House, {3, 5}}, {LandmarkType::Dungeon, {6, 7}} };
-
-void World::fillWorld(/*Screen currentScreen OR vector<Landmark> landmarks instead of entire screen*/)
+void World::fillWorld(const std::vector<Landmark>& landmarks/*, const std::vector<Path>& paths*/)
 // implement once screens are implemented
 // each screen needs to have a vector with all landmarks
 {
@@ -26,8 +22,64 @@ void World::fillWorld(/*Screen currentScreen OR vector<Landmark> landmarks inste
 		world[landmark.position.x][landmark.position.y] = landmark.type;
 	}
 
+	/*
+	// TEMP to display paths
+	for (auto path : paths)
+	{
+		world[path.position.x][path.position.y] = path.type;
+	}
+	*/
+
 }
 
+void World::printWorld(const Player& player) const
+{
+	int realSizeX = MAP_SIZE_X + 1;
+	int realSizeY = MAP_SIZE_Y + 1;
+
+	for (int guiY = 0; guiY <= realSizeY; ++guiY)
+	{
+		for (int guiX = 0; guiX <= realSizeX; ++guiX)
+		{
+			bool isOnGridX = guiY == 0 || guiY == realSizeY ? true : false;
+			bool isOnGridY = guiX == 0 || guiX == realSizeX ? true : false;
+
+			if (isOnGridX && isOnGridY)
+			{
+				std::cout << mapElement::corner;
+				continue;
+			}
+
+			if (isOnGridX && !isOnGridY)
+			{
+				std::cout << mapElement::horizontalBorder;
+				continue;
+			}
+
+			if (!isOnGridX && isOnGridY)
+			{
+				std::cout << mapElement::verticalBorder;
+				continue;
+			}
+
+			int xPos = guiX - 1;
+			int yPos = guiY - 1;
+
+			Position playerPosition = player.getPosition();
+
+			if (playerPosition.x == xPos && playerPosition.y == yPos)
+			{
+				std::wcout << PLAYER_CHAR;
+				continue;
+			}
+
+			std::cout << (char)this->world[xPos][yPos];
+		}
+		std::cout << "\n";
+	}
+}
+
+/*
 void World::printWorld(const Player& player) const
 {
 	int realSizeX = MAP_SIZE_X * (SCALE_FACTOR_X + 1) + 1;
@@ -86,5 +138,5 @@ void World::printWorld(const Player& player) const
 		std::cout << std::endl;
 	}
 }
-
+*/
 

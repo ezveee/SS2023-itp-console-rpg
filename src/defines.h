@@ -1,6 +1,6 @@
 #pragma once
 
-#define SCALE_FACTOR_X					3
+#define SCALE_FACTOR_X					1
 #define SCALE_FACTOR_Y					1
 
 /* not particularly necessary because of namespace mapConstants::mapElement
@@ -10,8 +10,11 @@
 */
 
 #define EMPTY_FIELD						' '
-#define LANDMARK_HOUSE					'H'
 #define LANDMARK_DUNGEON				'D'
+#define LANDMARK_HOUSE					'H'
+#define LANDMARK_SHOP					'S'
+#define LANDMARK_BLACKSMITH				'B'
+#define LANDMARK_INN					'I'
 
 #define PLAYER_CHAR						'X'
 #define PLAYER_START_X					0
@@ -24,6 +27,8 @@
 #define ESCAPEKEY						27
 
 // TEMP probably different for every screen
-#define MAP_SIZE_X		10
-#define MAP_SIZE_Y		10
+#define MAP_SIZE_X						16
+#define MAP_SIZE_Y						10
+//#define MAP_SIZE_X						16
+//#define MAP_SIZE_Y						10
 

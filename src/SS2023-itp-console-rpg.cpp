@@ -1,10 +1,11 @@
-// SS2023-itp-console-rpg.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// SS2023-itp-console-rpg.cpp
 
 #include <iostream>
+#include "conio.h"
+
 #include "World.h"
 #include "Player.h"
-#include "conio.h"
+#include "ScreenDefinitions.h"
 
 /*
 	forward declarations
@@ -16,12 +17,11 @@ UserInput getUserInput();
 */
 int main()
 {
-    World world;
-    Player player;
+	World world;
+	Player player;
 
-    world.fillWorld();
+	world.fillWorld(city1Screen4.landmarks); // just temporary; should be currentScreen.landmarks
 
-	bool isExitRequested = false;
 	while (!player.getIsExitRequested())
 	{
 		system("CLS");

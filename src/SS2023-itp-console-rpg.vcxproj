@@ -133,6 +133,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h" />
+    <ClInclude Include="ScreenDefinitions.h" />
+    <ClInclude Include="Screen.h" />
     <ClInclude Include="Landmark.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
