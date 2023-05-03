@@ -12,7 +12,7 @@ class GameManager
 
 		void randomEnemyEncounter();
 
-		std::vector<Entity*> setFightOrder(Team* teamA, Team* teamB);
+		std::vector<Entity*> setFightOrder(Team* playerTeam, Team* enemyTeam);
 
 		void fight(std::vector<Entity*> entities /*, Team* teamA, Team* teamB*/);
 

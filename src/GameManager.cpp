@@ -10,53 +10,51 @@ void GameManager::randomEnemyEncounter()
 
 }
 
-std::vector<Entity*> GameManager::setFightOrder(Team* teamA, Team* teamB)
+std::vector<Entity*> GameManager::setFightOrder(Team* playerTeam, Team* enemyTeam)
 {
-	/*
+	//If any Team is empty, Error
+	if (playerTeam->members.size() == 0)
+		throw std::runtime_error("Error: The Player-Team is empty.");
+	if (enemyTeam->members.size() == 0)
+		throw std::runtime_error("Error: The Enemy-Team is empty.");
+
+
+	//Create a new Vector with all Entities (unordered)
+	std::vector<Entity*> allEntities;
+
+	//Add Player-Team
+	for (int i = 0; i < playerTeam->members.size(); i++)
+	{
+		allEntities.push_back(playerTeam->members[i]);
+	}
+	//Add Enemy-Team
+	for (int i = 0; i < enemyTeam->members.size(); i++)
+	{
+		allEntities.push_back(enemyTeam->members[i]);
+	}
+
+
+	//Create a new Vector with all Entities (ordered), to return
 	std::vector<Entity*> fightOrder;
 
-	Entity* currEntity = nullptr;
-	Entity* highestSpeed = nullptr;
-
-	int index = 0;
-
-	while (index < (teamA->members.size() + teamB->members.size()))
+	//As long as the fightOrder.size != allEntities.size...
+	while (fightOrder.size() < allEntities.size())
 	{
-		
-		//Team A
-		for (int i = 0; i < teamA->members.size(); i++)
+		Entity* highestSpeed = nullptr;
+
+		//Search for the Entity with the highest Speed-Stat
+		for (int i = 0; i < allEntities.size(); i++)
 		{
-			currEntity = teamA->members[i];
-
-			//set highestSpeed to the first Entity
-			if (highestSpeed == nullptr)
-				highestSpeed = currEntity;
-
-			//set highestSpeed, when curEntity has higher Speed
-			if (highestSpeed->getSpeed() < currEntity->getSpeed())
-			{
-				if (!(std::find(fightOrder.begin(), fightOrder.end(), currEntity) != fightOrder.end()))
-					highestSpeed = currEntity;
-			}
+			if (highestSpeed == nullptr || highestSpeed->getSpeed() < allEntities[i]->getSpeed())
+				highestSpeed = allEntities[i];
 		}
-		//Team B
-		for (int i = 0; i < teamB->members.size(); i++)
-		{
-			currEntity = teamB->members[i];
 
-			//set highestSpeed, when curEntity has higher Speed
-			if (highestSpeed->getSpeed() < currEntity->getSpeed())
-				highestSpeed = currEntity;
-		}
-		//add highestSpeed to fightOrder
+		//Add the Entity with the highest Speed-Stat to the ordered Vector and remove it from the unordered Vector
 		fightOrder.push_back(highestSpeed);
-
-		//increment index
-		index++;
+		allEntities.erase(std::remove(allEntities.begin(), allEntities.end(), highestSpeed), allEntities.end());
 	}
 
 	return fightOrder;
-	*/
 }
 
 void GameManager::fight(std::vector<Entity*> entities /*, Team* teamA, Team* teamB*/)
