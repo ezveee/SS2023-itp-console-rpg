@@ -6,7 +6,7 @@ class Ally : public Entity
 {
 	public:
 		Ability* chooseAbility() override;
-		Entity* chooseTarget(Team* targets) override;
+		Entity* chooseTarget(Team* targetTeam) override;
 
 	protected:
 		int experience;

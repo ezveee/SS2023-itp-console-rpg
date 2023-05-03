@@ -51,9 +51,13 @@ void Entity::useAbilityOnTarget(Ability* ability, Entity* target)
 	
 }
 
-void Entity::useAbilityOnTeam(Ability* ability, Team* targets)
+void Entity::useAbilityOnTeam(Ability* ability, Team* targetTeam)
 {
 
 }
 
 int Entity::getSpeed() const { return this->stat.speed; }
+int Entity::getMana() const { return this->stat.mana; };
+std::string Entity::getName() const { return this->name; };
+
+std::vector<Ability*> Entity::getAbilities() const { return this->abilities; };

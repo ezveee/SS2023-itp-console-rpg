@@ -57,27 +57,89 @@ std::vector<Entity*> GameManager::setFightOrder(Team* playerTeam, Team* enemyTea
 	return fightOrder;
 }
 
-void GameManager::fight(std::vector<Entity*> entities /*, Team* teamA, Team* teamB*/)
-{ 
-	/*
-	bool fighting = true;
+void GameManager::fight(std::vector<Entity*> entitiesOrder, Team* playerTeam, Team* enemyTeam)
+{
+    //If any Team is empty, throw an exception
+    if (entitiesOrder.size() == 0)
+        throw std::runtime_error("Error: The Entities-Order is empty.");
+    if (playerTeam->members.size() == 0)
+        throw std::runtime_error("Error: The Player-Team is empty.");
+    if (enemyTeam->members.size() == 0)
+        throw std::runtime_error("Error: The Enemy-Team is empty.");
 
-	//Fight is lasting until one Team is dead
-	while (fighting != false)
-	{
-		for (int i = 0; i < entities.size(); i++)
-		{
-			//do something when alive
-			if(entities[i]->isAlive())
-			{
+    bool fighting = true;
 
-			}
+    //Fight is lasting until one Team is dead
+    while (fighting)
+    {
+        //Attack
+        for (int i = 0; i < entitiesOrder.size(); i++)
+        {
+            /*
+            chosenAction = chooseAction();
 
-			//check if Other-Team is alive
-			fighting = ;
-		}
-	}
-	*/
+            switch (chosenAction)
+            {
+                case UseDefaultAttack:
+                    break;
+                case UseAbility:
+                    break;
+                case UseItem:
+                    break;
+                case Block:
+                    break;
+                case Run:
+                    break;
+            }
+            */
+
+            //Check if current Entity is in the Players Team
+            Team* oponentTeam = nullptr;
+            if (std::find(playerTeam->members.begin(), playerTeam->members.end(), entitiesOrder[i]) != playerTeam->members.end())
+                oponentTeam = playerTeam;
+            else
+                oponentTeam = enemyTeam;
+
+
+            //Use Ability on Oponent-Team
+            Ability* chosenAbility = entitiesOrder[i]->chooseAbility();
+
+            if (chosenAbility->isAOE)
+            {
+                entitiesOrder[i]->useAbilityOnTeam(chosenAbility, oponentTeam);
+            }
+            else
+            {
+                Entity* target = entitiesOrder[i]->chooseTarget(oponentTeam);
+                entitiesOrder[i]->useAbilityOnTarget(chosenAbility, target);
+            }
+
+
+            //If any Entity died, remove it from Vector
+            for (int j = 0; j < oponentTeam->members.size(); j++)
+            {
+                if (!oponentTeam->members[j]->isAlive())
+                {
+                    //Message: Entity.name died!
+                    entitiesOrder.erase(std::remove(entitiesOrder.begin(), entitiesOrder.end(), oponentTeam->members[j]), entitiesOrder.end());
+                }
+            }
+        }
+
+
+        //Check if Player-Team is Alive
+        if (!playerTeam->isTeamAlive())
+        {
+            //Message: You've won!
+            fighting = false;
+        }
+        //Check if Enemy-Team is Alive
+        if (!enemyTeam->isTeamAlive())
+        {
+            //Message: You've lost!
+            fighting = false;
+        }
+    }
 }
 
 void GameManager::transition()

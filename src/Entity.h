@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+#include <string>
+#include <stdexcept>
+
 #include "Team.h"
 #include "Ability.h"
 
@@ -30,18 +34,22 @@ class Entity
 		void setStats(Stats addStats);
 
 		virtual Ability* chooseAbility();
-		virtual Entity* chooseTarget(Team* targets);
+		virtual Entity* chooseTarget(Team* targetTeam);
 
 		void useAbilityOnTarget(Ability* ability, Entity* target);
-		void useAbilityOnTeam(Ability* ability, Team* targets);
+		void useAbilityOnTeam(Ability* ability, Team* targetTeam);
 
 		int getSpeed() const;
+		int getMana() const;
+		std::string getName() const;
+
+		std::vector<Ability*> getAbilities() const;
 
 	protected:
-		Ability* defaultAttack;
-
-
-	private:
+		std::string name;
 		Stats stat;
+
+		Ability* defaultAttack;
+		std::vector<Ability*> abilities;
 };
 

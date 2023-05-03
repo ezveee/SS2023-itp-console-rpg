@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "Entity.h"
+#include "Item.h"
 
 class Entity;
 

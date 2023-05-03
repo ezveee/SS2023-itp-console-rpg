@@ -5,7 +5,7 @@ Ability* Ally::chooseAbility()
 
 }
 
-Entity* Ally::chooseTarget(Team* targets)
+Entity* Ally::chooseTarget(Team* targetTeam)
 {
 
 }

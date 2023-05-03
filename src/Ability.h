@@ -2,8 +2,10 @@
 
 class Ability
 {
-	int level;
-	bool isAOE;
+	public:
+		virtual void action() = 0;
 
-	virtual void action() = 0;
+		int level;
+		int cost;
+		bool isAOE;
 };

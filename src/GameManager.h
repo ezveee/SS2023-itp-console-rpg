@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <stdexcept>
 
 #include "Entity.h"
 #include "Team.h"
@@ -14,7 +15,7 @@ class GameManager
 
 		std::vector<Entity*> setFightOrder(Team* playerTeam, Team* enemyTeam);
 
-		void fight(std::vector<Entity*> entities /*, Team* teamA, Team* teamB*/);
+		void fight(std::vector<Entity*> entitiesOrder, Team* playerTeam, Team* enemyTeam);
 
 		void transition();
 };
