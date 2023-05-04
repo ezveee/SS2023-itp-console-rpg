@@ -20,7 +20,7 @@ int main()
 	World world;
 	Player player;
 
-	world.fillWorld(city1Screen4.landmarks); // just temporary; should be currentScreen.landmarks
+	world.fillWorld(city1Screen2.landmarks); // just temporary; should be currentScreen.landmarks
 
 	while (!player.getIsExitRequested())
 	{

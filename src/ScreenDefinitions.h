@@ -2,6 +2,9 @@
 
 #include "Screen.h"
 
+/*
+	city 1
+*/
 const Screen city1Screen1 // temporary names
 {
 	1,
@@ -217,16 +220,63 @@ const Screen city1Screen4
 		{LandmarkType::House, {14, 4}},
 
 		// paths
-		{LandmarkType::PathHorizontal, {15, 0}},
-		{LandmarkType::PathHorizontal, {15, 2}},
+		{LandmarkType::PathHorizontal, {4, 5}},
+		{LandmarkType::PathHorizontal, {5, 5}},
+		{LandmarkType::PathHorizontal, {6, 5}},
+		{LandmarkType::PathHorizontal, {7, 5}},
+		{LandmarkType::PathHorizontal, {8, 5}},
+		{LandmarkType::PathHorizontal, {9, 5}},
+		{LandmarkType::PathHorizontal, {10, 5}},
+		{LandmarkType::PathHorizontal, {11, 5}},
+		{LandmarkType::PathHorizontal, {12, 5}},
+		{LandmarkType::PathHorizontal, {13, 5}},
+		{LandmarkType::PathHorizontal, {14, 5}},
 		{LandmarkType::PathHorizontal, {15, 5}},
+		{LandmarkType::PathHorizontal, {9, 7}},
+		{LandmarkType::PathHorizontal, {10, 7}},
+		{LandmarkType::PathHorizontal, {11, 7}},
+		{LandmarkType::PathHorizontal, {12, 7}},
+		{LandmarkType::PathHorizontal, {13, 7}},
+		{LandmarkType::PathHorizontal, {14, 7}},
 		{LandmarkType::PathHorizontal, {15, 7}},
 		{LandmarkType::PathCorner, {2, 0}},
+		{LandmarkType::PathVertical, {2, 1}},
 		{LandmarkType::PathCorner, {2, 2}},
 		{LandmarkType::PathCorner, {3, 5}},
 		{LandmarkType::PathCorner, {8, 7}},
+		{LandmarkType::PathVertical, {3, 6}},
+		{LandmarkType::PathVertical, {3, 7}},
+		{LandmarkType::PathVertical, {3, 8}},
 		{LandmarkType::PathVertical, {3, 9}},
+		{LandmarkType::PathVertical, {8, 8}},
 		{LandmarkType::PathVertical, {8, 9}},
+		{LandmarkType::PathHorizontal, {3, 0}},
+		{LandmarkType::PathHorizontal, {4, 0}},
+		{LandmarkType::PathHorizontal, {5, 0}},
+		{LandmarkType::PathHorizontal, {6, 0}},
+		{LandmarkType::PathHorizontal, {7, 0}},
+		{LandmarkType::PathHorizontal, {8, 0}},
+		{LandmarkType::PathHorizontal, {9, 0}},
+		{LandmarkType::PathHorizontal, {10, 0}},
+		{LandmarkType::PathHorizontal, {11, 0}},
+		{LandmarkType::PathHorizontal, {12, 0}},
+		{LandmarkType::PathHorizontal, {13, 0}},
+		{LandmarkType::PathHorizontal, {14, 0}},
+		{LandmarkType::PathHorizontal, {15, 0}},
+		{LandmarkType::PathHorizontal, {3, 2}},
+		{LandmarkType::PathHorizontal, {4, 2}},
+		{LandmarkType::PathHorizontal, {5, 2}},
+		{LandmarkType::PathHorizontal, {6, 2}},
+		{LandmarkType::PathHorizontal, {7, 2}},
+		{LandmarkType::PathHorizontal, {8, 2}},
+		{LandmarkType::PathHorizontal, {9, 2}},
+		{LandmarkType::PathHorizontal, {10, 2}},
+		{LandmarkType::PathHorizontal, {11, 2}},
+		{LandmarkType::PathHorizontal, {12, 2}},
+		{LandmarkType::PathHorizontal, {13, 2}},
+		{LandmarkType::PathHorizontal, {14, 2}},
+		{LandmarkType::PathHorizontal, {15, 2}},
+
 
 	},
 	true
@@ -249,10 +299,6 @@ const Screen city1Screen5
 		{LandmarkType::House, {15, 8}},
 
 		// paths
-		{LandmarkType::PathHorizontal, {0, 0}},
-		{LandmarkType::PathHorizontal, {0, 2}},
-		{LandmarkType::PathHorizontal, {0, 5}},
-		{LandmarkType::PathHorizontal, {0, 7}},
 		{LandmarkType::PathCorner, {4, 0}},
 		{LandmarkType::PathVertical, {11, 0}},
 		{LandmarkType::PathHorizontal, {15, 5}},
@@ -264,6 +310,42 @@ const Screen city1Screen5
 		{LandmarkType::PathCorner, {11, 5}},
 		{LandmarkType::PathCorner, {13, 7}},
 		{LandmarkType::PathCorner, {13, 9}},
+		{LandmarkType::PathHorizontal, {0, 0}},
+		{LandmarkType::PathHorizontal, {1, 0}},
+		{LandmarkType::PathHorizontal, {2, 0}},
+		{LandmarkType::PathHorizontal, {3, 0}},
+		{LandmarkType::PathHorizontal, {0, 2}},
+		{LandmarkType::PathHorizontal, {1, 2}},
+		{LandmarkType::PathHorizontal, {2, 2}},
+		{LandmarkType::PathHorizontal, {3, 2}},
+		{LandmarkType::PathVertical, {4, 3}},
+		{LandmarkType::PathVertical, {4, 4}},
+		{LandmarkType::PathHorizontal, {0, 5}},
+		{LandmarkType::PathHorizontal, {1, 5}},
+		{LandmarkType::PathHorizontal, {2, 5}},
+		{LandmarkType::PathHorizontal, {3, 5}},
+		{LandmarkType::PathHorizontal, {0, 7}},
+		{LandmarkType::PathHorizontal, {1, 7}},
+		{LandmarkType::PathVertical, {2, 8}},
+		{LandmarkType::PathVertical, {13, 8}},
+		{LandmarkType::PathHorizontal, {3, 9}},
+		{LandmarkType::PathHorizontal, {4, 9}},
+		{LandmarkType::PathHorizontal, {5, 9}},
+		{LandmarkType::PathHorizontal, {6, 9}},
+		{LandmarkType::PathHorizontal, {7, 9}},
+		{LandmarkType::PathHorizontal, {8, 9}},
+		{LandmarkType::PathHorizontal, {9, 9}},
+		{LandmarkType::PathHorizontal, {10, 9}},
+		{LandmarkType::PathHorizontal, {11, 9}},
+		{LandmarkType::PathHorizontal, {12, 9}},
+		{LandmarkType::PathHorizontal, {14, 7}},
+		{LandmarkType::PathHorizontal, {12, 5}},
+		{LandmarkType::PathHorizontal, {13, 5}},
+		{LandmarkType::PathHorizontal, {14, 5}},
+		{LandmarkType::PathVertical, {11, 1}},
+		{LandmarkType::PathVertical, {11, 2}},
+		{LandmarkType::PathVertical, {11, 3}},
+		{LandmarkType::PathVertical, {11, 4}},
 
 
 	},
@@ -295,7 +377,16 @@ const Screen city1Screen6
 
 		// paths
 		{LandmarkType::PathHorizontal, {0, 5}},
+		{LandmarkType::PathHorizontal, {1, 5}},
+		{LandmarkType::PathHorizontal, {2, 5}},
+		{LandmarkType::PathHorizontal, {3, 5}},
+		{LandmarkType::PathHorizontal, {4, 5}},
+		{LandmarkType::PathHorizontal, {5, 5}},
+		{LandmarkType::PathHorizontal, {6, 5}},
+		{LandmarkType::PathHorizontal, {7, 5}},
 		{LandmarkType::PathHorizontal, {0, 7}},
+		{LandmarkType::PathHorizontal, {1, 7}},
+		{LandmarkType::PathHorizontal, {2, 7}},
 		{LandmarkType::PathHorizontal, {15, 5}},
 		{LandmarkType::PathHorizontal, {15, 7}},
 		{LandmarkType::PathCorner, {2, 1}},
@@ -305,10 +396,163 @@ const Screen city1Screen6
 		{LandmarkType::PathCorner, {8, 5}},
 		{LandmarkType::PathCorner, {13, 5}},
 		{LandmarkType::PathCorner, {3, 7}},
-		{LandmarkType::PathCorner, {8, 7}},
+		{LandmarkType::PathVertical, {3, 8}},
 		{LandmarkType::PathCorner, {3, 9}},
+		{LandmarkType::PathHorizontal, {4, 9}},
+		{LandmarkType::PathHorizontal, {5, 9}},
+		{LandmarkType::PathHorizontal, {6, 9}},
+		{LandmarkType::PathHorizontal, {7, 9}},
 		{LandmarkType::PathCorner, {8, 9}},
+		{LandmarkType::PathVertical, {8, 8}},
+		{LandmarkType::PathCorner, {8, 7}},
+		{LandmarkType::PathHorizontal, {9, 7}},
+		{LandmarkType::PathHorizontal, {10, 7}},
+		{LandmarkType::PathHorizontal, {11, 7}},
+		{LandmarkType::PathHorizontal, {12, 7}},
+		{LandmarkType::PathHorizontal, {13, 7}},
+		{LandmarkType::PathHorizontal, {14, 7}},
+		{LandmarkType::PathHorizontal, {14, 5}},
+		{LandmarkType::PathVertical, {13, 2}},
+		{LandmarkType::PathVertical, {13, 3}},
+		{LandmarkType::PathVertical, {13, 4}},
+		{LandmarkType::PathVertical, {8, 4}},
+		{LandmarkType::PathHorizontal, {3, 3}},
+		{LandmarkType::PathHorizontal, {4, 3}},
+		{LandmarkType::PathHorizontal, {5, 3}},
+		{LandmarkType::PathHorizontal, {6, 3}},
+		{LandmarkType::PathHorizontal, {7, 3}},
+		{LandmarkType::PathVertical, {2, 2}},
+		{LandmarkType::PathHorizontal, {3, 1}},
+		{LandmarkType::PathHorizontal, {4, 1}},
+		{LandmarkType::PathHorizontal, {5, 1}},
+		{LandmarkType::PathHorizontal, {6, 1}},
+		{LandmarkType::PathHorizontal, {7, 1}},
+		{LandmarkType::PathHorizontal, {8, 1}},
+		{LandmarkType::PathHorizontal, {9, 1}},
+		{LandmarkType::PathHorizontal, {10, 1}},
+		{LandmarkType::PathHorizontal, {11, 1}},
+		{LandmarkType::PathHorizontal, {12, 1}},
+
 
 	},
 	true
 };
+
+/*
+	city 2
+*/
+const Screen city2Screen1
+{
+	7,
+	{
+		{LandmarkType::House, {4, 1}},
+		{LandmarkType::House, {4, 3}},
+		{LandmarkType::House, {3, 5}},
+		{LandmarkType::House, {4, 5}},
+		{LandmarkType::House, {4, 7}},
+		{LandmarkType::House, {4, 8}},
+		{LandmarkType::House, {11, 0}},
+		{LandmarkType::House, {11, 2}},
+		{LandmarkType::House, {11, 4}},
+		{LandmarkType::House, {11, 5}},
+		{LandmarkType::House, {14, 5}},
+		{LandmarkType::House, {15, 5}},
+		{LandmarkType::House, {8, 9}},
+		{LandmarkType::House, {9, 9}},
+		{LandmarkType::House, {11, 9}},
+		{LandmarkType::House, {15, 9}},
+
+
+		// paths
+		{LandmarkType::PathVertical, {5, 0}},
+		{LandmarkType::PathVertical, {10, 0}},
+		{LandmarkType::PathCorner, {10, 6}},
+		{LandmarkType::PathCorner, {5, 8}},
+		{LandmarkType::PathHorizontal, {15, 6}},
+		{LandmarkType::PathHorizontal, {15, 8}},
+
+	},
+	true
+};
+
+const Screen city2Screen2
+{
+	8,
+	{
+		{LandmarkType::Blacksmith, {3, 0}},
+		{LandmarkType::Blacksmith, {4, 0}},
+		{LandmarkType::Blacksmith, {5, 0}},
+		{LandmarkType::House, {1, 3}},
+		{LandmarkType::House, {1, 4}},
+		{LandmarkType::Shop, {8, 3}},
+		{LandmarkType::Inn, {8, 5}},
+		{LandmarkType::Inn, {9, 5}},
+		{LandmarkType::Inn, {10, 5}},
+		{LandmarkType::House, {12, 2}},
+		{LandmarkType::House, {13, 2}},
+		{LandmarkType::House, {1, 9}},
+		{LandmarkType::House, {8, 9}},
+		{LandmarkType::House, {10, 9}},
+		{LandmarkType::House, {13, 9}},
+
+		// paths
+		{LandmarkType::PathHorizontal, {0, 6}},
+		{LandmarkType::PathHorizontal, {0, 8}},
+		{LandmarkType::PathCorner, {2, 6}},
+		{LandmarkType::PathCorner, {2, 8}},
+		{LandmarkType::PathCorner, {2, 1}},
+		{LandmarkType::PathCorner, {7, 1}},
+		{LandmarkType::PathCorner, {7, 6}},
+		{LandmarkType::PathCorner, {11, 6}},
+		{LandmarkType::PathCorner, {11, 3}},
+		{LandmarkType::PathCorner, {14, 3}},
+		{LandmarkType::PathCorner, {14, 8}},
+		{LandmarkType::PathCorner, {7, 8}},
+		{LandmarkType::PathVertical, {2, 9}},
+		{LandmarkType::PathVertical, {7, 9}},
+
+	},
+	true
+};
+
+const Screen city2Screen3
+{
+	9,
+	{
+		{LandmarkType::Blacksmith, {3, 0}},
+		{LandmarkType::Blacksmith, {4, 0}},
+		{LandmarkType::Blacksmith, {5, 0}},
+		{LandmarkType::House, {1, 3}},
+		{LandmarkType::House, {1, 4}},
+		{LandmarkType::Shop, {8, 3}},
+		{LandmarkType::Inn, {8, 5}},
+		{LandmarkType::Inn, {9, 5}},
+		{LandmarkType::Inn, {10, 5}},
+		{LandmarkType::House, {12, 2}},
+		{LandmarkType::House, {13, 2}},
+		{LandmarkType::House, {1, 9}},
+		{LandmarkType::House, {8, 9}},
+		{LandmarkType::House, {10, 9}},
+		{LandmarkType::House, {13, 9}},
+
+		// paths
+		{LandmarkType::PathHorizontal, {0, 6}},
+		{LandmarkType::PathHorizontal, {0, 8}},
+		{LandmarkType::PathCorner, {2, 6}},
+		{LandmarkType::PathCorner, {2, 8}},
+		{LandmarkType::PathCorner, {2, 1}},
+		{LandmarkType::PathCorner, {7, 1}},
+		{LandmarkType::PathCorner, {7, 6}},
+		{LandmarkType::PathCorner, {11, 6}},
+		{LandmarkType::PathCorner, {11, 3}},
+		{LandmarkType::PathCorner, {14, 3}},
+		{LandmarkType::PathCorner, {14, 8}},
+		{LandmarkType::PathCorner, {7, 8}},
+		{LandmarkType::PathVertical, {2, 9}},
+		{LandmarkType::PathVertical, {7, 9}},
+
+	},
+	true
+};
+
+
