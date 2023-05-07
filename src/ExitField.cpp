@@ -9,7 +9,7 @@ ExitField::ExitField(std::string& parameters)
 
 ExitField::~ExitField() = default;
 
-void ExitField::onEnter()
+void ExitField::onEnter(Game* game)
 {
 	// Mapname & Koordinaten aus info auslesen
 	// Map laden

@@ -9,7 +9,7 @@ ShopField::ShopField(std::string& parameters)
 
 ShopField::~ShopField() = default;
 
-void ShopField::onEnter()
+void ShopField::onEnter(Game* game)
 {
 	// Mapname & Koordinaten aus info auslesen
 	// Map laden

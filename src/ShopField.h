@@ -7,6 +7,6 @@ class ShopField : public WorldField
 		ShopField(std::string& parameters);
 		virtual ~ShopField();
 
-		void onEnter() override;
+		void onEnter(Game* game) override;
 		bool isEnterable() override;
 };

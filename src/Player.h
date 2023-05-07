@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Position.h"
-#include "UserInput.h"
+#include "Command.h"
 
 class Player
 {
@@ -10,8 +10,7 @@ class Player
 		virtual ~Player();
 
 		bool getIsExitRequested() const;
-		Position processMovement(UserInput input);
-		//void processMovement(UserInput input);
+		Position calculateNewPosition(Command command);
 		void setPosition(int x, int y);
 		void setPosition(Position newPosition);
 		Position getPosition() const;

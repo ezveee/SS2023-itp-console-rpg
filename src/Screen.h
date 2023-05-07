@@ -3,10 +3,11 @@
 #include <vector>
 #include <array>
 #include <map>
-#include "WorldField.h"
+#include <string>
 #include "defines.h"
 
 class Player;
+class WorldField;
 
 class Screen
 {

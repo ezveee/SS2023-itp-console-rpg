@@ -7,7 +7,7 @@ public:
 	EmptyField();
 	virtual ~EmptyField();
 
-	void onEnter() override;
+	void onEnter(Game* game) override;
 	bool isEnterable() override;
 };
 

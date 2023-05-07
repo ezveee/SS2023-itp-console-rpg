@@ -7,6 +7,6 @@ class ExitField : public WorldField
 		ExitField(std::string& parameters);
 		virtual ~ExitField();
 
-		void onEnter() override;
+		void onEnter(Game* game) override;
 		bool isEnterable() override;
 };

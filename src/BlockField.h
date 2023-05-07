@@ -7,7 +7,7 @@ public:
 	BlockField();
 	virtual ~BlockField();
 
-	void onEnter() override;
+	void onEnter(Game* game) override;
 	bool isEnterable() override;
 };
 

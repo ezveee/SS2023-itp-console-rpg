@@ -7,6 +7,6 @@ class BlacksmithField : public WorldField
 		BlacksmithField(std::string& parameters);
 		virtual ~BlacksmithField();
 
-		void onEnter() override;
+		void onEnter(Game* game) override;
 		bool isEnterable() override;
 };

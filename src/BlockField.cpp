@@ -3,7 +3,7 @@
 BlockField::BlockField() = default;
 BlockField::~BlockField() = default;
 
-void BlockField::onEnter()
+void BlockField::onEnter(Game* game)
 {
 	// nothing to do
 }

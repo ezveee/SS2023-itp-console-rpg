@@ -22,12 +22,21 @@
     <Filter Include="Header Files\WorldFields">
       <UniqueIdentifier>{a5855a50-544f-4306-896f-ff22a6c04ff1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameModes">
+      <UniqueIdentifier>{7cc65350-6a98-4ec4-b78a-b4160aa04da6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameModes">
+      <UniqueIdentifier>{84646a4d-bab2-4788-9aaf-9c6084be92bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UserInputs">
+      <UniqueIdentifier>{d752c7f7-bf01-469f-991b-198777b80ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UserInputs">
+      <UniqueIdentifier>{8e57d411-a285-4213-adc7-cfcd1195a036}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SS2023-itp-console-rpg.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
@@ -60,14 +69,23 @@
     <ClCompile Include="ShopField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMode.cpp">
+      <Filter>Source Files\GameModes</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveMode.cpp">
+      <Filter>Source Files\GameModes</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInput.cpp">
+      <Filter>Source Files\UserInputs</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveInput.cpp">
+      <Filter>Source Files\UserInputs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="World.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Landmark.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="defines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -75,9 +93,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UserInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WorldField.h">
@@ -106,6 +121,24 @@
     </ClInclude>
     <ClInclude Include="ShopField.h">
       <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMode.h">
+      <Filter>Header Files\GameModes</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveMode.h">
+      <Filter>Header Files\GameModes</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInput.h">
+      <Filter>Header Files\UserInputs</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files\UserInputs</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveInput.h">
+      <Filter>Header Files\UserInputs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

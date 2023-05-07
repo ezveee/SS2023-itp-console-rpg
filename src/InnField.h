@@ -7,6 +7,6 @@ class InnField : public WorldField
 		InnField(std::string& parameters);
 		virtual ~InnField();
 
-		void onEnter() override;
+		void onEnter(Game* game) override;
 		bool isEnterable() override;
 };

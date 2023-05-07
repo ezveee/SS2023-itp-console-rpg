@@ -1,7 +1,6 @@
 #include "BlacksmithField.h"
 
 
-
 BlacksmithField::BlacksmithField(std::string& parameters)
 {
 	// evtl. Initialisierung mit Daten aus dem File.
@@ -9,7 +8,7 @@ BlacksmithField::BlacksmithField(std::string& parameters)
 
 BlacksmithField::~BlacksmithField() = default;
 
-void BlacksmithField::onEnter()
+void BlacksmithField::onEnter(Game* game)
 {
 	// Mapname & Koordinaten aus info auslesen
 	// Map laden

@@ -9,7 +9,7 @@ InnField::InnField(std::string& parameters)
 
 InnField::~InnField() = default;
 
-void InnField::onEnter()
+void InnField::onEnter(Game* game)
 {
 	// Mapname & Koordinaten aus info auslesen
 	// Map laden

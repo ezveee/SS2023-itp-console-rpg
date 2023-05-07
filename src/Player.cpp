@@ -32,35 +32,35 @@ bool Player::getIsExitRequested() const
 	return this->isExitRequested;
 }
 
-Position Player::processMovement(UserInput input)
+Position Player::calculateNewPosition(Command command)
 {
 	int deltaX = 0;
 	int deltaY = 0;
 
-	switch (input)
+	switch (command)
 	{
-	case UserInput::MoveUp:
+	case Command::MoveUp:
 		deltaY = -1;
 		break;
 
-	case UserInput::MoveLeft:
+	case Command::MoveLeft:
 		deltaX = -1;
 		break;
 
-	case UserInput::MoveDown:
+	case Command::MoveDown:
 		deltaY = 1;
 		break;
 
-	case UserInput::MoveRight:
+	case Command::MoveRight:
 		deltaX = 1;
 		break;
 
-	case UserInput::EndGame:
+	case Command::EndGame:
 		this->isExitRequested = true;
 		break;
 
 	default:
-		throw std::invalid_argument("Incorrect input.");
+		throw std::invalid_argument("Incorrect command.");
 	}
 
 	Position newPosition;

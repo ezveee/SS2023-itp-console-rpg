@@ -3,7 +3,7 @@
 EmptyField::EmptyField() = default;
 EmptyField::~EmptyField() = default;
 
-void EmptyField::onEnter()
+void EmptyField::onEnter(Game* game)
 {
 
 }

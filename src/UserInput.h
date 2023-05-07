@@ -1,11 +1,14 @@
 #pragma once
 
-enum class UserInput
+#include <map>
+#include "Command.h"
+
+class UserInput
 {
-	MoveUp,
-	MoveDown,
-	MoveLeft,
-	MoveRight,
-	EndGame,
-	Invalid
+public:
+	Command getUserInput() const;
+
+protected:
+	virtual std::map<char, Command> getKeyMapping() const = 0;
 };
+
