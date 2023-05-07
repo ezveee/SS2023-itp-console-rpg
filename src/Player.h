@@ -10,7 +10,8 @@ class Player
 		virtual ~Player();
 
 		bool getIsExitRequested() const;
-		void processMovement(UserInput input);
+		Position processMovement(UserInput input);
+		//void processMovement(UserInput input);
 		void setPosition(int x, int y);
 		void setPosition(Position newPosition);
 		Position getPosition() const;

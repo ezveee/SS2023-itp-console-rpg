@@ -1,0 +1,29 @@
++----------------+
+|----+      |HH  |
+|           |    |
+|----+      |H   |
+| HHH|      |    |
+|   H|      |H   |
+|----+      +----|
+|                |
+|--+          +--|
+| H|          |HH|
+|  +----------+  |
++----------------+
+
+#aaaaaaaaaaaaaaaa#
+b            ##  c
+b                c
+b            #   c
+b ###            c
+b   #        #   c
+b                c
+b                c
+b                c
+b #            ###
+b                c
+##################
+
+a: Transition;City_1_2;Y:10
+b: Transition;City_1_4;X:16
+c: Transition;City_1_6;X:1

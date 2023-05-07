@@ -17,8 +17,8 @@
 #define LANDMARK_INN					'I'
 
 #define PLAYER_CHAR						'X'
-#define PLAYER_START_X					0
-#define PLAYER_START_Y					0
+#define PLAYER_START_X					1
+#define PLAYER_START_Y					1
 
 #define ARROWKEY_UP						72
 #define ARROWKEY_DOWN					80
@@ -29,6 +29,6 @@
 // TEMP probably different for every screen
 #define MAP_SIZE_X						16
 #define MAP_SIZE_Y						10
-//#define MAP_SIZE_X						16
-//#define MAP_SIZE_Y						10
-
+#define MAP_FIRST_GRAPHICS_LINE			0
+#define MAP_FIRST_CONFIG_LINE			(MAP_SIZE_Y + 3)
+#define MAP_FIRST_LEGEND_LINE			MAP_FIRST_CONFIG_LINE * 2

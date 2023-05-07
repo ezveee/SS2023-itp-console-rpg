@@ -5,39 +5,41 @@
 
 #include "World.h"
 #include "Player.h"
-#include "ScreenDefinitions.h"
+
+#include "Screen.h"
 
 /*
 	forward declarations
 */
 UserInput getUserInput();
+UserInput getValidUserInput();
 
 /*
 	main
 */
 int main()
 {
-	World world;
 	Player player;
 
-	world.fillWorld(city1Screen2.landmarks); // just temporary; should be currentScreen.landmarks
+	Screen* currentScreen = new Screen("City_1_4");
+	Screen* nextScreen = nullptr;
 
 	while (!player.getIsExitRequested())
 	{
 		system("CLS");
-		world.printWorld(player);
+		currentScreen->display(player);
+		UserInput input = getValidUserInput();
 
-		UserInput input;
-		do
+		Position newPosition = player.processMovement(input);
+		if (currentScreen->getWorldField(newPosition.x, newPosition.y)->isEnterable())
 		{
-			input = getUserInput();
-
-		} while (input == UserInput::Invalid);
-
-		player.processMovement(input);
+			currentScreen->getWorldField(newPosition.x, newPosition.y)->onEnter();
+			player.setPosition(newPosition.x, newPosition.y);
+		}
 	}
 
-
+	delete currentScreen;
+	delete nextScreen;
 }
 
 
@@ -78,6 +80,17 @@ UserInput getUserInput()
 	default:
 		return UserInput::Invalid;
 	}
+}
+
+UserInput getValidUserInput()
+{
+	UserInput input;
+	do
+	{
+		input = getUserInput();
+
+	} while (input == UserInput::Invalid);
+	return input;
 }
 
 

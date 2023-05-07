@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Maps">
+      <UniqueIdentifier>{2e1483ff-b7a1-4e1e-a26d-8bba8f19874f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\WorldFields">
+      <UniqueIdentifier>{6eca1ad0-d807-4cc0-b111-a1893531f254}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\WorldFields">
+      <UniqueIdentifier>{a5855a50-544f-4306-896f-ff22a6c04ff1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SS2023-itp-console-rpg.cpp">
@@ -23,6 +32,33 @@
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TransitionField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="BlacksmithField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="InnField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +80,52 @@
     <ClInclude Include="UserInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WorldField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TransitionField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
     <ClInclude Include="Screen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScreenDefinitions.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="BlockField.h">
+      <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
+    <ClInclude Include="BlacksmithField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="InnField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Maps\City_1_1.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_1_2.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_1_3.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_1_4.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_1_5.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_1_6.txt">
+      <Filter>Maps</Filter>
+    </Text>
   </ItemGroup>
 </Project>

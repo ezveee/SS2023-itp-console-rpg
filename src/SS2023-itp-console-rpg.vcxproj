@@ -127,19 +127,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BlacksmithField.cpp" />
+    <ClCompile Include="BlockField.cpp" />
+    <ClCompile Include="EmptyField.cpp" />
+    <ClCompile Include="ExitField.cpp" />
+    <ClCompile Include="InnField.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="ShopField.cpp" />
     <ClCompile Include="SS2023-itp-console-rpg.cpp" />
+    <ClCompile Include="TransitionField.cpp" />
     <ClCompile Include="World.cpp" />
+    <ClCompile Include="WorldField.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BlacksmithField.h" />
+    <ClInclude Include="BlockField.h" />
     <ClInclude Include="defines.h" />
-    <ClInclude Include="ScreenDefinitions.h" />
+    <ClInclude Include="EmptyField.h" />
+    <ClInclude Include="ExitField.h" />
+    <ClInclude Include="InnField.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Landmark.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
+    <ClInclude Include="ShopField.h" />
+    <ClInclude Include="TransitionField.h" />
     <ClInclude Include="UserInput.h" />
     <ClInclude Include="World.h" />
+    <ClInclude Include="WorldField.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Maps\City_1_1.txt" />
+    <Text Include="Maps\City_1_2.txt" />
+    <Text Include="Maps\City_1_3.txt" />
+    <Text Include="Maps\City_1_4.txt" />
+    <Text Include="Maps\City_1_5.txt" />
+    <Text Include="Maps\City_1_6.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

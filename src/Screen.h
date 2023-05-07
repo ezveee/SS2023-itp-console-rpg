@@ -1,13 +1,27 @@
 #pragma once
 
-#include "defines.h"
-#include "Landmark.h"
 #include <vector>
+#include <array>
+#include <map>
+#include "WorldField.h"
+#include "defines.h"
 
-struct Screen // screen number, landmarks vector, safe screen bool
+class Player;
+
+class Screen
 {
-	int screenNumber; // for screen transitions; not sure if needed
-	const std::vector<Landmark> landmarks;
-	//const std::vector<Path> paths;
-	bool isSafeScreen;
+public:
+	explicit Screen(const std::string& filename);
+	virtual ~Screen();
+	void display(const Player& player) const;
+	WorldField* getWorldField(int x, int y) const;
+
+private:
+	std::array <std::array <WorldField*, MAP_SIZE_Y + 2>, MAP_SIZE_X + 2> world;
+	
+	void insertFromFile(const std::string& filename, std::vector<std::string>& vector);
+	void load(const std::string& filename);
+	WorldField* createWorldField(std::map<char, std::string>& legend, char fieldTypeKey);
+	std::map<char, std::string> getLegend(std::vector<std::string> lines);
 };
+

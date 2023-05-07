@@ -1,5 +1,6 @@
 #include "Player.h"
 
+#include <stdexcept>
 #include "defines.h"
 
 Player::Player()
@@ -31,7 +32,7 @@ bool Player::getIsExitRequested() const
 	return this->isExitRequested;
 }
 
-void Player::processMovement(UserInput input)
+Position Player::processMovement(UserInput input)
 {
 	int deltaX = 0;
 	int deltaY = 0;
@@ -56,18 +57,59 @@ void Player::processMovement(UserInput input)
 
 	case UserInput::EndGame:
 		this->isExitRequested = true;
-		return;
+		break;
 
 	default:
-		return;
+		throw std::invalid_argument("Incorrect input.");
 	}
 
-	int newX = this->getPosition().x + deltaX;
-	int newY = this->getPosition().y + deltaY;
+	Position newPosition;
 
-	if (newX >= 0 && newX < MAP_SIZE_X && newY >= 0 && newY < MAP_SIZE_Y)
-	{
-		this->setPosition(newX, newY);
-	}
+	newPosition.x = this->getPosition().x + deltaX;
+	newPosition.y = this->getPosition().y + deltaY;
+
+	return newPosition;
 }
+
+//void Player::processMovement(UserInput input)
+//{
+//	int deltaX = 0;
+//	int deltaY = 0;
+//
+//	switch (input)
+//	{
+//	case UserInput::MoveUp:
+//		deltaY = -1;
+//		break;
+//
+//	case UserInput::MoveLeft:
+//		deltaX = -1;
+//		break;
+//
+//	case UserInput::MoveDown:
+//		deltaY = 1;
+//		break;
+//
+//	case UserInput::MoveRight:
+//		deltaX = 1;
+//		break;
+//
+//	case UserInput::EndGame:
+//		this->isExitRequested = true;
+//		return;
+//
+//	default:
+//		return;
+//	}
+//
+//	int newX = this->getPosition().x + deltaX;
+//	int newY = this->getPosition().y + deltaY;
+//
+//	this->setPosition(newX, newY);
+//
+//	/*if (newX >= 0 && newX < MAP_SIZE_X && newY >= 0 && newY < MAP_SIZE_Y)
+//	{
+//		this->setPosition(newX, newY);
+//	}*/
+//}
 
