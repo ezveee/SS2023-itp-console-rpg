@@ -1,0 +1,31 @@
++----------------+
+|   BBB          |
+|  +----+        |
+|  |    |    HH  |
+| H|    |S  +--+ |
+| H|    |   |  | |
+|  |    |INN|  | |
+|--+    +---+  | |
+|              | |
+|--+    +------+ |
+| H|    |H H  H  |
++----------------+
+
+##################
+a   BBB          #
+a                #
+a            ##  #
+a #      S       #
+a #              #
+#        III     #
+a                #
+a                #
+a                #
+# #      # #  #  #
+#b#bbbbbb#b#bb#bb#
+
+a: Transition;City_2_1;X:16
+b: Transition;City_2_4;Y:1
+B: Blacksmith
+I: Inn
+S: Shop

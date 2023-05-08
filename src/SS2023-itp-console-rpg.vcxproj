@@ -171,6 +171,13 @@
     <Text Include="Maps\City_1_4.txt" />
     <Text Include="Maps\City_1_5.txt" />
     <Text Include="Maps\City_1_6.txt" />
+    <Text Include="Maps\City_2_1.txt" />
+    <Text Include="Maps\City_2_2.txt" />
+    <Text Include="Maps\City_2_3.txt" />
+    <Text Include="Maps\City_2_4.txt" />
+    <Text Include="Maps\City_3_1.txt" />
+    <Text Include="Maps\City_3_2.txt" />
+    <Text Include="Maps\City_3_3.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

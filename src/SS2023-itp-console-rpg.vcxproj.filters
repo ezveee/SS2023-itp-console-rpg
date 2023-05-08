@@ -160,5 +160,26 @@
     <Text Include="Maps\City_1_6.txt">
       <Filter>Maps</Filter>
     </Text>
+    <Text Include="Maps\City_2_1.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_2_2.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_2_3.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_2_4.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_3_1.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_3_2.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\City_3_3.txt">
+      <Filter>Maps</Filter>
+    </Text>
   </ItemGroup>
 </Project>
