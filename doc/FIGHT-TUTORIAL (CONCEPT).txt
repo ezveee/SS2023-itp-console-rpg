@@ -1,0 +1,35 @@
+FIGHT-TUTORIAL (CONCEPT)
+
+[PRE-TUTORIAL]
+- king comes to player's town
+- searches for "prophecied" person
+- upon finding player, he tells them about the "prophecy",
+	then tells the player that they have to fight a battle
+	against one of his servants to prove their worth
+
+[TUTORIAL]
+- before start, player gets the chance to skip the tutorial
+- fight starts, servant's abilities are based on player's class
+	(i.e. if player chose to be a warrior, make servant a magician (???))
+- player is launched into a fight, looks and plays like a typical fight
+- maybe a little bit of text explaining hp and mp, the text itself shouldn't be
+	too long though, max. one sentence per mechanic (learning by doing)
+- player is allowed to choose what to do themself
+
+// i prefer ver1, ver2 feels very patronizing
+[TUTORIAL FIGHT VER 1]
+- fight is losable
+- if player loses the fight, they get the option to either retry or skip the tutorial
+	altogether
+
+[TUTORIAL FIGHT VER 2]
+- fight isn't losable
+- if player is at 1HP, enemy attacks always miss
+
+[POST TUTORIAL]
+- king is delighted with player's strength, tells them he wants them to help
+	him find the relic he needs
+- game officially starts
+
+https://www.gamedeveloper.com/design/video-game-tutorials-how-do-they-teach-#close-modal
+https://www.filamentgames.com/blog/10-tips-designing-game-tutorial/

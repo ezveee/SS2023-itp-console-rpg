@@ -1,0 +1,95 @@
+Legende
+
++----------------+
+|                |
+|                |
+|                |
+|                |
+|                |    -> 1 Screen (16x10)
+|                |
+|                |
+|                |
+|                |
+|                |
++----------------+
+
+- -> Horizontale Wand (nicht bei Screen-Zeichen)
+| -> Vertikale Wand (nicht bei Screen-Zeichen)
+
+
+1./2. Dungeon (eventuell gespiegelt für Abwechslung)
+
++----------------+
+|      Loot      |
+|                |
+|--Boss Barrier--|
+|                |
+|                |    -> 1./2. Rebellion General
+|      Boss      |
+|                |
+|                |
+|                |
+|                |
++----------------+
+|                |
+|                |
+|                |
+|     Puzzle     |
+|      Room      |    -> Puzzles später
+|                |
+|                |
+|                |
+|                |
+|                |
++----------------+
+|-----|    |-----|
+|                |
+|------------|   |
+|            |   |
+|        |---|   |
+|        |       |
+|        |       |
+|    |---|       |
+|    |           |
+|    |     |-----|
++----------------+    -> Main Dungeon Room (Random Encounters) 2 Screens
+|    |     |-----|
+|    |     |     |
+|    |     |  |  |
+|----|     |  |  |
+|          |  |  |
+|   -------|  |  |
+|          |  |  |
+|          |  |  |
+|          |  |  |
+|             |  |
++----------------+
+            Entrance
+
+
+3. Dungeon
+
++----------------+----------------+----------------+
+|                |                |                |
+|                -                |                |
+|      Boss                       |                |
+|                                 -                |
+|                -     Puzzle           Puzzle     |
+|                |      Room             Room      |    -> Puzzles später, Rebellion General -> Danach The King
+|--Boss Barrier--|                -                |
+|                |                |                |
+| Loot (triggers |                |                |
+| King Cutscene) |                |                |
++----------------+----------------+----------------+
+                 |                |     |  |       |
+                 |----------------|-----|  |-------|
+                 |     |          |     |  |       |
+                 |  |  |  |-------|--|  |  |-------|
+                 |  |  |  |-------|--|  |          |    -> Main Dungeon Room (größer als 1./2. Dungeon)
+                 |  |  |  |       |     |          |
+                 |  |  |  |     |-|-----|------|   |
+                 |  |  |  |       |                |
+                 |  |  |  |       |                |
+                 |  |     |       |                |
+                 +----------------+----------------+
+               Entrance
