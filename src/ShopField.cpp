@@ -16,8 +16,18 @@ void ShopField::onEnter(Game* game)
 	// Koordinaten setzen
 }
 
+void ShopField::onInteract(Game* game)
+{
+
+}
+
 bool ShopField::isEnterable()
 {
 	return true;
+}
+
+bool ShopField::isInteractable()
+{
+	return false;
 }
 

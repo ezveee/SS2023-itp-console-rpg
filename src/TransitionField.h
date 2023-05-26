@@ -8,7 +8,9 @@ public:
 	virtual ~TransitionField();
 
 	void onEnter(Game* game) override;
+	void onInteract(Game* game) override;
 	bool isEnterable() override;
+	bool isInteractable() override;
 
 private:
 	int getCoordinate(std::string text);

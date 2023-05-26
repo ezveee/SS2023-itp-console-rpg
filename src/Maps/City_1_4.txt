@@ -22,7 +22,8 @@
 #  #             b
 #                b
 #  #             b
-##################
+#####ccc##########
 
 a: Transition;City_1_1;Y:10
 b: Transition;City_1_5;X:1
+c: Transition;Area_1_1;Y:3

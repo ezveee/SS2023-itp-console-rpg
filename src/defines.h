@@ -8,6 +8,7 @@
 #define HORIZONTAL_BORDER				'-'
 #define VERTICAL_BORDER					'|'
 */
+#define TEXTBOXBORDER_UPPER_LOWER "+*~-------------------~*+"
 
 #define EMPTY_FIELD						' '
 #define LANDMARK_DUNGEON				'D'

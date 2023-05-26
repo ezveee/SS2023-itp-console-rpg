@@ -8,5 +8,7 @@ class InnField : public WorldField
 		virtual ~InnField();
 
 		void onEnter(Game* game) override;
+		void onInteract(Game* game) override;
 		bool isEnterable() override;
+		bool isInteractable() override;
 };

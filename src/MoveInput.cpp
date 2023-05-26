@@ -17,6 +17,8 @@ std::map<char, Command> MoveInput::getKeyMapping() const
 		{'d', Command::MoveRight},
 		{'D', Command::MoveRight},
 		{ARROWKEY_RIGHT, Command::MoveRight},
+		{'e', Command::Interact},
+		{'E', Command::Interact},
 		{'q', Command::EndGame},
 		{'Q', Command::EndGame},
 		{ESCAPEKEY, Command::EndGame},

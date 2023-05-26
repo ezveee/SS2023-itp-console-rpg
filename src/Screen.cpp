@@ -11,6 +11,7 @@
 #include "BlacksmithField.h"
 #include "InnField.h"
 #include "ShopField.h"
+#include "NpcField.h"
 #include "ExitField.h"
 #include "Player.h"
 
@@ -146,6 +147,11 @@ WorldField* Screen::createWorldField(std::map<char, std::string>& legend, char f
 	if (fieldType == "Shop")
 	{
 		return new ShopField(parameters);
+	}
+
+	if (fieldType == "Npc")
+	{
+		return new NpcField(parameters);
 	}
 
 	if (fieldType == "Exit")

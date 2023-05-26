@@ -127,42 +127,44 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BlacksmithField.cpp" />
-    <ClCompile Include="BlockField.cpp" />
-    <ClCompile Include="EmptyField.cpp" />
-    <ClCompile Include="ExitField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlacksmithField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlockField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\EmptyField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ExitField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\InnField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\NpcField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ShopField.cpp" />
+    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\TransitionField.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMode.cpp" />
-    <ClCompile Include="InnField.cpp" />
     <ClCompile Include="MoveInput.cpp" />
     <ClCompile Include="MoveMode.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="ShopField.cpp" />
     <ClCompile Include="SS2023-itp-console-rpg.cpp" />
-    <ClCompile Include="TransitionField.cpp" />
     <ClCompile Include="UserInput.cpp" />
     <ClCompile Include="WorldField.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BlacksmithField.h" />
-    <ClInclude Include="BlockField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlacksmithField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlockField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\EmptyField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ExitField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\InnField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\NpcField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ShopField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\TransitionField.h" />
+    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\WorldField.h" />
     <ClInclude Include="defines.h" />
-    <ClInclude Include="EmptyField.h" />
-    <ClInclude Include="ExitField.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMode.h" />
-    <ClInclude Include="InnField.h" />
     <ClInclude Include="MoveInput.h" />
     <ClInclude Include="MoveMode.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
-    <ClInclude Include="ShopField.h" />
-    <ClInclude Include="TransitionField.h" />
     <ClInclude Include="UserInput.h" />
     <ClInclude Include="Command.h" />
-    <ClInclude Include="WorldField.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Maps\City_1_1.txt" />

@@ -6,6 +6,7 @@ enum class Command
 	MoveDown,
 	MoveLeft,
 	MoveRight,
+	Interact,
 	EndGame,
 	Invalid
 };

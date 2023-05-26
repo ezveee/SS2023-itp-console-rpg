@@ -15,8 +15,18 @@ void BlacksmithField::onEnter(Game* game)
 	// Koordinaten setzen
 }
 
+void BlacksmithField::onInteract(Game* game)
+{
+
+}
+
 bool BlacksmithField::isEnterable()
 {
 	return true;
+}
+
+bool BlacksmithField::isInteractable()
+{
+	return false;
 }
 

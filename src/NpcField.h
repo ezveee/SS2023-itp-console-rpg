@@ -1,15 +1,15 @@
 #pragma once
 #include "WorldField.h"
+#include "defines.h"
 
-class EmptyField : public WorldField
+class NpcField : public WorldField
 {
 public:
-	EmptyField();
-	virtual ~EmptyField();
+	NpcField(std::string& parameters);
+	virtual ~NpcField();
 
 	void onEnter(Game* game) override;
 	void onInteract(Game* game) override;
 	bool isEnterable() override;
 	bool isInteractable() override;
 };
-

@@ -16,8 +16,18 @@ void ExitField::onEnter(Game* game)
 	// Koordinaten setzen
 }
 
+void ExitField::onInteract(Game* game)
+{
+
+}
+
 bool ExitField::isEnterable()
 {
 	return true;
+}
+
+bool ExitField::isInteractable()
+{
+	return false;
 }
 

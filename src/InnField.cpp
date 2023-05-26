@@ -16,8 +16,18 @@ void InnField::onEnter(Game* game)
 	// Koordinaten setzen
 }
 
+void InnField::onInteract(Game* game)
+{
+
+}
+
 bool InnField::isEnterable()
 {
 	return true;
+}
+
+bool InnField::isInteractable()
+{
+	return false;
 }
 

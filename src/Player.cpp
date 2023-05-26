@@ -1,4 +1,5 @@
 #include "Player.h"
+#include <iostream>
 
 #include <stdexcept>
 #include "defines.h"
@@ -55,6 +56,11 @@ Position Player::calculateNewPosition(Command command)
 		deltaX = 1;
 		break;
 
+	case Command::Interact:
+		deltaX = 0;
+		this->interactionRequested = true;
+		break;
+
 	case Command::EndGame:
 		this->isExitRequested = true;
 		break;
@@ -69,6 +75,15 @@ Position Player::calculateNewPosition(Command command)
 	newPosition.y = this->getPosition().y + deltaY;
 
 	return newPosition;
+}
+
+bool Player::getInteractionRequested() const
+{
+	return this->interactionRequested;
+}
+void Player::setInteractionRequested()
+{
+	this->interactionRequested = false;
 }
 
 //void Player::processMovement(UserInput input)
