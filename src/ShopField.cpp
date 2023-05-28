@@ -2,7 +2,7 @@
 
 
 
-ShopField::ShopField(std::string& parameters)
+ShopField::ShopField(std::wstring& parameters)
 {
 	// evtl. Initialisierung mit Daten aus dem File.
 }

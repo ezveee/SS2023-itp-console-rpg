@@ -4,7 +4,7 @@
 class InnField : public WorldField
 {
 	public:
-		InnField(std::string& parameters);
+		InnField(std::wstring& parameters);
 		virtual ~InnField();
 
 		void onEnter(Game* game) override;

@@ -4,7 +4,7 @@
 class ShopField : public WorldField
 {
 	public:
-		ShopField(std::string& parameters);
+		ShopField(std::wstring& parameters);
 		virtual ~ShopField();
 
 		void onEnter(Game* game) override;

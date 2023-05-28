@@ -1,4 +1,4 @@
-+----------------+
+﻿+----------------+
 |  HH H HH  HHH  |
 |  +----------+  |
 |  |          |H |
@@ -17,13 +17,13 @@ b                #
 b              # #
 b                #
 b  ##   #      # #
-b                #
-b                E
-b                #
+b                c
+b                c
+b                c
 #  #      #  ## ##
 b                #
 ##################
 
 a: Transition;City_1_3;Y:10
 b: Transition;City_1_5;X:16
-E: Exit
+c: Transition;Area_2_2;X:1

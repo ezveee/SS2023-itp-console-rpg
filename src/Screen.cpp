@@ -14,7 +14,7 @@
 #include "ExitField.h"
 #include "Player.h"
 
-Screen::Screen(const std::string& filename)
+Screen::Screen(const std::wstring& filename)
 {
 	load(filename);
 }
@@ -37,52 +37,53 @@ WorldField* Screen::getWorldField(int x, int y) const
 }
 
 
-void Screen::insertFromFile(const std::string& filename, std::vector<std::string>& lines)
+void Screen::insertFromFile(const std::wstring& filename, std::vector<std::wstring>& lines)
 {
-	std::ifstream file("./Maps/" + filename + ".txt");
+	std::wifstream file(L"./Maps/" + filename + L".txt", std::ios::binary);
 
 	if (!file.is_open())
 	{
-		throw std::runtime_error("Could not open file " + filename);
+		throw std::runtime_error("Could not open file "/* + filename*/);
 	}
 
-	std::string line;
+	std::wstring line;
 	while (std::getline(file, line))
 	{
-		lines.push_back(line);
+		lines.push_back(line.substr(0, line.length() - 1));
 	}
 
 	file.close();
 }
 
-void Screen::load(const std::string& filename)
+void Screen::load(const std::wstring& filename)
 {
-	std::vector<std::string> lines;
+	std::vector<std::wstring> lines;
 	insertFromFile(filename, lines);
 
-	std::map<char, std::string> legend = getLegend(lines);
+	std::map<wchar_t, std::wstring> legend = getLegend(lines);
 
 	for (int y = 0; y < MAP_SIZE_Y + 2; ++y)
 	{
 		for (int x = 0; x < MAP_SIZE_X + 2; ++x)
 		{
-			char currentField = lines[MAP_FIRST_CONFIG_LINE + y][x];
+			wchar_t currentField = lines[MAP_FIRST_CONFIG_LINE + y][x];
 			world[x][y] = createWorldField(legend, currentField);
-			world[x][y]->setSign(lines[MAP_FIRST_GRAPHICS_LINE + y][x]);
+			world[x][y]->setSign(lines[MAP_FIRST_GRAPHICS_LINE + y][x + ((y == 0) ? 1 : 0)]);
+			// ternärer operator weil am anfang des files ein leerzeichen eingefügt wird
 		}
 	}
 }
 
-std::map<char, std::string> Screen::getLegend(std::vector<std::string> lines)
+std::map<wchar_t, std::wstring> Screen::getLegend(std::vector<std::wstring> lines)
 {
-	std::map<char, std::string> legend;
+	std::map<wchar_t, std::wstring> legend;
 
-	legend.insert(std::pair<char, std::string>('#', "Block"));
-	legend.insert(std::pair<char, std::string>(' ', "Empty"));
+	legend.insert(std::pair<wchar_t, std::wstring>('#', L"Block"));
+	legend.insert(std::pair<wchar_t, std::wstring>(' ', L"Empty"));
 
 	for (int lineNr = MAP_FIRST_LEGEND_LINE; lineNr < lines.size(); ++lineNr)
 	{
-		legend.insert(std::pair<char, std::string>(lines[lineNr][0], lines[lineNr].substr(3)));
+		legend.insert(std::pair<wchar_t, std::wstring>(lines[lineNr][0], lines[lineNr].substr(3)));
 	}
 	return legend;
 }
@@ -93,7 +94,7 @@ std::map<char, std::string> Screen::getLegend(std::vector<std::string> lines)
 /// <param name="legend"></param>
 /// <param name="fieldType"></param>
 /// <returns></returns>
-WorldField* Screen::createWorldField(std::map<char, std::string>& legend, char fieldTypeKey)
+WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey)
 {
 	// Finde die zum fieldTypeKey passende Legend-Zeile.
 	auto iterator = legend.find(fieldTypeKey);
@@ -103,10 +104,10 @@ WorldField* Screen::createWorldField(std::map<char, std::string>& legend, char f
 	}
 
 	// Ermittle die Art des WorldFields (Empty, Block, Transition, ...) und deren Parameter.
-	std::string fieldType;
-	std::string parameters;
+	std::wstring fieldType;
+	std::wstring parameters;
 	size_t pos = iterator->second.find(';');
-	if (pos != std::string::npos)
+	if (pos != std::wstring::npos)
 	{
 		fieldType = iterator->second.substr(0, pos);
 		parameters = iterator->second.substr(pos + 1);
@@ -114,41 +115,41 @@ WorldField* Screen::createWorldField(std::map<char, std::string>& legend, char f
 	else
 	{
 		fieldType = iterator->second;
-		parameters = "";
+		parameters = L"";
 	}
 
 	// Erstelle das entsprechende WorldField.
-	if (fieldType == "Empty")
+	if (fieldType == L"Empty")
 	{
 		return new EmptyField();
 	}
 
-	if (fieldType == "Block")
+	if (fieldType == L"Block")
 	{
 		return new BlockField();
 	}
 
-	if (fieldType == "Transition")
+	if (fieldType == L"Transition")
 	{
 		return new TransitionField(parameters);
 	}
 
-	if (fieldType == "Blacksmith")
+	if (fieldType == L"Blacksmith")
 	{
 		return new BlacksmithField(parameters);
 	}
 
-	if (fieldType == "Inn")
+	if (fieldType == L"Inn")
 	{
 		return new InnField(parameters);
 	}
 
-	if (fieldType == "Shop")
+	if (fieldType == L"Shop")
 	{
 		return new ShopField(parameters);
 	}
 
-	if (fieldType == "Exit")
+	if (fieldType == L"Exit")
 	{
 		return new ExitField(parameters);
 	}
@@ -166,12 +167,12 @@ void Screen::display(const Player& player) const
 
 			if ((playerPosition.x) == x && (playerPosition.y) == y)
 			{
-				std::cout << PLAYER_CHAR;
+				std::wcout << PLAYER_CHAR;
 				continue;
 			}
 
-			std::cout << this->world[x][y]->getSign();
+			std::wcout << this->world[x][y]->getSign();
 		}
-		std::cout << "\n";
+		std::wcout << "\n";
 	}
 }

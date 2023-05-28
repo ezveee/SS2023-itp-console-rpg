@@ -1,5 +1,9 @@
 // SS2023-itp-console-rpg.cpp
 
+#include <fcntl.h>
+#include <io.h>
+#include <locale>
+#include <codecvt>
 #include "Game.h"
 
 /*
@@ -7,6 +11,9 @@
 */
 int main()
 {
+	_setmode(_fileno(stdout), _O_U16TEXT);
+	std::locale::global(std::locale(std::locale::empty(), new std::codecvt_utf8<wchar_t>));
+
 	Game game;
 	game.run();
 }

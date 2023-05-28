@@ -13,14 +13,14 @@ public:
 	virtual void onEnter(Game* game) = 0;
 	virtual bool isEnterable() = 0;
 
-	char getSign() const;
-	void setSign(char sign);
+	wchar_t getSign() const;
+	void setSign(wchar_t sign);
 
-	std::string getInfo() const;
-	void setInfo(std::string info);
+	std::wstring getInfo() const;
+	void setInfo(std::wstring info);
 
 private:
-	char sign;
-	std::string info;
+	wchar_t sign;
+	std::wstring info;
 };
 

@@ -8,7 +8,7 @@
 MoveMode::MoveMode()
 {
 	currentUserInput = new MoveInput();
-	currentScreen = new Screen("City_1_1");
+	currentScreen = new Screen(L"City_1_5");
 	nextScreen = nullptr;
 }
 

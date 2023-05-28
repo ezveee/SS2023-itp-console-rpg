@@ -12,7 +12,7 @@ class WorldField;
 class Screen
 {
 public:
-	explicit Screen(const std::string& filename);
+	explicit Screen(const std::wstring& filename);
 	virtual ~Screen();
 	void display(const Player& player) const;
 	WorldField* getWorldField(int x, int y) const;
@@ -20,9 +20,9 @@ public:
 private:
 	std::array <std::array <WorldField*, MAP_SIZE_Y + 2>, MAP_SIZE_X + 2> world;
 	
-	void insertFromFile(const std::string& filename, std::vector<std::string>& vector);
-	void load(const std::string& filename);
-	WorldField* createWorldField(std::map<char, std::string>& legend, char fieldTypeKey);
-	std::map<char, std::string> getLegend(std::vector<std::string> lines);
+	void insertFromFile(const std::wstring& filename, std::vector<std::wstring>& vector);
+	void load(const std::wstring& filename);
+	WorldField* createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey);
+	std::map<wchar_t, std::wstring> getLegend(std::vector<std::wstring> lines);
 };
 

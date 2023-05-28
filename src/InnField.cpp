@@ -2,7 +2,7 @@
 
 
 
-InnField::InnField(std::string& parameters)
+InnField::InnField(std::wstring& parameters)
 {
 	// evtl. Initialisierung mit Daten aus dem File.
 }

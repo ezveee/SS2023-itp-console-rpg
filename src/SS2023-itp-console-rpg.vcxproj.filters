@@ -34,6 +34,18 @@
     <Filter Include="Source Files\UserInputs">
       <UniqueIdentifier>{8e57d411-a285-4213-adc7-cfcd1195a036}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Maps\City1">
+      <UniqueIdentifier>{f7ad176d-8876-4a6c-a431-9b046ef64467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\City2">
+      <UniqueIdentifier>{8f9080fa-6107-4833-b43b-44108d18bfa0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\City3">
+      <UniqueIdentifier>{4e5d9e36-9936-4b3b-8323-5b5e2890faeb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\Area2">
+      <UniqueIdentifier>{1473d1d5-6e6b-49ab-9703-9adfdd9bcf8e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SS2023-itp-console-rpg.cpp">
@@ -143,43 +155,52 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Maps\City_1_1.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City1</Filter>
     </Text>
     <Text Include="Maps\City_1_2.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City1</Filter>
     </Text>
     <Text Include="Maps\City_1_3.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City1</Filter>
     </Text>
     <Text Include="Maps\City_1_4.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City1</Filter>
     </Text>
     <Text Include="Maps\City_1_5.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City1</Filter>
     </Text>
     <Text Include="Maps\City_1_6.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City1</Filter>
     </Text>
     <Text Include="Maps\City_2_1.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City2</Filter>
     </Text>
     <Text Include="Maps\City_2_2.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City2</Filter>
     </Text>
     <Text Include="Maps\City_2_3.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City2</Filter>
     </Text>
     <Text Include="Maps\City_2_4.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City2</Filter>
     </Text>
     <Text Include="Maps\City_3_1.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City3</Filter>
     </Text>
     <Text Include="Maps\City_3_2.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City3</Filter>
     </Text>
     <Text Include="Maps\City_3_3.txt">
-      <Filter>Maps</Filter>
+      <Filter>Maps\City3</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_1.txt">
+      <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_2.txt">
+      <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_3.txt">
+      <Filter>Maps\Area2</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -2,7 +2,7 @@
 
 
 
-ExitField::ExitField(std::string& parameters)
+ExitField::ExitField(std::wstring& parameters)
 {
 	// evtl. Initialisierung mit Daten aus dem File.
 }

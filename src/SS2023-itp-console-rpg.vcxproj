@@ -165,6 +165,9 @@
     <ClInclude Include="WorldField.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Maps\Area_2_1.txt" />
+    <Text Include="Maps\Area_2_2.txt" />
+    <Text Include="Maps\Area_2_3.txt" />
     <Text Include="Maps\City_1_1.txt" />
     <Text Include="Maps\City_1_2.txt" />
     <Text Include="Maps\City_1_3.txt" />

@@ -1,7 +1,7 @@
 #include "BlacksmithField.h"
 
 
-BlacksmithField::BlacksmithField(std::string& parameters)
+BlacksmithField::BlacksmithField(std::wstring& parameters)
 {
 	// evtl. Initialisierung mit Daten aus dem File.
 }

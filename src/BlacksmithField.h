@@ -4,7 +4,7 @@
 class BlacksmithField : public WorldField
 {
 	public:
-		BlacksmithField(std::string& parameters);
+		BlacksmithField(std::wstring& parameters);
 		virtual ~BlacksmithField();
 
 		void onEnter(Game* game) override;

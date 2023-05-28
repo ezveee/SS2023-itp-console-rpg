@@ -4,7 +4,7 @@
 class ExitField : public WorldField
 {
 	public:
-		ExitField(std::string& parameters);
+		ExitField(std::wstring& parameters);
 		virtual ~ExitField();
 
 		void onEnter(Game* game) override;

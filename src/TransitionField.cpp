@@ -6,11 +6,11 @@
 #include "MoveMode.h"
 #include "Screen.h"
 
-TransitionField::TransitionField(std::string& parameters)
+TransitionField::TransitionField(std::wstring& parameters)
 {
-	std::string coordinates;
+	std::wstring coordinates;
 	size_t pos = parameters.find(';');
-	if (pos != std::string::npos)
+	if (pos != std::wstring::npos)
 	{
 		mapName = parameters.substr(0, pos);
 		coordinates = parameters.substr(pos + 1);
@@ -18,11 +18,11 @@ TransitionField::TransitionField(std::string& parameters)
 	else
 	{
 		mapName = parameters;
-		coordinates = "X:-1;Y:-1";
+		coordinates = L"X:-1;Y:-1";
 	}
 
 	pos = coordinates.find(';');
-	if (pos != std::string::npos)
+	if (pos != std::wstring::npos)
 	{
 		xPos = getCoordinate(coordinates.substr(0, pos));
 		yPos = getCoordinate(coordinates.substr(pos + 1));
@@ -55,12 +55,12 @@ bool TransitionField::isEnterable()
 	return true;
 }
 
-int TransitionField::getCoordinate(std::string text)
+int TransitionField::getCoordinate(std::wstring text)
 {
 	return std::stoi(text.substr(2));
 }
 
-int TransitionField::getCoordinate(char axis, std::string text)
+int TransitionField::getCoordinate(char axis, std::wstring text)
 {
 	if (text[0] != axis)
 	{

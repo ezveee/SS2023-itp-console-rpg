@@ -3,22 +3,22 @@
 WorldField::WorldField() = default;
 WorldField::~WorldField() = default;
 
-char WorldField::getSign() const
+wchar_t WorldField::getSign() const
 {
 	return this->sign;
 }
 
-void WorldField::setSign(char sign)
+void WorldField::setSign(wchar_t sign)
 {
 	this->sign = sign;
 }
 
-std::string WorldField::getInfo() const
+std::wstring WorldField::getInfo() const
 {
 	return this->info;
 }
 
-void WorldField::setInfo(std::string info)
+void WorldField::setInfo(std::wstring info)
 {
 
 }

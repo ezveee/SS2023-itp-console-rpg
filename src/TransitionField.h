@@ -4,17 +4,17 @@
 class TransitionField : public WorldField
 {
 public:
-	TransitionField(std::string& parameters);
+	TransitionField(std::wstring& parameters);
 	virtual ~TransitionField();
 
 	void onEnter(Game* game) override;
 	bool isEnterable() override;
 
 private:
-	int getCoordinate(std::string text);
-	int getCoordinate(char axis, std::string text);
+	int getCoordinate(std::wstring text);
+	int getCoordinate(char axis, std::wstring text);
 
-	std::string mapName;
+	std::wstring mapName;
 	int xPos;
 	int yPos;
 };
