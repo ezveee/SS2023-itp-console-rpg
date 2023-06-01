@@ -7,6 +7,7 @@ enum class Command
 	MoveLeft,
 	MoveRight,
 	Interact,
+	OpenMap,
 	EndGame,
 	Invalid
 };

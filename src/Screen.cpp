@@ -32,6 +32,16 @@ Screen::~Screen()
 	}
 }
 
+void Screen::setMapName(std::string newMapName)
+{
+	mapName = newMapName;
+}
+
+std::string Screen::getMapName()
+{
+	return mapName;
+}
+
 WorldField* Screen::getWorldField(int x, int y) const
 {
 	return world[x][y];
@@ -58,7 +68,7 @@ void Screen::insertFromFile(const std::string& filename, std::vector<std::string
 
 void Screen::load(const std::string& filename)
 {
-	std::vector<std::string> lines;
+	std::vector<std::string> lines;	
 	insertFromFile(filename, lines);
 
 	std::map<char, std::string> legend = getLegend(lines);

@@ -63,28 +63,28 @@
     <ClCompile Include="MoveInput.cpp">
       <Filter>Source Files\UserInputs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\NpcField.cpp">
+    <ClCompile Include="BlacksmithField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\TransitionField.cpp">
+    <ClCompile Include="BlockField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlacksmithField.cpp">
+    <ClCompile Include="EmptyField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlockField.cpp">
+    <ClCompile Include="ExitField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\EmptyField.cpp">
+    <ClCompile Include="InnField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ExitField.cpp">
+    <ClCompile Include="NpcField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\InnField.cpp">
+    <ClCompile Include="ShopField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ShopField.cpp">
+    <ClCompile Include="TransitionField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,31 +119,31 @@
     <ClInclude Include="MoveInput.h">
       <Filter>Header Files\UserInputs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\NpcField.h">
+    <ClInclude Include="BlacksmithField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\WorldField.h">
+    <ClInclude Include="BlockField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlacksmithField.h">
+    <ClInclude Include="EmptyField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\BlockField.h">
+    <ClInclude Include="ExitField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\EmptyField.h">
+    <ClInclude Include="InnField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ExitField.h">
+    <ClInclude Include="NpcField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\InnField.h">
+    <ClInclude Include="ShopField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\ShopField.h">
+    <ClInclude Include="TransitionField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\source\repos\SS2023-itp-console-rpg\src\SS2023-itp-console-rpg\SS2023-itp-console-rpg\TransitionField.h">
+    <ClInclude Include="WorldField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
   </ItemGroup>
@@ -185,6 +185,30 @@
       <Filter>Maps</Filter>
     </Text>
     <Text Include="Maps\City_3_3.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_1.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_2.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_3.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_4.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_5.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_6.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Village_1.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Village_2.txt">
       <Filter>Maps</Filter>
     </Text>
   </ItemGroup>

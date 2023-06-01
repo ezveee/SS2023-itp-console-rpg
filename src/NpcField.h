@@ -12,4 +12,7 @@ public:
 	void onInteract(Game* game) override;
 	bool isEnterable() override;
 	bool isInteractable() override;
+
+	private:
+		std::string npcName;
 };

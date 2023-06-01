@@ -8,7 +8,7 @@
 |  |          |H |               
 | H|          |  |              
 |  +--+     +-+  |               
-|    H|     |    |              
+|    H|     |o   |              
 +----------------+
 
 ######aaaaaaa#####
@@ -21,9 +21,10 @@
 # #            # #
 #                #
 # #              #
-#    #           #
+#    #       n   #
 ######bbbbbbb#####
 
 a: Transition;Area_1_4;Y:10
 b: Transition;Village_2;Y:1
 S: Shop
+n: Npc;Village_npc_1

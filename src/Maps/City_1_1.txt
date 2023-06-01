@@ -24,7 +24,7 @@
 #                b
 #c#cccccccccccccc#
 
-a: Transition;Castle;X:5;Y:4;
+a: Transition;Castle;X:5;Y:4
 b: Transition;City_1_2;X:1
 c: Transition;City_1_4;Y:1
-n: Npc
+n: Npc;Castle_npc
