@@ -1,0 +1,29 @@
+﻿┌────┬─────────┬─┐
+│    /          \│
+│   |      .     │
+│   |        .   │
+│  /   .:        │
+│ |           .  │
+│ |  .       .   │
+│ |          _   │
+│  \__ .    / \  │
+│     |    |   \_│
+│     |    |     │
+└─────┴────┴─────┘
+
+#aaaaaaaaaaaaaaaa#
+#                c
+#                c
+#                c
+#                c
+#                c
+#                c
+#                c
+#                c
+#                c
+#                c
+######bbbbbb######
+
+a: Transition;Area_2_4;Y:10
+b: Transition;Area_2_8;Y:1
+c: Transition;Area_2_6;X:1

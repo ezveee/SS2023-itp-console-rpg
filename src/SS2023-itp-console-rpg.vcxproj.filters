@@ -46,6 +46,9 @@
     <Filter Include="Maps\Area2">
       <UniqueIdentifier>{1473d1d5-6e6b-49ab-9703-9adfdd9bcf8e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Maps\StartingVillage">
+      <UniqueIdentifier>{0d2f1284-e72d-4a03-8cd1-5fa803bb8108}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SS2023-itp-console-rpg.cpp">
@@ -95,6 +98,9 @@
     </ClCompile>
     <ClCompile Include="MoveInput.cpp">
       <Filter>Source Files\UserInputs</Filter>
+    </ClCompile>
+    <ClCompile Include="HouseField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +158,9 @@
     <ClInclude Include="MoveInput.h">
       <Filter>Header Files\UserInputs</Filter>
     </ClInclude>
+    <ClInclude Include="HouseField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Maps\City_1_1.txt">
@@ -201,6 +210,27 @@
     </Text>
     <Text Include="Maps\Area_2_3.txt">
       <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_4.txt">
+      <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_5.txt">
+      <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_6.txt">
+      <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_7.txt">
+      <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Area_2_8.txt">
+      <Filter>Maps\Area2</Filter>
+    </Text>
+    <Text Include="Maps\Village_1.txt">
+      <Filter>Maps\StartingVillage</Filter>
+    </Text>
+    <Text Include="Maps\Village_2.txt">
+      <Filter>Maps\StartingVillage</Filter>
     </Text>
   </ItemGroup>
 </Project>

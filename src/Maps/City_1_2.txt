@@ -1,32 +1,33 @@
-﻿+----------------+
-|   BBB INN  HH  |
-|  +----------+  |
-| S|          |H |
-|  |          |HH|
-| H|          |  |
-|--+          |H |
-|             |H |
-|----+        +--|
-|   H|           |
-|   H|      +----|
-+----------------+
+﻿┌────────────────┐
+│ _/__\ /___\    │
+│/_\BB|-|_±_|-+_ │
+│|S| .        /_\│
+│ _¦        . |_|│
+│/_\   .   :  ¦  │
+│|_|          ¦_ │
+│             /_\│
+├---_+        |‼|│
+│  /_\  .       :│
+│  |_|      +----┤
+└────┴──────┴────┘
 
 ##################
-a   BBB III  ##  #
-a                c
-a S            # c
-a              ###
-a #              #
-a              # c
-a              # c
-a                c
-a   #            c
-a   #            c
-#bbb#bbbbbbbb##bb#
+####### #####    b
+####BB# #III#    b
+##S#          ####
+#             ####
+####             b
+####             b
+a             ####
+a             #H##
+#  ###           b
+#  ###           b
+#cc###ccccccccccc#
 
 a: Transition;City_1_1;X:16
-b: Transition;City_1_5;Y:1
-c: Transition;City_1_3;X:1
+b: Transition;City_1_3;X:1
+c: Transition;City_1_5;Y:1
 B: Blacksmith
 I: Inn
 S: Shop
+H: House

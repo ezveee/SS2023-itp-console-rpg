@@ -133,6 +133,7 @@
     <ClCompile Include="ExitField.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMode.cpp" />
+    <ClCompile Include="HouseField.cpp" />
     <ClCompile Include="InnField.cpp" />
     <ClCompile Include="MoveInput.cpp" />
     <ClCompile Include="MoveMode.cpp" />
@@ -152,6 +153,7 @@
     <ClInclude Include="ExitField.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMode.h" />
+    <ClInclude Include="HouseField.h" />
     <ClInclude Include="InnField.h" />
     <ClInclude Include="MoveInput.h" />
     <ClInclude Include="MoveMode.h" />
@@ -168,6 +170,11 @@
     <Text Include="Maps\Area_2_1.txt" />
     <Text Include="Maps\Area_2_2.txt" />
     <Text Include="Maps\Area_2_3.txt" />
+    <Text Include="Maps\Area_2_4.txt" />
+    <Text Include="Maps\Area_2_5.txt" />
+    <Text Include="Maps\Area_2_6.txt" />
+    <Text Include="Maps\Area_2_7.txt" />
+    <Text Include="Maps\Area_2_8.txt" />
     <Text Include="Maps\City_1_1.txt" />
     <Text Include="Maps\City_1_2.txt" />
     <Text Include="Maps\City_1_3.txt" />
@@ -181,6 +188,8 @@
     <Text Include="Maps\City_3_1.txt" />
     <Text Include="Maps\City_3_2.txt" />
     <Text Include="Maps\City_3_3.txt" />
+    <Text Include="Maps\Village_1.txt" />
+    <Text Include="Maps\Village_2.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
