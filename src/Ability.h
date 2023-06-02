@@ -1,11 +1,26 @@
 #pragma once
+#include <string>
+
+class Entity;
 
 class Ability
 {
-	public:
-		virtual void action() = 0;
+    public:
+        virtual ~Ability() = default;
 
-		int level;
-		int cost;
-		bool isAOE;
+        int cost;
+        bool isAOE;
+        void setLevel(Entity* entity);
+        std::string getName() const;
+
+        virtual void action(Entity* user, Entity* target) = 0;
+        void attack(int damage, int manaCost, bool isSpecial, Entity* user, Entity* target);
+
+    protected:
+        std::string name;
+        int level;
+
+    private:
+        int modifyAccuracy(int userAccuracy);
+        bool doesAttackHit(int modifiedAccuracy, int targetDefense);
 };

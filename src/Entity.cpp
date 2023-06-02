@@ -46,18 +46,35 @@ void Entity::setStats(Stats addStats)
 	this->stat.critical += addStats.critical;
 }
 
-void Entity::useAbilityOnTarget(Ability* ability, Entity* target)
+Ability* Entity::chooseAbility()
 {
-	
+	return nullptr;
 }
 
-void Entity::useAbilityOnTeam(Ability* ability, Team* targetTeam)
+Entity* Entity::chooseTarget(Team* targetTeam)
 {
+	return nullptr;
+}
 
+void Entity::useAbilityOnTarget(Ability* ability, Entity* user, Entity* target)
+{
+	ability->action(user, target);
+}
+
+void Entity::useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam)
+{
+	for (int i = 0; i < targetTeam->members.size(); i++)
+	{
+		ability->action(user, targetTeam->members[i]);
+	}
 }
 
 int Entity::getSpeed() const { return this->stat.speed; }
+int Entity::getHealth() const { return this->stat.health; };
 int Entity::getMana() const { return this->stat.mana; };
 std::string Entity::getName() const { return this->name; };
+Stats Entity::getStats() const { return this->stat; };
+
+Ability* Entity::getDefaultAttack() const { return this->defaultAttack; }
 
 std::vector<Ability*> Entity::getAbilities() const { return this->abilities; };

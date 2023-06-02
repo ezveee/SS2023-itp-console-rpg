@@ -3,13 +3,16 @@
 #include <vector>
 
 #include "Entity.h"
-#include "Item.h"
+//#include "Item.h"
 
 class Entity;
 
 class Team
 {
 	public:
+		Team();
+		~Team();
+
 		std::vector<Entity*> members;
 		void addMember(Entity* member);
 
@@ -20,6 +23,6 @@ class Team
 		bool isTeamAlive();
 
 	private:
-		std::vector<Item*> inventory;
+		//std::vector<Item*> inventory;
 };
 
