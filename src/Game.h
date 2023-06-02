@@ -12,13 +12,13 @@ public:
 	Game() = default;
 	virtual ~Game() = default;
 	void run();
-	std::map<std::string, std::string> getDialogues();
+	std::map<std::wstring, std::wstring> getDialogues();
 
 	Player player;
 	
 	GameMode* currentGameMode;
 	GameMode* nextGameMode;
 
-	std::map<std::string, std::string> dialogueMap;
+	std::map<std::wstring, std::wstring> dialogueMap;
 };
 

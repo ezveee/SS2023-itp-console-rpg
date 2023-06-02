@@ -9,4 +9,6 @@ public:
 
 	void onEnter(Game* game) override;
 	bool isEnterable() override;
+	void onInteract(Game* game) override;
+	bool isInteractable() override;
 };

@@ -15,8 +15,8 @@ public:
 	explicit Screen(const std::wstring& filename);
 	virtual ~Screen();
 	void display(const Player& player) const;
-	void setMapName(std::string newMapName);
-	std::string getMapName();
+	void setMapName(std::wstring newMapName);
+	std::wstring getMapName();
 	WorldField* getWorldField(int x, int y) const;
 
 private:

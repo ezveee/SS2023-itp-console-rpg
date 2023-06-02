@@ -27,11 +27,11 @@ void Game::run()
 	delete currentGameMode;
 }
 
-std::map<std::string, std::string> Game::getDialogues()
+std::map<std::wstring, std::wstring> Game::getDialogues()
 {
 	return
 	{
-		{"Castle_npc", "hello i am the castle npc\ni will give you directions\nto your next task!"},
-		{"Village_npc_1", "i will give you a tutorial\nfor now i am just here to test\nthe dialogue function"},
+		{L"Castle_npc", L"hello i am the castle npc\ni will give you directions\nto your next task!"},
+		{L"Village_npc_1", L"i will give you a tutorial\nfor now i am just here to test\nthe dialogue function"},
 	};
 }

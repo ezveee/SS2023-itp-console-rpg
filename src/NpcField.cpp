@@ -2,7 +2,7 @@
 #include <iostream>
 #include <conio.h>
 
-NpcField::NpcField(std::string& parameters)
+NpcField::NpcField(std::wstring& parameters)
 {
 	size_t pos = parameters.find(';');
 	npcName = parameters.substr(0, pos);
@@ -22,9 +22,9 @@ void NpcField::onInteract(Game* game)
 	{
 		throw std::invalid_argument("Unknown npc name key.");
 	}
-	std::string currentDialogue = iterator->second;
+	std::wstring currentDialogue = iterator->second;
 
-	std::cout << TEXTBOXBORDER_UPPER_LOWER << "\n" << currentDialogue << "\n" << TEXTBOXBORDER_UPPER_LOWER << "\n";
+	std::wcout << TEXTBOXBORDER_UPPER_LOWER << "\n" << currentDialogue << "\n" << TEXTBOXBORDER_UPPER_LOWER << "\n";
 	_getch();
 }
 

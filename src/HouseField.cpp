@@ -18,3 +18,15 @@ bool HouseField::isEnterable()
 {
 	return true;
 }
+
+void HouseField::onInteract(Game* game)
+{
+	// Mapname & Koordinaten aus info auslesen
+	// Map laden
+	// Koordinaten setzen
+}
+
+bool HouseField::isInteractable()
+{
+	return true;
+}

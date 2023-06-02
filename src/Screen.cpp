@@ -33,12 +33,12 @@ Screen::~Screen()
 	}
 }
 
-void Screen::setMapName(std::string newMapName)
+void Screen::setMapName(std::wstring newMapName)
 {
 	mapName = newMapName;
 }
 
-std::string Screen::getMapName()
+std::wstring Screen::getMapName()
 {
 	return mapName;
 }

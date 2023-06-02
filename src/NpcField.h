@@ -5,7 +5,7 @@
 class NpcField : public WorldField
 {
 public:
-	NpcField(std::string& parameters);
+	NpcField(std::wstring& parameters);
 	virtual ~NpcField();
 
 	void onEnter(Game* game) override;
@@ -14,5 +14,5 @@ public:
 	bool isInteractable() override;
 
 	private:
-		std::string npcName;
+		std::wstring npcName;
 };
