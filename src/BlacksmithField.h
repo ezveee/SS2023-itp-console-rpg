@@ -8,5 +8,7 @@ class BlacksmithField : public WorldField
 		virtual ~BlacksmithField();
 
 		void onEnter(Game* game) override;
+		void onInteract(Game* game) override;
 		bool isEnterable() override;
+		bool isInteractable() override;
 };

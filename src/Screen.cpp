@@ -11,6 +11,7 @@
 #include "BlacksmithField.h"
 #include "InnField.h"
 #include "ShopField.h"
+#include "NpcField.h"
 #include "HouseField.h"
 #include "ExitField.h"
 #include "Player.h"
@@ -30,6 +31,16 @@ Screen::~Screen()
 				delete world[x][y];
 		}
 	}
+}
+
+void Screen::setMapName(std::string newMapName)
+{
+	mapName = newMapName;
+}
+
+std::string Screen::getMapName()
+{
+	return mapName;
 }
 
 WorldField* Screen::getWorldField(int x, int y) const
@@ -153,6 +164,11 @@ WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wc
 	if (fieldType == L"House")
 	{
 		return new HouseField(parameters);
+	}
+
+	if (fieldType == L"Npc")
+	{
+		return new NpcField(parameters);
 	}
 
 	if (fieldType == L"Exit")

@@ -15,11 +15,15 @@ public:
 	explicit Screen(const std::wstring& filename);
 	virtual ~Screen();
 	void display(const Player& player) const;
+	void setMapName(std::string newMapName);
+	std::string getMapName();
 	WorldField* getWorldField(int x, int y) const;
 
 private:
 	std::array <std::array <WorldField*, MAP_SIZE_Y + 2>, MAP_SIZE_X + 2> world;
 	
+	std::wstring mapName;
+
 	void insertFromFile(const std::wstring& filename, std::vector<std::wstring>& vector);
 	void load(const std::wstring& filename);
 	WorldField* createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey);

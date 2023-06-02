@@ -1,6 +1,7 @@
 #pragma once
 
 #include "GameMode.h"
+#include "position.h"
 
 class Game;
 class Screen;
@@ -12,6 +13,7 @@ public:
 	virtual ~MoveMode();
 
 	void handle(Game* game) override;
+	void interact(Screen* currentScreen, Game* game);
 
 	Screen* currentScreen;
 	Screen* nextScreen;

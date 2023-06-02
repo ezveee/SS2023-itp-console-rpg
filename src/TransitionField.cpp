@@ -50,6 +50,11 @@ void TransitionField::onEnter(Game* game)
 	game->player.setPosition(xPos, yPos);
 }
 
+void TransitionField::onInteract(Game* game)
+{
+
+}
+
 bool TransitionField::isEnterable()
 {
 	return true;
@@ -67,4 +72,9 @@ int TransitionField::getCoordinate(char axis, std::wstring text)
 		return -1;
 	}
 	return getCoordinate(text);
+}
+
+bool TransitionField::isInteractable()
+{
+	return false;
 }

@@ -57,32 +57,11 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EmptyField.cpp">
-      <Filter>Source Files\WorldFields</Filter>
-    </ClCompile>
-    <ClCompile Include="TransitionField.cpp">
-      <Filter>Source Files\WorldFields</Filter>
-    </ClCompile>
     <ClCompile Include="WorldField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
     <ClCompile Include="Screen.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="BlockField.cpp">
-      <Filter>Source Files\WorldFields</Filter>
-    </ClCompile>
-    <ClCompile Include="BlacksmithField.cpp">
-      <Filter>Source Files\WorldFields</Filter>
-    </ClCompile>
-    <ClCompile Include="ExitField.cpp">
-      <Filter>Source Files\WorldFields</Filter>
-    </ClCompile>
-    <ClCompile Include="InnField.cpp">
-      <Filter>Source Files\WorldFields</Filter>
-    </ClCompile>
-    <ClCompile Include="ShopField.cpp">
-      <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
@@ -99,6 +78,30 @@
     <ClCompile Include="MoveInput.cpp">
       <Filter>Source Files\UserInputs</Filter>
     </ClCompile>
+    <ClCompile Include="BlacksmithField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="BlockField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="ExitField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="InnField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="NpcField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="ShopField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
+    <ClCompile Include="TransitionField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
     <ClCompile Include="HouseField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
@@ -113,32 +116,8 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WorldField.h">
-      <Filter>Header Files\WorldFields</Filter>
-    </ClInclude>
-    <ClInclude Include="EmptyField.h">
-      <Filter>Header Files\WorldFields</Filter>
-    </ClInclude>
-    <ClInclude Include="TransitionField.h">
-      <Filter>Header Files\WorldFields</Filter>
-    </ClInclude>
     <ClInclude Include="Screen.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BlockField.h">
-      <Filter>Header Files\WorldFields</Filter>
-    </ClInclude>
-    <ClInclude Include="BlacksmithField.h">
-      <Filter>Header Files\WorldFields</Filter>
-    </ClInclude>
-    <ClInclude Include="ExitField.h">
-      <Filter>Header Files\WorldFields</Filter>
-    </ClInclude>
-    <ClInclude Include="InnField.h">
-      <Filter>Header Files\WorldFields</Filter>
-    </ClInclude>
-    <ClInclude Include="ShopField.h">
-      <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
@@ -231,6 +210,30 @@
     </Text>
     <Text Include="Maps\Village_2.txt">
       <Filter>Maps\StartingVillage</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_1.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_2.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_3.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_4.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_5.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_6.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Village_1.txt">
+      <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Village_2.txt">
+      <Filter>Maps</Filter>
     </Text>
   </ItemGroup>
 </Project>

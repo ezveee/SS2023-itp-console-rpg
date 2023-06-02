@@ -28,3 +28,4 @@ a: Transition;Area_1_4;Y:1
 b: Transition;Village_2;Y:1
 H: House
 S: Shop
+n: Npc;Village_npc_1
