@@ -72,7 +72,7 @@ void Entity::useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam)
 int Entity::getSpeed() const { return this->stat.speed; }
 int Entity::getHealth() const { return this->stat.health; };
 int Entity::getMana() const { return this->stat.mana; };
-std::string Entity::getName() const { return this->name; };
+std::wstring Entity::getName() const { return this->name; };
 Stats Entity::getStats() const { return this->stat; };
 
 Ability* Entity::getDefaultAttack() const { return this->defaultAttack; }

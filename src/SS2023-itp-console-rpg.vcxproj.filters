@@ -49,6 +49,15 @@
     <Filter Include="Maps\StartingVillage">
       <UniqueIdentifier>{0d2f1284-e72d-4a03-8cd1-5fa803bb8108}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Maps\Area1">
+      <UniqueIdentifier>{d180b5f6-fac8-4046-b103-abf8d3b6c1dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Fight">
+      <UniqueIdentifier>{fce49bdf-52d1-4685-b4fc-93d6edeb97ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Fight">
+      <UniqueIdentifier>{4c7d2346-9056-43d1-8c35-63805b0927ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SS2023-itp-console-rpg.cpp">
@@ -105,6 +114,30 @@
     <ClCompile Include="HouseField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
+    <ClCompile Include="Ability.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="Ally.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="DefaultAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="FightUI.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="GameManager.cpp">
+      <Filter>Source Files\GameModes</Filter>
+    </ClCompile>
+    <ClCompile Include="Team.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h">
@@ -139,6 +172,57 @@
     </ClInclude>
     <ClInclude Include="HouseField.h">
       <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="BlacksmithField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="InnField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="NpcField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TransitionField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="Ability.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="Ally.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="Team.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="FightUI.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="DefaultAttack.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="GameManager.h">
+      <Filter>Header Files\GameModes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -211,29 +295,29 @@
     <Text Include="Maps\Village_2.txt">
       <Filter>Maps\StartingVillage</Filter>
     </Text>
-    <Text Include="Maps\Area_1_1.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_2.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_3.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_4.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_5.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_6.txt">
-      <Filter>Maps</Filter>
-    </Text>
     <Text Include="Maps\Village_1.txt">
       <Filter>Maps</Filter>
     </Text>
     <Text Include="Maps\Village_2.txt">
       <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_6.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_1.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_2.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_3.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_4.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_5.txt">
+      <Filter>Maps\Area1</Filter>
     </Text>
   </ItemGroup>
 </Project>

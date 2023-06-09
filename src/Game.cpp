@@ -1,18 +1,28 @@
 #include "Game.h"
 #include "MoveMode.h"
+#include "GameManager.h"
+#include "Player.h"
+
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include <time.h>
 
 
 void Game::run()
 {
+	srand(time(NULL));
+	GameManager* gameManager = GameManager::getInstance();
+	
+	gameManager->fight(playerTeam);
+
+	
 	//add dialogue map
 	this->dialogueMap = this->getDialogues();
 	currentGameMode = new MoveMode();
 	nextGameMode = nullptr;
 
-	while (!player.getIsExitRequested())
+	while (!player->getIsExitRequested())
 	{
 		currentGameMode->handle(this);
 

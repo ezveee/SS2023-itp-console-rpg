@@ -4,7 +4,7 @@
 DefaultAttack::DefaultAttack(Entity* entity) 
 {
 	setLevel(entity);
-	this->name = "Default Attack";
+	this->name = L"Default Attack";
 	this->cost = 0;
 	this->isAOE = false;
 }

@@ -9,7 +9,7 @@
 MoveMode::MoveMode()
 {
 	currentUserInput = new MoveInput();
-	currentScreen = new Screen(L"City_1_3");
+	currentScreen = new Screen(L"Village_2");
 	nextScreen = nullptr;
 }
 
@@ -24,17 +24,17 @@ void MoveMode::handle(Game* game)
 	currentScreen->display(game->player);
 	Command command = currentUserInput->getUserInput();
 
-	Position newPosition = game->player.calculateNewPosition(command);
+	Position newPosition = game->player->calculateNewPosition(command);
 
-	if (game->player.getInteractionRequested())
+	if (game->player->getInteractionRequested())
 	{
 		interact(currentScreen, game);
-		game->player.setInteractionRequested();
+		game->player->setInteractionRequested();
 	}
 
 	if (currentScreen->getWorldField(newPosition.x, newPosition.y)->isEnterable())
 	{
-		game->player.setPosition(newPosition.x, newPosition.y);
+		game->player->setPosition(newPosition.x, newPosition.y);
 		currentScreen->getWorldField(newPosition.x, newPosition.y)->onEnter(game);
 
 		if (nextScreen != nullptr)
@@ -48,7 +48,7 @@ void MoveMode::handle(Game* game)
 
 void MoveMode::interact(Screen* currentScreen, Game* game)
 {
-	Position currentPosition = game->player.getPosition();
+	Position currentPosition = game->player->getPosition();
 	if (currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y)->isInteractable())
 	{
 		currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y)->onInteract(game);

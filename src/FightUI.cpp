@@ -19,31 +19,31 @@ void FightUI::showStats()
     if (enemyTeam->members.size() == 0)
         throw std::runtime_error("Error: The Enemy-Team is empty. (Fight-UI)");
 
-    std::cout << "= = = = = Stats = = = = =\n" << std::endl;
+    std::wcout << "= = = = = Stats = = = = =\n" << std::endl;
 
     //Show Player-Team-Stats
-    std::string pTeamOutput = "----- Player Team -----\n\n";
+    std::wstring pTeamOutput = L"----- Player Team -----\n\n";
     for (int index = 0; index < playerTeam->members.size(); index++)
     {
-        std::string name = playerTeam->members[index]->getName();
-        std::string health = std::to_string(playerTeam->members[index]->getHealth());
-        std::string maxHealth = std::to_string(playerTeam->members[index]->getStats().maxHealth);
+        std::wstring name = playerTeam->members[index]->getName();
+        std::wstring health = std::to_wstring(playerTeam->members[index]->getHealth());
+        std::wstring maxHealth = std::to_wstring(playerTeam->members[index]->getStats().maxHealth);
 
-        pTeamOutput += "\t" + name + " [" + health + "/" + maxHealth + "]\n";
+        pTeamOutput += L"\t" + name + L" [" + health + L"/" + maxHealth + L"]\n";
     }
-    std::cout << pTeamOutput << std::endl;
+    std::wcout << pTeamOutput << std::endl;
 
     //Show Enemy-Team-Stats
-    std::string eTeamOutput = "----- Enemy Team -----\n\n";
+    std::wstring eTeamOutput = L"----- Enemy Team -----\n\n";
     for (int index = 0; index < enemyTeam->members.size(); index++)
     {
-        std::string name = enemyTeam->members[index]->getName();
-        std::string health = std::to_string(enemyTeam->members[index]->getHealth());
-        std::string maxHealth = std::to_string(enemyTeam->members[index]->getStats().maxHealth);
+        std::wstring name = enemyTeam->members[index]->getName();
+        std::wstring health = std::to_wstring(enemyTeam->members[index]->getHealth());
+        std::wstring maxHealth = std::to_wstring(enemyTeam->members[index]->getStats().maxHealth);
 
-        eTeamOutput += "\t" + name + " [" + health + "/" + maxHealth + "]\n";
+        eTeamOutput += L"\t" + name + L" [" + health + L"/" + maxHealth + L"]\n";
     }
-    std::cout << eTeamOutput << std::endl;
+    std::wcout << eTeamOutput << std::endl;
 }
 
 void FightUI::showChooseAction(Ally* user, int selection)
@@ -51,25 +51,25 @@ void FightUI::showChooseAction(Ally* user, int selection)
     system("cls");
 
     //Dialog Box
-    std::string dialog = user->getName() + ", please select an Action...";
+    std::wstring dialog = user->getName() + L", please select an Action...";
     this->showDialog(dialog, false);
 
     if (selection == Default)
-        std::cout << "> ";
-    std::cout << "Base Attack" << std::endl;
+        std::wcout << "> ";
+    std::wcout << "Base Attack" << std::endl;
 
     if (selection == UseAbility)
-        std::cout << "> ";
-    std::cout << "Use Ability" << std::endl;
+        std::wcout << "> ";
+    std::wcout << "Use Ability" << std::endl;
 
     if (selection == UseItem)
-        std::cout << "> ";
-    std::cout << "Use Item" << std::endl;
+        std::wcout << "> ";
+    std::wcout << "Use Item" << std::endl;
 
     if (selection == Block)
-        std::cout << "> ";
-    std::cout << "Block" << std::endl;
-    std::cout << std::endl;
+        std::wcout << "> ";
+    std::wcout << "Block" << std::endl;
+    std::wcout << std::endl;
 
     this->showStats();
 }
@@ -79,16 +79,16 @@ void FightUI::showChooseAbility(Ally* user, int selection)
     system("cls");
 
     //Dialog Box
-    std::string dialog = user->getName() + ", please select an Ability...";
+    std::wstring dialog = user->getName() + L", please select an Ability...";
     this->showDialog(dialog, false);
 
     std::vector<Ability*> abilities = user->getAbilities();
     for (int i = 0; i < abilities.size(); i++)
     {
         if (i == selection)
-            std::cout << "> ";
+            std::wcout << "> ";
 
-        std::cout << abilities[i]->getName() << " [" << abilities[i]->cost << "]" << std::endl;
+        std::wcout << abilities[i]->getName() << " [" << abilities[i]->cost << "]" << std::endl;
     }
 
 	this->showStats();
@@ -99,64 +99,64 @@ void FightUI::showChooseTarget(Ally* user, int selection, Team* targetTeam)
     system("cls");
 
     //Dialog Box
-    std::string dialog = user->getName() + ", please select a Target...";
+    std::wstring dialog = user->getName() + L", please select a Target...";
     this->showDialog(dialog, false);
 
     for (int i = 0; i < targetTeam->members.size(); i++)
     {
         if (i == selection)
-            std::cout << "> ";
+            std::wcout << "> ";
 
         Entity* enemy = targetTeam->members[i];
-        std::cout << enemy->getName();
-        std::cout << " [" << enemy->getHealth() << "/" << enemy->getStats().maxHealth << "]" << std::endl;
+        std::wcout << enemy->getName();
+        std::wcout << L" [" << enemy->getHealth() << L"/" << enemy->getStats().maxHealth << L"]" << std::endl;
     }
-    std::cout << std::endl;
+    std::wcout << std::endl;
 
     this->showStats();
 }
 
-void FightUI::showDialog(std::string dialog, bool requireInput)
+void FightUI::showDialog(std::wstring dialog, bool requireInput)
 {
     int dialogWidth = 50;
-    std::string border = "+------------------------------------------------+";
+    std::wstring border = L"+------------------------------------------------+";
 
-    std::cout << border << std::endl;
+	std::wcout << border << L"\n";
 
-    std::istringstream iss(dialog);
-    std::string line;
+	std::wistringstream iss(dialog);
+    std::wstring line;
     while (std::getline(iss, line))
     {
         while (!line.empty())
         {
-            std::string output = "| ";
+            std::wstring output = L"| ";
 
             if (line.length() <= (dialogWidth - 4))
             {
-                output += line + std::string(dialogWidth - 4 - line.length(), ' ');
-                output += " |";
+                output += line + std::wstring(dialogWidth - 4 - line.length(), ' ');
+                output += L" |";
                 line.clear();
             }
             else
             {
-                size_t lastSpace = line.substr(0, dialogWidth - 4).find_last_of(' ');
-                if (lastSpace == std::string::npos)
+                size_t lastSpace = line.substr(0, dialogWidth - 4).find_last_of(L' ');
+                if (lastSpace == std::wstring::npos)
                 {
-                    output += line.substr(0, dialogWidth - 4) + " |";
+                    output += line.substr(0, dialogWidth - 4) + L" |";
                     line = line.substr(dialogWidth - 4);
                 }
                 else
                 {
-                    output += line.substr(0, lastSpace) + std::string(dialogWidth - 4 - lastSpace, ' ') + " |";
+                    output += line.substr(0, lastSpace) + std::wstring(dialogWidth - 4 - lastSpace, ' ') + L" |";
                     line = line.substr(lastSpace + 1);
                 }
             }
 
-            std::cout << output << std::endl;
+            std::wcout << output << std::endl;
         }
     }
 
-    std::cout << border << "\n" << std::endl;
+    std::wcout << border << L"\n" << std::endl;
 
     if (requireInput)
         std::cin.get();
@@ -168,7 +168,7 @@ void FightUI::setTeams(Team* playerTeam, Team* enemyTeam)
     this->enemyTeam = enemyTeam;
 }
 
-//std::string output =
+//std::wstring output =
 //"+----------------------------------------------------------------------+\n"
 //"|                                                                      |\n"
 //"|  +--------------------+                      +--------------------+  |\n"

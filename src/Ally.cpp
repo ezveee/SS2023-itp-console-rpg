@@ -26,7 +26,7 @@ Ally::Ally(Team* playerTeam, RoleClass role)
     struct Stats allyStats = { 0,0,0,0,0,0,0,0,0,0,0,0 };
     if (role == Warrior)
     {
-        this->name = "Warrior";
+        this->name = L"Warrior";
 
         allyStats.maxHealth = 12;
         allyStats.maxMana = 8;
@@ -40,7 +40,7 @@ Ally::Ally(Team* playerTeam, RoleClass role)
     }
     if (role == Magician)
     {
-        this->name = "Magician";
+        this->name = L"Magician";
 
         allyStats.maxHealth = 10;
         allyStats.maxMana = 14;
@@ -63,15 +63,15 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 
 Ally::~Ally()
 {
-    std::cout << "- - - - - " << this->getName() << " - - - - -" << std::endl;
+    std::wcout << L"- - - - - " << this->getName() << L" - - - - -" << std::endl;
     this->defaultAttack;
     for (int i = 0; i < this->abilities.size(); i++)
     {
-        std::cout << abilities[i]->getName() << ", was deleted" << std::endl;
+        std::wcout << abilities[i]->getName() << L", was deleted" << std::endl;
         delete this->abilities[i];
     }
     this->abilities.clear();
-    std::cout << "- - - - - " << this->getName() << " deleted - - - - -" << std::endl;
+    std::wcout << L"- - - - - " << this->getName() << L" deleted - - - - -" << std::endl;
 }
 
 fightAction Ally::chooseAction()
@@ -127,7 +127,7 @@ Ability* Ally::chooseAbility()
     //No Abilities
     if (this->abilities.size() == 0)
     {
-        std::cout << this->getName() << " doesn't have any Abilities!" << std::endl;
+        std::wcout << this->getName() << " doesn't have any Abilities!" << std::endl;
         return nullptr;
     }
 

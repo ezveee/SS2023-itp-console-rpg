@@ -58,14 +58,14 @@ class Entity
 		int getSpeed() const;
 		int getHealth() const;
 		int getMana() const;
-		std::string getName() const;
+		std::wstring getName() const;
 		Stats getStats() const;
 
 		Ability* getDefaultAttack() const;
 		std::vector<Ability*> getAbilities() const;
 
 	protected:
-		std::string name;
+		std::wstring name;
 		Stats stat;
 
 		Ability* defaultAttack;

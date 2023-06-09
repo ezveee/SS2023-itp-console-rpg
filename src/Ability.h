@@ -11,13 +11,13 @@ class Ability
         int cost;
         bool isAOE;
         void setLevel(Entity* entity);
-        std::string getName() const;
+        std::wstring getName() const;
 
         virtual void action(Entity* user, Entity* target) = 0;
         void attack(int damage, int manaCost, bool isSpecial, Entity* user, Entity* target);
 
     protected:
-        std::string name;
+        std::wstring name;
         int level;
 
     private:

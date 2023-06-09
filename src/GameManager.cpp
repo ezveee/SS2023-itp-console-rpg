@@ -40,17 +40,18 @@ Team* GameManager::createEnemyTeam(int pTeamSize)
 
     Team* enemyTeam = new Team();
 
-    int randomNum = rand() % 2;
     EnemyType type;
-    if (randomNum == 0) {
-        type = Goblin;
-    }
-    else {
-        type = Slime;
-    }
 
     for (int i = 0; i < enemyTeamSize; i++)
     {
+		int randomNum = rand() % 2;
+		if (randomNum == 0) {
+			type = Goblin;
+		}
+		else {
+			type = Slime;
+		}
+
         Enemy* enemy = new Enemy(enemyTeam, type);
     }
 
@@ -136,8 +137,8 @@ void GameManager::fight(Team* playerTeam)
                 system("cls");
                 //'#' means there is a line break
                 this->fightUI->showDialog(
-                    entitiesOrder[i]->getName() + " is next!\n" + 
-                    "Press any Key to continue... "
+                    entitiesOrder[i]->getName() + L" is next!\n" + 
+                    L"Press any Key to continue... "
                     , false);
                 this->fightUI->showStats();
                 std::cin.get();
@@ -170,7 +171,7 @@ void GameManager::fight(Team* playerTeam)
                     //Go back to "choseAction"
                     if (chosenAbility == nullptr)
                     {
-                        this->fightUI->showDialog("Choosing Ability canceled.", true);
+                        this->fightUI->showDialog(L"Choosing Ability canceled.", true);
                         continue;
                     }
 
@@ -195,7 +196,7 @@ void GameManager::fight(Team* playerTeam)
                 }
                 else if (chosenAction == Run)
                 {
-                    fightUI->showDialog("You've run from the fight.", true);
+                    fightUI->showDialog(L"You've run from the fight.", true);
                     fighting = false;
                     entitiesOrder.clear();
                 }
@@ -220,13 +221,13 @@ void GameManager::fight(Team* playerTeam)
                 if (!enemyTeam->isTeamAlive())
                 {
                     //Message: You've won!
-                    fightUI->showDialog("You have won.", false);
+                    fightUI->showDialog(L"You have won.", false);
                 }
                 //Check if Player-Team is Alive
                 if (!playerTeam->isTeamAlive())
                 {
                     //Message: You've lost!
-                    fightUI->showDialog("You have died.", false);
+                    fightUI->showDialog(L"You have died.", false);
                 }
                 fightUI->showStats();
                 std::cin.get();

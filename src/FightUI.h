@@ -7,7 +7,7 @@ class FightUI
 {
 	public:
 		void showStats();
-		void showDialog(std::string dialog, bool requireInput);
+		void showDialog(std::wstring dialog, bool requireInput);
 
 		void showChooseAction(Ally* user, int selection);
 		void showChooseAbility(Ally* user, int selection);

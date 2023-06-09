@@ -25,7 +25,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 	struct Stats enemyStats = { 0,0,0,0,0,0,0,0,0,0,0,0 };
 	if (type == Slime)
 	{
-		this->name = "Slime";
+		this->name = L"Slime";
 
 		enemyStats.maxHealth = 8;
 		enemyStats.maxMana = 12;
@@ -39,7 +39,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 	}
 	if (type == Goblin)
 	{
-		this->name = "Goblin";
+		this->name = L"Goblin";
 
 		enemyStats.maxHealth = 10;
 		enemyStats.maxMana = 10;
@@ -62,18 +62,18 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 Enemy::~Enemy()
 {
-	std::cout << "\t- - - - - " << this->getName() << " - - - - -" << std::endl;
+	std::wcout << "\t- - - - - " << this->getName() << " - - - - -" << std::endl;
 	
-	std::cout <<"\t> " << this->defaultAttack->getName() << ", was deleted" << std::endl;
+	std::wcout <<"\t> " << this->defaultAttack->getName() << ", was deleted" << std::endl;
 	delete this->defaultAttack;
 
 	for (int i = 0; i < this->abilities.size(); i++)
 	{
-		std::cout << "\t> " << abilities[i]->getName() << ", was deleted" << std::endl;
+		std::wcout << "\t> " << abilities[i]->getName() << ", was deleted" << std::endl;
 		delete this->abilities[i];
 	}
 	this->abilities.clear();
-	std::cout << "\t- - - - - " << this->getName() << " deleted - - - - -" << std::endl;
+	std::wcout << "\t- - - - - " << this->getName() << " deleted - - - - -" << std::endl;
 }
 
 fightAction Enemy::chooseAction()

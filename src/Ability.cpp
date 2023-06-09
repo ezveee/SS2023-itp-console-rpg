@@ -7,7 +7,7 @@ void Ability::setLevel(Entity* entity)
 	this->level = entity->getStats().level;
 }
 
-std::string Ability::getName() const { return this->name; };
+std::wstring Ability::getName() const { return this->name; };
 
 void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Entity* target)
 {
@@ -23,12 +23,12 @@ void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Ent
 	//Adds a D20 to the Accuracy-Stat
 	int modifiedAcc = modifyAccuracy(user->getStats().accuracy);
 
-	std::string defOrSpDef = " Defense: ";
+	std::wstring defOrSpDef = L" Defense: ";
 	int targetDef = 0;
 	if (isSpecial)
 	{
 		targetDef = target->getStats().spDefense;
-		defOrSpDef = " Sp. Defense: ";
+		defOrSpDef = L" Sp. Defense: ";
 	}
 	else
 		targetDef = target->getStats().defense;
@@ -37,29 +37,29 @@ void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Ent
 	GameManager* gameManager = GameManager::getInstance();
 	FightUI* fightUI = gameManager->getFightUI();
 
-	std::string dialog = user->getName() + "'s modified Accuracy: " + std::to_string(modifiedAcc) + "\n";
+	std::wstring dialog = user->getName() + L"'s modified Accuracy: " + std::to_wstring(modifiedAcc) + L"\n";
 	//Check if Attack Hits
 	if (doesAttackHit(modifiedAcc, targetDef))
 	{
-		std::string hitOrCrit = " hits ";
+		std::wstring hitOrCrit = L" hits ";
 		//Double the Damage if the modified Accuracy + the Crit-Stat > targetDef * 2
 		if ((modifiedAcc + user->getStats().critical) >= (targetDef * 2))
 		{
 			damage = damage * 2;
-			hitOrCrit = " crits ";
+			hitOrCrit = L" crits ";
 		}
 
 		//Attack
 		target->modifyHealth(-damage);
 
 		dialog += 
-			"(+ " + std::to_string(user->getStats().critical) + " critical Chance)\n" +
-			target->getName() + "'s" + defOrSpDef + std::to_string(targetDef) + "\n" +
-			user->getName() + hitOrCrit + target->getName() + ", for " + std::to_string(damage) + " Damage!";
+			L"(+ " + std::to_wstring(user->getStats().critical) + L" critical Chance)\n" +
+			target->getName() + L"'s" + defOrSpDef + std::to_wstring(targetDef) + L"\n" +
+			user->getName() + hitOrCrit + target->getName() + L", for " + std::to_wstring(damage) + L" Damage!";
 	}
 	else
 	{
-		dialog += user->getName() + " misses " + target->getName() + "!";
+		dialog += user->getName() + L" misses " + target->getName() + L"!";
 	}
 
 	fightUI->showDialog(dialog, true);

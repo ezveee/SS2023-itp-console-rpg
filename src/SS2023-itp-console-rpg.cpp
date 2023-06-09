@@ -15,5 +15,9 @@ int main()
 	std::locale::global(std::locale(std::locale::empty(), new std::codecvt_utf8<wchar_t>));
 
 	Game game;
+
+	game.playerTeam = new Team();
+	game.player = new Player(game.playerTeam, Warrior);
+
 	game.run();
 }

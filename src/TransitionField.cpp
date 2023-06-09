@@ -41,13 +41,13 @@ void TransitionField::onEnter(Game* game)
 	((MoveMode*)game->currentGameMode)->nextScreen = new Screen(mapName);
 	if (xPos == -1)
 	{
-		xPos = game->player.getPosition().x;
+		xPos = game->player->getPosition().x;
 	}
 	if (yPos == -1)
 	{
-		yPos = game->player.getPosition().y;
+		yPos = game->player->getPosition().y;
 	}
-	game->player.setPosition(xPos, yPos);
+	game->player->setPosition(xPos, yPos);
 }
 
 void TransitionField::onInteract(Game* game)

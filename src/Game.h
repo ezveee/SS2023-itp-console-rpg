@@ -14,7 +14,10 @@ public:
 	void run();
 	std::map<std::wstring, std::wstring> getDialogues();
 
-	Player player;
+	//Player player;
+
+	Player* player;
+	Team* playerTeam;
 	
 	GameMode* currentGameMode;
 	GameMode* nextGameMode;

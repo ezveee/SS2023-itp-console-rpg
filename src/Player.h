@@ -2,11 +2,12 @@
 
 #include "Position.h"
 #include "Command.h"
+#include "Ally.h"
 
-class Player
+class Player : public Ally
 {
 	public:
-		Player();
+		Player(Team* playerTeam, RoleClass role);
 		virtual ~Player();
 
 		bool getIsExitRequested() const;

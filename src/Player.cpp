@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include "defines.h"
 
-Player::Player()
+Player::Player(Team* playerTeam, RoleClass role) : Ally(playerTeam, role)
 {
 	setPosition(PLAYER_START_X, PLAYER_START_Y);
 }
