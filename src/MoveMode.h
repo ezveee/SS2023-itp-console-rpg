@@ -9,7 +9,7 @@ class Screen;
 class MoveMode : public GameMode
 {
 public:
-	MoveMode();
+	MoveMode(Game* game);
 	virtual ~MoveMode();
 
 	void handle(Game* game) override;
@@ -17,5 +17,9 @@ public:
 
 	Screen* currentScreen;
 	Screen* nextScreen;
+
+private:
+	int moveCounter = 0;
+	int stepsUntilEncounter;
 };
 

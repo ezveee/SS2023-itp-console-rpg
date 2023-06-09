@@ -1,8 +1,9 @@
-#include "FightUI.h"
+#include "UIManager.h"
 #include <iostream>
 #include <sstream>
+#include "conio.h"
 
-void FightUI::showStats()
+void UIManager::showStats()
 {
     //If any Team-Pointer is a nullptr, Error
     if (this->playerTeam == nullptr)
@@ -46,7 +47,7 @@ void FightUI::showStats()
     std::wcout << eTeamOutput << std::endl;
 }
 
-void FightUI::showChooseAction(Ally* user, int selection)
+void UIManager::showChooseAction(Ally* user, int selection)
 {
     system("cls");
 
@@ -74,7 +75,7 @@ void FightUI::showChooseAction(Ally* user, int selection)
     this->showStats();
 }
 
-void FightUI::showChooseAbility(Ally* user, int selection)
+void UIManager::showChooseAbility(Ally* user, int selection)
 {
     system("cls");
 
@@ -94,7 +95,7 @@ void FightUI::showChooseAbility(Ally* user, int selection)
 	this->showStats();
 }
 
-void FightUI::showChooseTarget(Ally* user, int selection, Team* targetTeam)
+void UIManager::showChooseTarget(Ally* user, int selection, Team* targetTeam)
 {
     system("cls");
 
@@ -116,7 +117,7 @@ void FightUI::showChooseTarget(Ally* user, int selection, Team* targetTeam)
     this->showStats();
 }
 
-void FightUI::showDialog(std::wstring dialog, bool requireInput)
+void UIManager::showDialog(std::wstring dialog, bool requireInput)
 {
     int dialogWidth = 50;
     std::wstring border = L"+------------------------------------------------+";
@@ -159,10 +160,10 @@ void FightUI::showDialog(std::wstring dialog, bool requireInput)
     std::wcout << border << L"\n" << std::endl;
 
     if (requireInput)
-        std::cin.get();
+        _getch();
 }
 
-void FightUI::setTeams(Team* playerTeam, Team* enemyTeam)
+void UIManager::setTeams(Team* playerTeam, Team* enemyTeam)
 {
     this->playerTeam = playerTeam;
     this->enemyTeam = enemyTeam;

@@ -2,7 +2,7 @@
 #include <iostream>
 #include "conio.h"
 #include "defines.h"
-#include "GameManager.h"
+#include "Game.h"
 
 Ally::Ally(Team* playerTeam, RoleClass role)
 {
@@ -76,15 +76,15 @@ Ally::~Ally()
 
 fightAction Ally::chooseAction()
 {
-    GameManager* gameManager = GameManager::getInstance();
-    FightUI* fightUI = gameManager->getFightUI();
+	Game* game = Game::getInstance();
+	UIManager* uiManager = game->getUIManager();
 
     int selection = 0;
     bool choosingAction = true;
     char input = '\0';
     while (choosingAction)
     {
-        fightUI->showChooseAction(this, selection);
+        uiManager->showChooseAction(this, selection);
         input = _getch();
 
         //Enter or Space
@@ -131,15 +131,15 @@ Ability* Ally::chooseAbility()
         return nullptr;
     }
 
-    GameManager* gameManager = GameManager::getInstance();
-    FightUI* fightUI = gameManager->getFightUI(); 
+	Game* game = Game::getInstance();
+	UIManager* uiManager = game->getUIManager();
 
     int selection = 0;
     bool choosingAbility = true;
     char input = '\0';
     while (choosingAbility)
     {
-        fightUI->showChooseAbility(this, selection);
+        uiManager->showChooseAbility(this, selection);
         input = _getch();
 
         //Enter or Space
@@ -173,15 +173,15 @@ Entity* Ally::chooseTarget(Team* targetTeam)
     if(targetTeam->members.size() == 0)
         throw std::runtime_error("Error: The Target-Team is empty.");
 
-    GameManager* gameManager = GameManager::getInstance();
-    FightUI* fightUI = gameManager->getFightUI();
+	Game* game = Game::getInstance();
+	UIManager* uiManager = game->getUIManager();
 
     int selection = 0;
     bool choosingTarget = true;
     char input = '\0';
     while (choosingTarget)
     {
-        fightUI->showChooseTarget(this, selection, targetTeam);
+        uiManager->showChooseTarget(this, selection, targetTeam);
         input = _getch();
 
         //Enter or Space

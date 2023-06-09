@@ -6,11 +6,13 @@
 #include "WorldField.h"
 #include <iostream>
 
-MoveMode::MoveMode()
+MoveMode::MoveMode(Game* game)
 {
 	currentUserInput = new MoveInput();
-	currentScreen = new Screen(L"Village_2");
+	currentScreen = new Screen(game->currentScreenName);
 	nextScreen = nullptr;
+
+	stepsUntilEncounter = rand() % 9 + 8;
 }
 
 MoveMode::~MoveMode()
@@ -35,6 +37,9 @@ void MoveMode::handle(Game* game)
 	if (currentScreen->getWorldField(newPosition.x, newPosition.y)->isEnterable())
 	{
 		game->player->setPosition(newPosition.x, newPosition.y);
+
+		++moveCounter;
+		
 		currentScreen->getWorldField(newPosition.x, newPosition.y)->onEnter(game);
 
 		if (nextScreen != nullptr)
@@ -43,6 +48,13 @@ void MoveMode::handle(Game* game)
 			currentScreen = nextScreen;
 			nextScreen = nullptr;
 		}
+	}
+
+	if (moveCounter >= stepsUntilEncounter)
+	{
+		moveCounter = 0;
+		game->getUIManager()->showDialog(L"Enemy encountered!", true);
+		game->nextGameMode = new FightMode();
 	}
 }
 

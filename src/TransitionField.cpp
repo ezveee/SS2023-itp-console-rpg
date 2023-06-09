@@ -38,6 +38,7 @@ TransitionField::~TransitionField() = default;
 
 void TransitionField::onEnter(Game* game)
 {
+	game->currentScreenName = mapName;
 	((MoveMode*)game->currentGameMode)->nextScreen = new Screen(mapName);
 	if (xPos == -1)
 	{

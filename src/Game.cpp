@@ -1,6 +1,4 @@
 #include "Game.h"
-#include "MoveMode.h"
-#include "GameManager.h"
 #include "Player.h"
 
 #include <fstream>
@@ -9,18 +7,36 @@
 #include <time.h>
 
 
+Game* Game::instance = nullptr;
+
+Game* Game::getInstance()
+{
+	if (instance == nullptr) {
+		instance = new Game();
+	}
+	return instance;
+}
+
+Game::Game()
+{
+	uiManager = new UIManager();
+
+	//add dialogue map
+	this->dialogueMap = this->getDialogues();
+
+	currentGameMode = new MoveMode(this);
+	nextGameMode = nullptr;
+}
+
+Game::~Game()
+{
+	delete uiManager;
+	delete currentGameMode;
+}
+
 void Game::run()
 {
 	srand(time(NULL));
-	GameManager* gameManager = GameManager::getInstance();
-	
-	gameManager->fight(playerTeam);
-
-	
-	//add dialogue map
-	this->dialogueMap = this->getDialogues();
-	currentGameMode = new MoveMode();
-	nextGameMode = nullptr;
 
 	while (!player->getIsExitRequested())
 	{

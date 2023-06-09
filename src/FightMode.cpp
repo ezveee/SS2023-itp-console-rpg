@@ -1,33 +1,25 @@
-#include "GameManager.h"
+#include "FightMode.h"
 #include "Enemy.h"
+#include "Game.h"
+#include "conio.h"
 #include <iostream>
 
-GameManager* GameManager::instance = nullptr;
-
-GameManager::GameManager()
+FightMode::FightMode()
 {
-    this->fightUI = new FightUI();
+    //this->fightUI = new FightUI();
 }
 
-GameManager::~GameManager()
+FightMode::~FightMode()
 {
-    delete this->fightUI;
+    //delete this->fightUI;
 }
 
-GameManager* GameManager::getInstance()
-{
-    if (instance == nullptr) {
-        instance = new GameManager();
-    }
-    return instance;
-}
-
-void GameManager::randomEnemyEncounter()
+void FightMode::randomEnemyEncounter()
 {
 
 }
 
-Team* GameManager::createEnemyTeam(int pTeamSize)
+Team* FightMode::createEnemyTeam(int pTeamSize)
 {
     //1 Player-Team-Size, 1-2 enemies
     //2 Player-Team-Size, 2-3 enemies 
@@ -35,7 +27,7 @@ Team* GameManager::createEnemyTeam(int pTeamSize)
     int enemyTeamSize = rand() % 2 + pTeamSize;
 
     if (enemyTeamSize > (pTeamSize + 1) || enemyTeamSize < pTeamSize)
-        throw std::runtime_error("Error: Enemy-Team-Size is wrong. (GameManager)");
+        throw std::runtime_error("Error: Enemy-Team-Size is wrong. (FightMode)");
 
 
     Team* enemyTeam = new Team();
@@ -58,7 +50,7 @@ Team* GameManager::createEnemyTeam(int pTeamSize)
     return enemyTeam;
 }
 
-std::vector<Entity*> GameManager::setFightOrder(Team* playerTeam, Team* enemyTeam)
+std::vector<Entity*> FightMode::setFightOrder(Team* playerTeam, Team* enemyTeam)
 {
 	//If any Team is empty, Error
 	if (playerTeam->members.size() == 0)
@@ -107,22 +99,24 @@ std::vector<Entity*> GameManager::setFightOrder(Team* playerTeam, Team* enemyTea
 	return fightOrder;
 }
 
-void GameManager::fight(Team* playerTeam)
+void FightMode::handle(Game* game)
 {
-    Team* enemyTeam = this->createEnemyTeam(playerTeam->members.size());
+	UIManager* uiManager = game->getUIManager();
+	
+	Team* enemyTeam = this->createEnemyTeam(game->playerTeam->members.size());
 
-    std::vector<Entity*> entitiesOrder = this->setFightOrder(playerTeam, enemyTeam);
+    std::vector<Entity*> entitiesOrder = this->setFightOrder(game->playerTeam, enemyTeam);
 
     //If any Team is empty, throw an exception
     if (entitiesOrder.size() == 0)
         throw std::runtime_error("Error: The Entities-Order is empty.");
-    if (playerTeam->members.size() == 0)
+    if (game->playerTeam->members.size() == 0)
         throw std::runtime_error("Error: The Player-Team is empty.");
     if (enemyTeam->members.size() == 0)
         throw std::runtime_error("Error: The Enemy-Team is empty.");
 
     bool fighting = true;
-    this->fightUI->setTeams(playerTeam, enemyTeam);
+    uiManager->setTeams(game->playerTeam, enemyTeam);
 
     //Fight is lasting until one Team is dead
     while (fighting)
@@ -136,19 +130,19 @@ void GameManager::fight(Team* playerTeam)
             {
                 system("cls");
                 //'#' means there is a line break
-                this->fightUI->showDialog(
+                uiManager->showDialog(
                     entitiesOrder[i]->getName() + L" is next!\n" + 
                     L"Press any Key to continue... "
                     , false);
-                this->fightUI->showStats();
-                std::cin.get();
+                uiManager->showStats();
+                _getch();
 
                 //Check if current Entity is in the Players Team
                 Team* oponentTeam = nullptr;
-                if (std::find(playerTeam->members.begin(), playerTeam->members.end(), entitiesOrder[i]) != playerTeam->members.end())
+                if (std::find(game->playerTeam->members.begin(), game->playerTeam->members.end(), entitiesOrder[i]) != game->playerTeam->members.end())
                     oponentTeam = enemyTeam;
                 else
-                    oponentTeam = playerTeam;
+                    oponentTeam = game->playerTeam;
 
                 fightAction chosenAction = entitiesOrder[i]->chooseAction();
 
@@ -171,7 +165,7 @@ void GameManager::fight(Team* playerTeam)
                     //Go back to "choseAction"
                     if (chosenAbility == nullptr)
                     {
-                        this->fightUI->showDialog(L"Choosing Ability canceled.", true);
+                        uiManager->showDialog(L"Choosing Ability canceled.", true);
                         continue;
                     }
 
@@ -196,7 +190,7 @@ void GameManager::fight(Team* playerTeam)
                 }
                 else if (chosenAction == Run)
                 {
-                    fightUI->showDialog(L"You've run from the fight.", true);
+                    uiManager->showDialog(L"You've run from the fight.", true);
                     fighting = false;
                     entitiesOrder.clear();
                 }
@@ -213,7 +207,7 @@ void GameManager::fight(Team* playerTeam)
                 }
             }
 
-            if (!enemyTeam->isTeamAlive() || !playerTeam->isTeamAlive())
+            if (!enemyTeam->isTeamAlive() || !game->playerTeam->isTeamAlive())
             {
                 system("cls");
 
@@ -221,16 +215,16 @@ void GameManager::fight(Team* playerTeam)
                 if (!enemyTeam->isTeamAlive())
                 {
                     //Message: You've won!
-                    fightUI->showDialog(L"You have won.", false);
+                    uiManager->showDialog(L"You have won.", false);
                 }
                 //Check if Player-Team is Alive
-                if (!playerTeam->isTeamAlive())
+                if (!game->playerTeam->isTeamAlive())
                 {
                     //Message: You've lost!
-                    fightUI->showDialog(L"You have died.", false);
+					uiManager->showDialog(L"You have died.", false);
                 }
-                fightUI->showStats();
-                std::cin.get();
+				uiManager->showStats();
+                _getch();
 
                 fighting = false;
                 entitiesOrder.clear();
@@ -240,4 +234,6 @@ void GameManager::fight(Team* playerTeam)
 
     //delete Enemies
     delete enemyTeam;
+
+	game->nextGameMode = new MoveMode(game);
 }

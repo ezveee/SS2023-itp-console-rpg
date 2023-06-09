@@ -136,9 +136,9 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ExitField.cpp" />
-    <ClCompile Include="FightUI.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="FightMode.cpp" />
     <ClCompile Include="GameMode.cpp" />
     <ClCompile Include="HouseField.cpp" />
     <ClCompile Include="InnField.cpp" />
@@ -165,9 +165,9 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ExitField.h" />
-    <ClInclude Include="FightUI.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="FightMode.h" />
     <ClInclude Include="GameMode.h" />
     <ClInclude Include="HouseField.h" />
     <ClInclude Include="InnField.h" />

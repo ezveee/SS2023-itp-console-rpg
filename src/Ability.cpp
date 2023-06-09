@@ -1,6 +1,6 @@
 #include "Ability.h"
 #include "Entity.h"
-#include "GameManager.h"
+#include "Game.h"
 
 void Ability::setLevel(Entity* entity)
 {
@@ -34,8 +34,8 @@ void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Ent
 		targetDef = target->getStats().defense;
 
 
-	GameManager* gameManager = GameManager::getInstance();
-	FightUI* fightUI = gameManager->getFightUI();
+	Game* game = Game::getInstance();
+	UIManager* uiManager = game->getUIManager();
 
 	std::wstring dialog = user->getName() + L"'s modified Accuracy: " + std::to_wstring(modifiedAcc) + L"\n";
 	//Check if Attack Hits
@@ -62,7 +62,7 @@ void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Ent
 		dialog += user->getName() + L" misses " + target->getName() + L"!";
 	}
 
-	fightUI->showDialog(dialog, true);
+	uiManager->showDialog(dialog, true);
 }
 
 int Ability::modifyAccuracy(int userAccuracy)

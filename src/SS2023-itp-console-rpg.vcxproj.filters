@@ -129,14 +129,14 @@
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Fight</Filter>
     </ClCompile>
-    <ClCompile Include="FightUI.cpp">
-      <Filter>Source Files\Fight</Filter>
-    </ClCompile>
-    <ClCompile Include="GameManager.cpp">
+    <ClCompile Include="FightMode.cpp">
       <Filter>Source Files\GameModes</Filter>
     </ClCompile>
     <ClCompile Include="Team.cpp">
       <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -215,14 +215,14 @@
     <ClInclude Include="Team.h">
       <Filter>Header Files\Fight</Filter>
     </ClInclude>
-    <ClInclude Include="FightUI.h">
-      <Filter>Header Files\Fight</Filter>
-    </ClInclude>
     <ClInclude Include="DefaultAttack.h">
       <Filter>Header Files\Fight</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
+    <ClInclude Include="FightMode.h">
       <Filter>Header Files\GameModes</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

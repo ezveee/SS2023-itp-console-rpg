@@ -14,10 +14,10 @@ int main()
 	_setmode(_fileno(stdout), _O_U16TEXT);
 	std::locale::global(std::locale(std::locale::empty(), new std::codecvt_utf8<wchar_t>));
 
-	Game game;
+	Game* game = Game::getInstance();
 
-	game.playerTeam = new Team();
-	game.player = new Player(game.playerTeam, Warrior);
+	game->playerTeam = new Team();
+	game->player = new Player(game->playerTeam, Warrior);
 
-	game.run();
+	game->run();
 }

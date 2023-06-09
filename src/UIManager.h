@@ -3,7 +3,7 @@
 #include "Team.h"
 #include "Ally.h"
 
-class FightUI
+class UIManager
 {
 	public:
 		void showStats();
