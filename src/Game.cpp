@@ -1,17 +1,44 @@
 #include "Game.h"
-#include "MoveMode.h"
+#include "Player.h"
+
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include <time.h>
+
+
+Game* Game::instance = nullptr;
+
+Game* Game::getInstance()
+{
+	if (instance == nullptr) {
+		instance = new Game();
+	}
+	return instance;
+}
+
+Game::Game()
+{
+	uiManager = new UIManager();
+
+	loadSaveFile(&(this->player), getSaveFile());
+	this->generateMaps();
+
+	currentGameMode = new MoveMode(this);
+	nextGameMode = nullptr;
+}
+
+Game::~Game()
+{
+	delete uiManager;
+	delete currentGameMode;
+}
 
 void Game::run()
 {
-	loadSaveFile(&(this->player), getSaveFile());
-	this->generateMaps();
-	currentGameMode = new MoveMode(this);
-	nextGameMode = nullptr;
+	srand(time(NULL));
 
-	while (!player.getIsExitRequested())
+	while (!player->getIsExitRequested())
 	{
 		currentGameMode->handle(this);
 

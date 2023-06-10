@@ -15,7 +15,7 @@ class Screen
 public:
 	explicit Screen(const std::wstring& filename, Game* game);
 	virtual ~Screen();
-	void display(const Player& player) const;
+	void display(Player* player) const;
 	void setMapName(std::wstring newMapName);
 	std::wstring getMapName();
 	WorldField* getWorldField(int x, int y) const;

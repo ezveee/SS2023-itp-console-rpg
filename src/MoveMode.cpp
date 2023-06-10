@@ -9,8 +9,10 @@
 MoveMode::MoveMode(Game* game)
 {
 	currentUserInput = new MoveInput();
-	currentScreen = new Screen(L"City_1_1", game);
+	currentScreen = new Screen(game->currentScreenName);
 	nextScreen = nullptr;
+
+	stepsUntilEncounter = rand() % 9 + 8;
 }
 
 MoveMode::~MoveMode()
@@ -24,17 +26,20 @@ void MoveMode::handle(Game* game)
 	currentScreen->display(game->player);
 	Command command = currentUserInput->getUserInput();
 
-	Position newPosition = game->player.calculateNewPosition(command);
+	Position newPosition = game->player->calculateNewPosition(command);
 
-	if (game->player.getInteractionRequested())
+	if (game->player->getInteractionRequested())
 	{
 		interact(currentScreen, game);
-		game->player.setInteractionRequested();
+		game->player->setInteractionRequested();
 	}
 
 	if (currentScreen->getWorldField(newPosition.x, newPosition.y)->isEnterable())
 	{
-		game->player.setPosition(newPosition.x, newPosition.y);
+		game->player->setPosition(newPosition.x, newPosition.y);
+
+		++moveCounter;
+		
 		currentScreen->getWorldField(newPosition.x, newPosition.y)->onEnter(game);
 
 		if (nextScreen != nullptr)
@@ -43,6 +48,13 @@ void MoveMode::handle(Game* game)
 			currentScreen = nextScreen;
 			nextScreen = nullptr;
 		}
+	}
+
+	if (moveCounter >= stepsUntilEncounter)
+	{
+		moveCounter = 0;
+		game->getUIManager()->showDialog(L"Enemy encountered!", true);
+		game->nextGameMode = new FightMode();
 	}
 }
 

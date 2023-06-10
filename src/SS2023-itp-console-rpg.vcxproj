@@ -127,12 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ability.cpp" />
+    <ClCompile Include="Ally.cpp" />
     <ClCompile Include="BlacksmithField.cpp" />
     <ClCompile Include="BlockField.cpp" />
+    <ClCompile Include="DefaultAttack.cpp" />
     <ClCompile Include="BoundaryField.cpp" />
     <ClCompile Include="EmptyField.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ExitField.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="FightMode.cpp" />
     <ClCompile Include="GameMode.cpp" />
     <ClCompile Include="HouseField.cpp" />
     <ClCompile Include="InnField.cpp" />
@@ -143,18 +150,26 @@
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="ShopField.cpp" />
     <ClCompile Include="SS2023-itp-console-rpg.cpp" />
+    <ClCompile Include="Team.cpp" />
     <ClCompile Include="TransitionField.cpp" />
     <ClCompile Include="UserInput.cpp" />
     <ClCompile Include="WorldField.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ability.h" />
+    <ClInclude Include="Ally.h" />
     <ClInclude Include="BlacksmithField.h" />
     <ClInclude Include="BlockField.h" />
     <ClInclude Include="BoundaryField.h" />
+    <ClInclude Include="DefaultAttack.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="EmptyField.h" />
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="ExitField.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="FightMode.h" />
     <ClInclude Include="GameMode.h" />
     <ClInclude Include="HouseField.h" />
     <ClInclude Include="InnField.h" />
@@ -165,6 +180,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="ShopField.h" />
+    <ClInclude Include="Team.h" />
     <ClInclude Include="TransitionField.h" />
     <ClInclude Include="UserInput.h" />
     <ClInclude Include="Command.h" />

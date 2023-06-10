@@ -17,5 +17,9 @@ public:
 
 	Screen* currentScreen;
 	Screen* nextScreen;
+
+private:
+	int moveCounter = 0;
+	int stepsUntilEncounter;
 };
 

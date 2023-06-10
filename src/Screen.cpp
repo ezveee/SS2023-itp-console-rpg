@@ -185,13 +185,13 @@ WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wc
 	throw std::invalid_argument("Unknown WorldField type.");
 }
 
-void Screen::display(const Player& player) const
+void Screen::display(Player* player) const
 {
 	for (int y = 0; y < MAP_SIZE_Y + 2; ++y)
 	{
 		for (int x = 0; x < MAP_SIZE_X + 2; ++x)
 		{
-			Position playerPosition = player.getPosition();
+			Position playerPosition = player->getPosition();
 
 			if ((playerPosition.x) == x && (playerPosition.y) == y)
 			{

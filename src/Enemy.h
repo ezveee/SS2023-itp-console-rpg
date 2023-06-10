@@ -1,11 +1,21 @@
 #pragma once
 
 #include "Entity.h"
-#include <cstdlib> // for rand() and srand()
+
+enum EnemyType
+{
+	Slime,
+	Goblin
+};
+
 
 class Enemy : public Entity
 {
 	public:
+		Enemy(Team* enemyTeam, EnemyType type);
+		~Enemy();
+
+		fightAction chooseAction() override;
 		Ability* chooseAbility() override;
 		Entity* chooseTarget(Team* targetTeam) override;
 };

@@ -3,9 +3,22 @@
 #include <vector>
 #include <string>
 #include <stdexcept>
+#include <cstdlib> // for rand() and srand()
 
 #include "Team.h"
 #include "Ability.h"
+#include "DefaultAttack.h"
+
+class Team;
+class Ability;
+
+enum fightAction {
+	Default = 0,
+	UseAbility,
+	UseItem,
+	Block,
+	Run
+};
 
 struct Stats
 {
@@ -26,6 +39,8 @@ struct Stats
 class Entity
 {
 	public:
+		virtual ~Entity() = default; // Virtual destructor
+
 		bool isAlive();
 
 		void modifyHealth(int addValue);
@@ -33,20 +48,24 @@ class Entity
 
 		void setStats(Stats addStats);
 
+		virtual fightAction chooseAction() = 0;
 		virtual Ability* chooseAbility();
 		virtual Entity* chooseTarget(Team* targetTeam);
 
-		void useAbilityOnTarget(Ability* ability, Entity* target);
-		void useAbilityOnTeam(Ability* ability, Team* targetTeam);
+		void useAbilityOnTarget(Ability* ability, Entity* user, Entity* target);
+		void useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam);
 
 		int getSpeed() const;
+		int getHealth() const;
 		int getMana() const;
-		std::string getName() const;
+		std::wstring getName() const;
+		Stats getStats() const;
 
+		Ability* getDefaultAttack() const;
 		std::vector<Ability*> getAbilities() const;
 
 	protected:
-		std::string name;
+		std::wstring name;
 		Stats stat;
 
 		Ability* defaultAttack;
