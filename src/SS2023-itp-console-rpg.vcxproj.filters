@@ -25,9 +25,6 @@
     <Filter Include="Header Files\GameModes">
       <UniqueIdentifier>{7cc65350-6a98-4ec4-b78a-b4160aa04da6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameModes">
-      <UniqueIdentifier>{84646a4d-bab2-4788-9aaf-9c6084be92bf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\UserInputs">
       <UniqueIdentifier>{d752c7f7-bf01-469f-991b-198777b80ce6}</UniqueIdentifier>
     </Filter>
@@ -48,6 +45,15 @@
     </Filter>
     <Filter Include="Maps\StartingVillage">
       <UniqueIdentifier>{0d2f1284-e72d-4a03-8cd1-5fa803bb8108}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\Area1">
+      <UniqueIdentifier>{c7d9f553-367c-4598-8332-9a7c6b8b8275}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Savefiles">
+      <UniqueIdentifier>{9559161e-b391-49a9-851d-48943124db1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameModes">
+      <UniqueIdentifier>{84646a4d-bab2-4788-9aaf-9c6084be92bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -105,6 +111,9 @@
     <ClCompile Include="HouseField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
+    <ClCompile Include="BoundaryField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h">
@@ -138,6 +147,36 @@
       <Filter>Header Files\UserInputs</Filter>
     </ClInclude>
     <ClInclude Include="HouseField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="BlacksmithField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="EmptyField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="ExitField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="InnField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="NpcField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="ShopField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="TransitionField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldField.h">
+      <Filter>Header Files\WorldFields</Filter>
+    </ClInclude>
+    <ClInclude Include="BoundaryField.h">
       <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
   </ItemGroup>
@@ -211,29 +250,32 @@
     <Text Include="Maps\Village_2.txt">
       <Filter>Maps\StartingVillage</Filter>
     </Text>
-    <Text Include="Maps\Area_1_1.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_2.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_3.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_4.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_5.txt">
-      <Filter>Maps</Filter>
-    </Text>
-    <Text Include="Maps\Area_1_6.txt">
-      <Filter>Maps</Filter>
-    </Text>
     <Text Include="Maps\Village_1.txt">
       <Filter>Maps</Filter>
     </Text>
     <Text Include="Maps\Village_2.txt">
       <Filter>Maps</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_6.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_5.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_4.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_3.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_2.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_1_1.txt">
+      <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Savefiles\save.txt">
+      <Filter>Savefiles</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -17,8 +17,8 @@ a #### ###  #### #
 a                #
 a  ####       ####
 a  #######    ####
-a      #H#       c
-a                c
+a      #H#      gc
+a               gc
 a        ###  ####
 # ###    ###  #H##
 # ###            #
@@ -28,3 +28,4 @@ a: Transition;City_1_5;X:16
 b: Transition;City_1_3;Y:10
 c: Transition;Area_2_2;X:1
 H: House
+g: Boundary;City_1_Gate

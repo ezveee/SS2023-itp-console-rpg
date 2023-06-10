@@ -12,7 +12,9 @@ public:
 	void onInteract(Game* game) override;
 	bool isEnterable() override;
 	bool isInteractable() override;
+	bool isStoryNpc();
 
 	private:
 		std::wstring npcName;
+		bool storyNpc;
 };

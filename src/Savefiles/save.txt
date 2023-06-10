@@ -1,0 +1,9 @@
+N:Albert ->playerName
+C:warrior ->Class
+G:200	->Gold
+E:500	->Exp
+W:1	->WeaponLevel
+P:0	->hasStoryItem
+Village_Gate;0
+City_1_Gate;0
+City_2_Gate;0

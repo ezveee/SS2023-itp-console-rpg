@@ -6,10 +6,10 @@
 #include "WorldField.h"
 #include <iostream>
 
-MoveMode::MoveMode()
+MoveMode::MoveMode(Game* game)
 {
 	currentUserInput = new MoveInput();
-	currentScreen = new Screen(L"City_1_3");
+	currentScreen = new Screen(L"City_1_1", game);
 	nextScreen = nullptr;
 }
 
@@ -49,21 +49,16 @@ void MoveMode::handle(Game* game)
 void MoveMode::interact(Screen* currentScreen, Game* game)
 {
 	Position currentPosition = game->player.getPosition();
-	if (currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y)->isInteractable())
+	for (auto field : {
+		currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y),
+		currentScreen->getWorldField(currentPosition.x, currentPosition.y - 1),
+		currentScreen->getWorldField(currentPosition.x + 1, currentPosition.y),
+		currentScreen->getWorldField(currentPosition.x, currentPosition.y + 1)
+		})
 	{
-		currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y)->onInteract(game);
+		if (field->isInteractable())
+		{
+			field->onInteract(game);
+		}
 	}
-	if (currentScreen->getWorldField(currentPosition.x, currentPosition.y - 1)->isInteractable())
-	{
-		currentScreen->getWorldField(currentPosition.x, currentPosition.y - 1)->onInteract(game);
-	}
-	if (currentScreen->getWorldField(currentPosition.x + 1, currentPosition.y)->isInteractable())
-	{
-		currentScreen->getWorldField(currentPosition.x + 1, currentPosition.y)->onInteract(game);
-	}
-	if (currentScreen->getWorldField(currentPosition.x, currentPosition.y + 1)->isInteractable())
-	{
-		currentScreen->getWorldField(currentPosition.x, currentPosition.y + 1)->onInteract(game);
-	}
-	else return;
 }

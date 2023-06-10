@@ -9,7 +9,7 @@ class Screen;
 class MoveMode : public GameMode
 {
 public:
-	MoveMode();
+	MoveMode(Game* game);
 	virtual ~MoveMode();
 
 	void handle(Game* game) override;

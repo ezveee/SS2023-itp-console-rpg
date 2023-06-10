@@ -38,7 +38,7 @@ TransitionField::~TransitionField() = default;
 
 void TransitionField::onEnter(Game* game)
 {
-	((MoveMode*)game->currentGameMode)->nextScreen = new Screen(mapName);
+	((MoveMode*)game->currentGameMode)->nextScreen = new Screen(mapName, game);
 	if (xPos == -1)
 	{
 		xPos = game->player.getPosition().x;

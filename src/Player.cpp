@@ -86,6 +86,16 @@ void Player::setInteractionRequested()
 	this->interactionRequested = false;
 }
 
+bool Player::canProgress() const
+{
+	return this->progress;
+}
+
+void Player::setProgress()
+{
+	this->progress = !progress;
+}
+
 //void Player::processMovement(UserInput input)
 //{
 //	int deltaX = 0;

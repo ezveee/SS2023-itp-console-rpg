@@ -6,13 +6,14 @@
 #include <string>
 #include "defines.h"
 
+class Game;
 class Player;
 class WorldField;
 
 class Screen
 {
 public:
-	explicit Screen(const std::wstring& filename);
+	explicit Screen(const std::wstring& filename, Game* game);
 	virtual ~Screen();
 	void display(const Player& player) const;
 	void setMapName(std::wstring newMapName);
@@ -25,8 +26,8 @@ private:
 	std::wstring mapName;
 
 	void insertFromFile(const std::wstring& filename, std::vector<std::wstring>& vector);
-	void load(const std::wstring& filename);
-	WorldField* createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey);
+	void load(const std::wstring& filename, Game* game);
+	WorldField* createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey, Game* game);
 	std::map<wchar_t, std::wstring> getLegend(std::vector<std::wstring> lines);
 };
 
