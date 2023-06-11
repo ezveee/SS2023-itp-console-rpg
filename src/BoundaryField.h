@@ -5,7 +5,7 @@
 class BoundaryField : public WorldField
 {
 public:
-	BoundaryField(std::wstring& parameters, Game* game);
+	BoundaryField(std::wstring& parameters);
 	virtual ~BoundaryField();
 
 	void onEnter(Game* game) override;

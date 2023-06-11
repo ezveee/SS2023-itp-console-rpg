@@ -28,8 +28,8 @@ void NpcField::onInteract(Game* game)
 	std::wcout << TEXTBOXBORDER_UPPER_LOWER << "\n" << currentDialogue << "\n" << TEXTBOXBORDER_UPPER_LOWER << "\n";
 	_getch();
 
-	game->player.setProgress();
-	if (this->isStoryNpc() && game->player.canProgress())
+	game->player->setProgress();//temp, normally this would be set after a boss battle or something
+	if (this->isStoryNpc() && game->player->canProgress())
 	{
 		auto iterator = game->storyNpcs.find(npcName);
 		if (iterator == game->storyNpcs.end())
@@ -39,7 +39,7 @@ void NpcField::onInteract(Game* game)
 		if (!iterator->second->second)
 		{
 			iterator->second->second = true;
-			game->player.setProgress();
+			game->player->setProgress();
 			auto iterator = game->dialogueMap.find(npcName);
 			iterator->second = L"thanks for helping me out\n";
 		}

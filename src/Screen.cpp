@@ -17,9 +17,9 @@
 #include "Player.h"
 #include "BoundaryField.h"
 
-Screen::Screen(const std::wstring& filename, Game* game)
+Screen::Screen(const std::wstring& filename)
 {
-	load(filename, game);
+	load(filename);
 }
 
 Screen::~Screen()
@@ -68,7 +68,7 @@ void Screen::insertFromFile(const std::wstring& filename, std::vector<std::wstri
 	file.close();
 }
 
-void Screen::load(const std::wstring& filename, Game* game)
+void Screen::load(const std::wstring& filename)
 {
 	std::vector<std::wstring> lines;
 	insertFromFile(filename, lines);
@@ -80,7 +80,7 @@ void Screen::load(const std::wstring& filename, Game* game)
 		for (int x = 0; x < MAP_SIZE_X + 2; ++x)
 		{
 			wchar_t currentField = lines[MAP_FIRST_CONFIG_LINE + y][x];
-			world[x][y] = createWorldField(legend, currentField, game);
+			world[x][y] = createWorldField(legend, currentField);
 			world[x][y]->setSign(lines[MAP_FIRST_GRAPHICS_LINE + y][x + ((y == 0) ? 1 : 0)]);
 			// ternärer operator weil am anfang des files ein leerzeichen eingefügt wird
 		}
@@ -107,7 +107,7 @@ std::map<wchar_t, std::wstring> Screen::getLegend(std::vector<std::wstring> line
 /// <param name="legend"></param>
 /// <param name="fieldType"></param>
 /// <returns></returns>
-WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey, Game* game)
+WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey)
 {
 	// Finde die zum fieldTypeKey passende Legend-Zeile.
 	auto iterator = legend.find(fieldTypeKey);
@@ -174,7 +174,7 @@ WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wc
 
 	if (fieldType == L"Boundary")
 	{
-		return new BoundaryField(parameters, game);
+		return new BoundaryField(parameters);
 	}
 
 	if (fieldType == L"Exit")

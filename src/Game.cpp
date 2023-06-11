@@ -19,10 +19,10 @@ Game* Game::getInstance()
 
 Game::Game()
 {
-	uiManager = new UIManager();
-
-	loadSaveFile(&(this->player), getSaveFile());
+	instance = this;
+	loadSaveFile((this->player), getSaveFile());
 	this->generateMaps();
+	uiManager = new UIManager();
 
 	currentGameMode = new MoveMode(this);
 	nextGameMode = nullptr;

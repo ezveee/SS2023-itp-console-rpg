@@ -13,7 +13,7 @@ class WorldField;
 class Screen
 {
 public:
-	explicit Screen(const std::wstring& filename, Game* game);
+	explicit Screen(const std::wstring& filename);
 	virtual ~Screen();
 	void display(Player* player) const;
 	void setMapName(std::wstring newMapName);
@@ -26,8 +26,8 @@ private:
 	std::wstring mapName;
 
 	void insertFromFile(const std::wstring& filename, std::vector<std::wstring>& vector);
-	void load(const std::wstring& filename, Game* game);
-	WorldField* createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey, Game* game);
+	void load(const std::wstring& filename);
+	WorldField* createWorldField(std::map<wchar_t, std::wstring>& legend, wchar_t fieldTypeKey);
 	std::map<wchar_t, std::wstring> getLegend(std::vector<std::wstring> lines);
 };
 

@@ -14,14 +14,12 @@ class GameMode;
 class Game
 {
 public:
-	Game();
 	virtual ~Game();
 	void run();
 
 	static Game* getInstance();
 	UIManager* getUIManager() const { return this->uiManager; };
 
-	std::map<std::wstring, std::wstring> getDialogues();
 	void generateMaps();
 	std::vector<std::wstring> getSaveFile();
 	void loadSaveFile(Player* player, std::vector<std::wstring> lines);
@@ -36,10 +34,11 @@ public:
 	std::map<std::wstring, bool> boundaryMap;
 	std::map<std::wstring, std::map<std::wstring, bool>::iterator> storyNpcs;
 
-	std::wstring currentScreenName = L"Village_2";
+	std::wstring currentScreenName = L"City_1_6";
 
 private:
 	static Game* instance;
+	Game();
 	UIManager* uiManager;
 };
 

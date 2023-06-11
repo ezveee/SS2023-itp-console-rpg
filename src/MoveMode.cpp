@@ -12,7 +12,7 @@ MoveMode::MoveMode(Game* game)
 	currentScreen = new Screen(game->currentScreenName);
 	nextScreen = nullptr;
 
-	stepsUntilEncounter = rand() % 9 + 8;
+	stepsUntilEncounter = 1000/*rand() % 9 + 8*/;
 }
 
 MoveMode::~MoveMode()
@@ -60,7 +60,7 @@ void MoveMode::handle(Game* game)
 
 void MoveMode::interact(Screen* currentScreen, Game* game)
 {
-	Position currentPosition = game->player.getPosition();
+	Position currentPosition = game->player->getPosition();
 	for (auto field : {
 		currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y),
 		currentScreen->getWorldField(currentPosition.x, currentPosition.y - 1),
