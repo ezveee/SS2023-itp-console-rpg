@@ -3,6 +3,8 @@
 
 #define WARRIOR_COST 3 // + Level
 #define MAGICIAN_COST 4 // + Level
+#define ASSASSIN_COST 3 // + Level
+#define HEALER_COST 4 // + Level
 
 class Entity;
 

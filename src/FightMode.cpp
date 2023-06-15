@@ -1,6 +1,8 @@
 #include "FightMode.h"
 #include "Enemy.h"
 #include "Game.h"
+#include "AllyAbility.h"
+
 #include "conio.h"
 #include <iostream>
 
@@ -175,6 +177,15 @@ void FightMode::handle(Game* game)
                         uiManager->showDialog(L"Choosing Ability canceled.", true);
                         continue;
                     }
+
+					AllyAbility* aAbility = dynamic_cast<AllyAbility*>(chosenAbility);
+					if (aAbility != nullptr)
+					{
+						if (oponentTeam == game->playerTeam)
+							oponentTeam = enemyTeam;
+						else
+							oponentTeam = game->playerTeam;
+					}
 
                     //Use Ability on Oponent-Team
                     if (chosenAbility->isAOE)

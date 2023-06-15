@@ -10,7 +10,7 @@ SlashAttack::SlashAttack(Entity* entity)
 
 void SlashAttack::action(Entity* user, Entity* target)
 {
-	int damage = user->getStats().attack + WARRIOR_COST;
+	int damage = user->getStats().attack + user->getStats().level;
 	attack(damage, this->cost, false, user, target);
 }
 

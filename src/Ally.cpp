@@ -10,6 +10,9 @@
 #include "FireballAttack.h"
 #include "MeteorAttack.h"
 
+#include "HammerSmashAttack.h"
+#include "HealAllAbility.h"
+
 Ally::Ally(Team* playerTeam, RoleClass role)
 {
     this->stat = { 
@@ -34,15 +37,15 @@ Ally::Ally(Team* playerTeam, RoleClass role)
     {
         this->name = L"Warrior";
 
-        allyStats.maxHealth = 12;
-        allyStats.maxMana = 8;
-        allyStats.accuracy = 2;
-        allyStats.attack = 2;
-        allyStats.defense = 12;
-        allyStats.spAttack = 1;
-        allyStats.spDefense = 8;
-        allyStats.speed = 1;
-        allyStats.critical = 1;
+        allyStats.maxHealth		= 12;
+        allyStats.maxMana		= 9;
+        allyStats.accuracy		= 2;
+        allyStats.attack		= 3;
+        allyStats.defense		= 12;
+        allyStats.spAttack		= 1;
+        allyStats.spDefense		= 8;
+        allyStats.speed			= 2;
+        allyStats.critical		= 2;
 
 		Ability* ability01 = new SlashAttack(this);
 		Ability* ability02 = new SpinAttack(this);
@@ -54,15 +57,15 @@ Ally::Ally(Team* playerTeam, RoleClass role)
     {
         this->name = L"Magician";
 
-        allyStats.maxHealth = 10;
-        allyStats.maxMana = 14;
-        allyStats.accuracy = 4;
-        allyStats.attack = 1;
-        allyStats.defense = 8;
-        allyStats.spAttack = 2;
-        allyStats.spDefense = 12;
-        allyStats.speed = 1;
-        allyStats.critical = 1;
+        allyStats.maxHealth		= 10;
+        allyStats.maxMana		= 14;
+        allyStats.accuracy		= 2;
+        allyStats.attack		= 2;
+        allyStats.defense		= 8;
+        allyStats.spAttack		= 2;
+        allyStats.spDefense		= 12;
+        allyStats.speed			= 1;
+        allyStats.critical		= 1;
 
 
 		Ability* ability01 = new FireballAttack(this);
@@ -71,6 +74,40 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 		this->abilities.push_back(ability01);
 		this->abilities.push_back(ability02);
     }
+	if (role == Assassin)
+	{
+		this->name = L"Assassin";
+
+		allyStats.maxHealth = 10;
+		allyStats.maxMana = 9;
+		allyStats.accuracy = 1;
+		allyStats.attack = 3;
+		allyStats.defense = 10;
+		allyStats.spAttack = 2;
+		allyStats.spDefense = 10;
+		allyStats.speed = 3;
+		allyStats.critical = 3;
+	}
+	if (role == Healer)
+	{
+		this->name = L"Healer";
+
+		allyStats.maxHealth = 12;
+		allyStats.maxMana = 12;
+		allyStats.accuracy = 2;
+		allyStats.attack = 2;
+		allyStats.defense = 10;
+		allyStats.spAttack = 4;
+		allyStats.spDefense = 10;
+		allyStats.speed = 1;
+		allyStats.critical = 1;
+
+		Ability* ability01 = new HammerSmashAttack(this);
+		Ability* ability02 = new HealAllAbility(this);
+
+		this->abilities.push_back(ability01);
+		this->abilities.push_back(ability02);
+	}
 
     this->setStats(allyStats);
 
