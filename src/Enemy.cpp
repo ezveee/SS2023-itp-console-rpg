@@ -5,28 +5,14 @@
 
 Enemy::Enemy(Team* enemyTeam, EnemyType type) 
 {
-	this->stat = {
-		1, //level
-		0, //maxHealth
-		0, //health
-		0, //maxMana
-		0, //mana
-		0, //accuracy
-		0, //attack
-		0, //spAttack
-		0, //defense
-		0, //spDefense
-		0, //speed
-		0  //critical
-	};
-
 	this->defaultAttack = new DefaultAttack(this);
 
-	struct Stats enemyStats = { 0,0,0,0,0,0,0,0,0,0,0,0 };
-	if (type == Slime)
-	{
-		this->name = L"Slime";
+	Stats enemyStats = {};
 
+	switch(type)
+	{
+	case Slime:
+		this->name = L"Slime";
 		enemyStats.maxHealth = 8;
 		enemyStats.maxMana = 12;
 		enemyStats.accuracy = 2;
@@ -36,13 +22,12 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 		enemyStats.spDefense = 10;
 		enemyStats.speed = 1;
 		enemyStats.critical = 1;
-	}
-	if (type == Goblin)
-	{
-		this->name = L"Goblin";
 
-		enemyStats.maxHealth = 10;
+		break;
+	case Goblin:
+		this->name = L"Goblin";
 		enemyStats.maxMana = 10;
+		enemyStats.maxHealth = 10;
 		enemyStats.accuracy = 2;
 		enemyStats.attack = 2;
 		enemyStats.defense = 10;
@@ -50,9 +35,13 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 		enemyStats.spDefense = 8;
 		enemyStats.speed = 1;
 		enemyStats.critical = 1;
+
+		break;
+	default:
+		this->name = L"Default enemy";
 	}
 
-	this->setStats(enemyStats);
+	this->stat = enemyStats;
 
 	this->stat.health = this->stat.maxHealth;
 	this->stat.mana = this->stat.maxMana;

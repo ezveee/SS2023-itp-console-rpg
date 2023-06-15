@@ -22,18 +22,18 @@ enum fightAction {
 
 struct Stats
 {
-	int level;
-	int maxHealth;
-	int health;
-	int maxMana;
-	int mana;
-	int accuracy;
-	int attack;
-	int spAttack;
-	int defense;
-	int spDefense;
-	int speed;
-	int critical;
+	int level = 1;
+	int maxHealth = 0;
+	int health = 0;
+	int maxMana = 0;
+	int mana = 0;
+	int accuracy = 0;
+	int attack = 0;
+	int spAttack = 0;
+	int defense = 0;
+	int spDefense = 0;
+	int speed = 0;
+	int critical = 0;
 };
 
 class Entity
@@ -45,8 +45,6 @@ class Entity
 
 		void modifyHealth(int addValue);
 		void modifyMana(int addValue);
-
-		void setStats(Stats addStats);
 
 		virtual fightAction chooseAction() = 0;
 		virtual Ability* chooseAbility();

@@ -15,26 +15,12 @@
 
 Ally::Ally(Team* playerTeam, RoleClass role)
 {
-    this->stat = { 
-        1, //level
-        0, //maxHealth
-        0, //health
-        0, //maxMana
-        0, //mana
-        0, //accuracy
-        0, //attack
-        0, //spAttack
-        0, //defense
-        0, //spDefense
-        0, //speed
-        0  //critical
-    };
-
 	this->defaultAttack = new DefaultAttack(this);
 
-    struct Stats allyStats = { 0,0,0,0,0,0,0,0,0,0,0,0 };
-    if (role == Warrior)
+    struct Stats allyStats = {};
+    switch (role)
     {
+	case Warrior:
         this->name = L"Warrior";
 
         allyStats.maxHealth		= 12;
@@ -47,14 +33,11 @@ Ally::Ally(Team* playerTeam, RoleClass role)
         allyStats.speed			= 2;
         allyStats.critical		= 2;
 
-		Ability* ability01 = new SlashAttack(this);
-		Ability* ability02 = new SpinAttack(this);
+		this->abilities.push_back(new SlashAttack(this));
+		this->abilities.push_back(new SpinAttack(this));
 
-		this->abilities.push_back(ability01);
-		this->abilities.push_back(ability02);
-    }
-    if (role == Magician)
-    {
+		break;
+	case Magician:
         this->name = L"Magician";
 
         allyStats.maxHealth		= 10;
@@ -67,15 +50,11 @@ Ally::Ally(Team* playerTeam, RoleClass role)
         allyStats.speed			= 1;
         allyStats.critical		= 1;
 
+		this->abilities.push_back(new FireballAttack(this));
+		this->abilities.push_back(new MeteorAttack(this));
 
-		Ability* ability01 = new FireballAttack(this);
-		Ability* ability02 = new MeteorAttack(this);
-
-		this->abilities.push_back(ability01);
-		this->abilities.push_back(ability02);
-    }
-	if (role == Assassin)
-	{
+		break;
+	case Assassin:
 		this->name = L"Assassin";
 
 		allyStats.maxHealth = 10;
@@ -87,9 +66,9 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 		allyStats.spDefense = 10;
 		allyStats.speed = 3;
 		allyStats.critical = 3;
-	}
-	if (role == Healer)
-	{
+
+		break;
+	case Healer:
 		this->name = L"Healer";
 
 		allyStats.maxHealth = 12;
@@ -102,14 +81,14 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 		allyStats.speed = 1;
 		allyStats.critical = 1;
 
-		Ability* ability01 = new HammerSmashAttack(this);
-		Ability* ability02 = new HealAllAbility(this);
-
-		this->abilities.push_back(ability01);
-		this->abilities.push_back(ability02);
+		this->abilities.push_back(new HammerSmashAttack(this));
+		this->abilities.push_back(new HealAllAbility(this));
+		break;
+	default:
+		this->name = L"Default ally";
 	}
 
-    this->setStats(allyStats);
+	this->stat = allyStats;
 
 	this->stat.health = this->stat.maxHealth;
 	this->stat.mana = this->stat.maxMana;

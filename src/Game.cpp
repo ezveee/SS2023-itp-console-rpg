@@ -21,7 +21,6 @@ Game* Game::getInstance()
 Game::Game()
 {
 	instance = this;
-	loadSaveFile((this->player), getSaveFile());
 	this->generateMaps();
 	uiManager = new UIManager();
 
@@ -108,8 +107,10 @@ std::vector<std::wstring> Game::getSaveFile()
 	return lines;
 }
 
-void Game::loadSaveFile(Player* player, std::vector<std::wstring> lines)
+Player* Game::loadSaveFile(std::vector<std::wstring> lines)
 {
+	Player* newPlayer = new Player(this->playerTeam, Warrior, std::stoi(lines[2]), std::stoi(lines[4]), std::stoi(lines[5]));
+
 	//add loading for playerstats
 
 	for (int lineNr = 7; lineNr < lines.size(); ++lineNr)
@@ -117,4 +118,6 @@ void Game::loadSaveFile(Player* player, std::vector<std::wstring> lines)
 		size_t pos = lines[lineNr].find(';');
 		this->boundaries.insert(std::pair<std::wstring, bool>(lines[lineNr].substr(0, pos), stoi(lines[lineNr].substr(pos + 1))));
 	}
+
+	return newPlayer;
 }

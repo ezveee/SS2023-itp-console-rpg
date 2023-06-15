@@ -1,10 +1,10 @@
-Albert ->playerName
-warrior ->Class
-200	->Gold
-1		->PlayerLevel
-50	->Exp until next levelup
-1	->WeaponLevel
-0	->hasStoryItem
+Albert
+warrior
+200
+1
+50
+1
+0
 Village_Gate;0
 City_1_Gate;0
 City_2_Gate;0

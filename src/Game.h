@@ -22,7 +22,7 @@ public:
 
 	void generateMaps();
 	std::vector<std::wstring> getSaveFile();
-	void loadSaveFile(Player* player, std::vector<std::wstring> lines);
+	Player* loadSaveFile(std::vector<std::wstring> lines);
 
 	Player* player;
 	Team* playerTeam;

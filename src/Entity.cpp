@@ -30,22 +30,6 @@ void Entity::modifyMana(int addValue)
 		this->stat.mana = this->stat.maxMana;
 }
 
-void Entity::setStats(Stats addStats)
-{
-	this->stat.level += addStats.level;
-	this->stat.maxHealth += addStats.maxHealth;
-	this->stat.health += addStats.health;
-	this->stat.maxMana += addStats.maxMana;
-	this->stat.mana += addStats.mana;
-	this->stat.accuracy += addStats.accuracy;
-	this->stat.attack += addStats.attack;
-	this->stat.spAttack += addStats.spAttack;
-	this->stat.defense += addStats.defense;
-	this->stat.spDefense += addStats.spDefense;
-	this->stat.speed += addStats.speed;
-	this->stat.critical += addStats.critical;
-}
-
 Ability* Entity::chooseAbility()
 {
 	return nullptr;

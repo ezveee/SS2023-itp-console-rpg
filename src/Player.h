@@ -7,7 +7,7 @@
 class Player : public Ally
 {
 	public:
-		Player(Team* playerTeam, RoleClass role);
+		Player(Team* playerTeam, RoleClass role, int gold, int expUntilLevelUp, int weaponLevel);
 		virtual ~Player();
 
 		bool getIsExitRequested() const;
@@ -19,11 +19,20 @@ class Player : public Ally
 		Position getPosition() const;
 		bool canProgress() const;
 		void setProgress();
+		int getGold();
+		void modifyGold(int goldAmount);
+		int getExpUntilLevelUp();
+		void setExpUntilLevelUp(int expAmount);
+		int getWeaponLevel();
+		void setWeaponLevel(int weaponLevel);
 
 	private:
 		Position position;
 		bool isExitRequested = false;
 		bool interactionRequested = false;
-		bool progress = false;
+		bool progress;
+		int gold;
+		int expUntilLevelUp;
+		int weaponLevel;
 };
 
