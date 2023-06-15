@@ -4,6 +4,12 @@
 #include "defines.h"
 #include "Game.h"
 
+#include "SlashAttack.h"
+#include "SpinAttack.h"
+
+#include "FireballAttack.h"
+#include "MeteorAttack.h"
+
 Ally::Ally(Team* playerTeam, RoleClass role)
 {
     this->stat = { 
@@ -37,6 +43,12 @@ Ally::Ally(Team* playerTeam, RoleClass role)
         allyStats.spDefense = 8;
         allyStats.speed = 1;
         allyStats.critical = 1;
+
+		Ability* ability01 = new SlashAttack(this);
+		Ability* ability02 = new SpinAttack(this);
+
+		this->abilities.push_back(ability01);
+		this->abilities.push_back(ability02);
     }
     if (role == Magician)
     {
@@ -51,6 +63,13 @@ Ally::Ally(Team* playerTeam, RoleClass role)
         allyStats.spDefense = 12;
         allyStats.speed = 1;
         allyStats.critical = 1;
+
+
+		Ability* ability01 = new FireballAttack(this);
+		Ability* ability02 = new MeteorAttack(this);
+
+		this->abilities.push_back(ability01);
+		this->abilities.push_back(ability02);
     }
 
     this->setStats(allyStats);

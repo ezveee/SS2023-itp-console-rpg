@@ -144,6 +144,18 @@
     <ClCompile Include="BoundaryField.cpp">
       <Filter>Source Files\WorldFields</Filter>
     </ClCompile>
+    <ClCompile Include="FireballAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="MeteorAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="SlashAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="SpinAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h">
@@ -232,6 +244,18 @@
     </ClInclude>
     <ClInclude Include="UIManager.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpinAttack.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="SlashAttack.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="MeteorAttack.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="FireballAttack.h">
+      <Filter>Header Files\Fight</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

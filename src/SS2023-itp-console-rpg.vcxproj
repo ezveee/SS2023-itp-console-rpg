@@ -137,6 +137,10 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ExitField.cpp" />
+    <ClCompile Include="FireballAttack.cpp" />
+    <ClCompile Include="MeteorAttack.cpp" />
+    <ClCompile Include="SlashAttack.cpp" />
+    <ClCompile Include="SpinAttack.cpp" />
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="FightMode.cpp" />
@@ -167,6 +171,10 @@
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ExitField.h" />
+    <ClInclude Include="FireballAttack.h" />
+    <ClInclude Include="MeteorAttack.h" />
+    <ClInclude Include="SlashAttack.h" />
+    <ClInclude Include="SpinAttack.h" />
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="FightMode.h" />

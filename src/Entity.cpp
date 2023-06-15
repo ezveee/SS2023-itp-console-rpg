@@ -65,8 +65,15 @@ void Entity::useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam)
 {
 	for (int i = 0; i < targetTeam->members.size(); i++)
 	{
-		ability->action(user, targetTeam->members[i]);
+		//Only attack alive Entities
+		if (targetTeam->members[i]->isAlive())
+		{
+			ability->action(user, targetTeam->members[i]);
+			user->modifyMana(ability->cost);
+		}
 	}
+
+	user->modifyMana(-ability->cost);
 }
 
 int Entity::getSpeed() const { return this->stat.speed; }

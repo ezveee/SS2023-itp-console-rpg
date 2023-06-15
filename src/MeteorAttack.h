@@ -1,11 +1,12 @@
 #pragma once
 #include "Ability.h"
 
-class DefaultAttack : public Ability
+class MeteorAttack : public Ability
 {
     public:
-        DefaultAttack(Entity* entity);
+        MeteorAttack(Entity* entity);
         void action(Entity* user, Entity* target) override;
 
-        ~DefaultAttack();
+        ~MeteorAttack();
 };
+
