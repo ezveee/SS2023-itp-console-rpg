@@ -30,11 +30,13 @@ public:
 	GameMode* currentGameMode;
 	GameMode* nextGameMode;
 
-	std::map<std::wstring, std::wstring> dialogueMap;
-	std::map<std::wstring, bool> boundaryMap;
+	std::map<std::wstring, std::wstring> dialogues;
+	std::map<std::wstring, bool> boundaries;
 	std::map<std::wstring, std::map<std::wstring, bool>::iterator> storyNpcs;
+	std::map<std::wstring, std::wstring> miniMaps;
+	std::map<std::wstring, std::wstring> respawn;
 
-	std::wstring currentScreenName = L"City_1_6";
+	std::wstring currentScreenName = L"City_1_1";
 
 private:
 	static Game* instance;

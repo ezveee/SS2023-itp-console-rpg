@@ -16,14 +16,12 @@ public:
 	explicit Screen(const std::wstring& filename);
 	virtual ~Screen();
 	void display(Player* player) const;
-	void setMapName(std::wstring newMapName);
-	std::wstring getMapName();
 	WorldField* getWorldField(int x, int y) const;
+	bool getIsSafe();
 
 private:
 	std::array <std::array <WorldField*, MAP_SIZE_Y + 2>, MAP_SIZE_X + 2> world;
-	
-	std::wstring mapName;
+	bool isSafe;
 
 	void insertFromFile(const std::wstring& filename, std::vector<std::wstring>& vector);
 	void load(const std::wstring& filename);

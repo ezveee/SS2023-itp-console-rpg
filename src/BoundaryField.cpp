@@ -1,5 +1,6 @@
 #include "BoundaryField.h"
 #include "Game.h"
+#include "defines.h"
 #include <conio.h>
 
 BoundaryField::BoundaryField(std::wstring& parameters)
@@ -7,8 +8,8 @@ BoundaryField::BoundaryField(std::wstring& parameters)
 	Game* game = Game::getInstance();
 	size_t pos = parameters.find(';');
 	boundaryName = parameters.substr(0, pos);
-	auto iterator = game->boundaryMap.find(boundaryName);
-	if (iterator == game->boundaryMap.end())
+	auto iterator = game->boundaries.find(boundaryName);
+	if (iterator == game->boundaries.end())
 	{
 		throw std::invalid_argument("Unknown boundary name key.");
 	}
@@ -31,7 +32,8 @@ bool BoundaryField::isEnterable()
 {
 	if (!this->enterable)
 	{
-		std::wcout << L"you are unable to pass by here for now,\ntry talking to people to find out what\nyou need to do in order to progress\n";
+		std::wcout << TEXTBOXBORDER_UPPER_LOWER << L"\nyou are unable to pass by here for now,\ntry talking to people to find out what\nyou need to do in order to progress\n"
+		<< TEXTBOXBORDER_UPPER_LOWER;
 		_getch();
 	}
 	return this->enterable;
