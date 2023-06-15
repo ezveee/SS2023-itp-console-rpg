@@ -18,8 +18,8 @@ void NpcField::onEnter(Game* game)
 
 void NpcField::onInteract(Game* game)
 {
-	auto iterator = game->dialogueMap.find(npcName);
-	if (iterator == game->dialogueMap.end())
+	auto iterator = game->dialogues.find(npcName);
+	if (iterator == game->dialogues.end())
 	{
 		throw std::invalid_argument("Unknown npc name key.");
 	}
@@ -40,7 +40,7 @@ void NpcField::onInteract(Game* game)
 		{
 			iterator->second->second = true;
 			game->player->setProgress();
-			auto iterator = game->dialogueMap.find(npcName);
+			auto iterator = game->dialogues.find(npcName);
 			iterator->second = L"thanks for helping me out\n";
 		}
 	}

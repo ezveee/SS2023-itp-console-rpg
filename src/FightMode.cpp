@@ -222,9 +222,17 @@ void FightMode::handle(Game* game)
                 {
                     //Message: You've lost!
 					uiManager->showDialog(L"You have died.", false);
+					auto iterator = game->respawn.find(game->currentScreenName.substr(0, 6));
+					if (iterator == game->respawn.end())
+					{
+						throw std::invalid_argument("Unknown map name key.");
+					}
+					game->currentScreenName = iterator->second;
+					game->player->setPosition(5, 5);
                 }
 				uiManager->showStats();
                 _getch();
+				game->player->modifyHealth(1);
 
                 fighting = false;
                 entitiesOrder.clear();

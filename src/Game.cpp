@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Player.h"
+#include "defines.h"
 
 #include <fstream>
 #include <vector>
@@ -55,7 +56,7 @@ void Game::run()
 
 void Game::generateMaps()
 {
-	this->dialogueMap =
+	this->dialogues =
 	{
 		{L"Castle_npc", L"hello i am the castle npc\ntalk to me again to unlock\nthe barrier to the next area!"},
 		{L"Village_npc_1", L"i will give you a tutorial\nfor now i am just here to test\nthe dialogue function" },
@@ -63,7 +64,27 @@ void Game::generateMaps()
 
 	this->storyNpcs =
 	{
-		{L"Castle_npc", this->boundaryMap.find(L"City_1_Gate")},
+		{L"Castle_npc", this->boundaries.find(L"City_1_Gate")},
+	};
+
+	this->miniMaps =
+	{
+		{L"City_1", THUMBNAIL_MAP_CITY_1},
+		{L"City_2", THUMBNAIL_MAP_CITY_2},
+		{L"City_3", THUMBNAIL_MAP_CITY_3},
+		{L"Area_1", THUMBNAIL_MAP_AREA_1},
+		{L"Area_2", THUMBNAIL_MAP_AREA_2},
+		{L"Area_3", THUMBNAIL_MAP_AREA_3},
+		{L"Area_4", THUMBNAIL_MAP_AREA_4},
+
+	};
+
+	this->respawn =
+	{
+		{L"Area_1", L"Village_2"},
+		{L"Area_2", L"City_1_2"},
+		{L"Area_3", L"City_2_2"},
+		{L"Area_4", L"City_3_2"}
 	};
 }
 
@@ -95,6 +116,6 @@ void Game::loadSaveFile(Player* player, std::vector<std::wstring> lines)
 	for (int lineNr = 6; lineNr < lines.size(); ++lineNr)
 	{
 		size_t pos = lines[lineNr].find(';');
-		this->boundaryMap.insert(std::pair<std::wstring, bool>(lines[lineNr].substr(0, pos), stoi(lines[lineNr].substr(pos + 1))));
+		this->boundaries.insert(std::pair<std::wstring, bool>(lines[lineNr].substr(0, pos), stoi(lines[lineNr].substr(pos + 1))));
 	}
 }

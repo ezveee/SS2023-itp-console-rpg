@@ -19,6 +19,14 @@
 
 Screen::Screen(const std::wstring& filename)
 {
+	size_t pos = filename.find('_');
+	std::wstring screenType = filename.substr(0, pos);
+
+	if (screenType == L"City" || screenType == L"Village")
+		this->isSafe = true;
+	else
+		this->isSafe = false;
+
 	load(filename);
 }
 
@@ -32,16 +40,6 @@ Screen::~Screen()
 				delete world[x][y];
 		}
 	}
-}
-
-void Screen::setMapName(std::wstring newMapName)
-{
-	mapName = newMapName;
-}
-
-std::wstring Screen::getMapName()
-{
-	return mapName;
 }
 
 WorldField* Screen::getWorldField(int x, int y) const
@@ -203,4 +201,9 @@ void Screen::display(Player* player) const
 		}
 		std::wcout << "\n";
 	}
+}
+
+bool Screen::getIsSafe()
+{
+	return this->isSafe;
 }

@@ -5,6 +5,7 @@
 #include "Command.h"
 #include "WorldField.h"
 #include <iostream>
+#include <conio.h>
 
 MoveMode::MoveMode(Game* game)
 {
@@ -12,7 +13,7 @@ MoveMode::MoveMode(Game* game)
 	currentScreen = new Screen(game->currentScreenName);
 	nextScreen = nullptr;
 
-	stepsUntilEncounter = 1000/*rand() % 9 + 8*/;
+	stepsUntilEncounter = rand() % 9 + 8;
 }
 
 MoveMode::~MoveMode()
@@ -25,6 +26,8 @@ void MoveMode::handle(Game* game)
 	system("CLS");
 	currentScreen->display(game->player);
 	Command command = currentUserInput->getUserInput();
+	if (command == Command::OpenMenu)
+		openMenu(game);
 
 	Position newPosition = game->player->calculateNewPosition(command);
 
@@ -49,12 +52,14 @@ void MoveMode::handle(Game* game)
 			nextScreen = nullptr;
 		}
 	}
-
-	if (moveCounter >= stepsUntilEncounter)
+	if(!currentScreen->getIsSafe())
 	{
-		moveCounter = 0;
-		game->getUIManager()->showDialog(L"Enemy encountered!", true);
-		game->nextGameMode = new FightMode();
+		if (moveCounter >= stepsUntilEncounter)
+		{
+			moveCounter = 0;
+			game->getUIManager()->showDialog(L"Enemy encountered!", true);
+			game->nextGameMode = new FightMode();
+		}
 	}
 }
 
@@ -73,4 +78,34 @@ void MoveMode::interact(Screen* currentScreen, Game* game)
 			field->onInteract(game);
 		}
 	}
+}
+
+void MoveMode::openMenu(Game* game)
+{
+	system("CLS");
+	std::wstring currentMiniMap;
+	size_t pos = game->currentScreenName.find('_');
+
+	if (game->currentScreenName.substr(0, pos) == L"Village")
+		currentMiniMap = THUMBNAIL_MAP_VILLAGE;
+	else{
+		auto iterator = game->miniMaps.find(game->currentScreenName.substr(0, 6));
+		if (iterator == game->miniMaps.end())
+		{
+			throw std::invalid_argument("Unknown map name key.");
+		}
+		currentMiniMap = iterator->second;
+	}
+
+	std::wcout << L"Your current Position:\n" << game->currentScreenName << "\n"
+		<< "\nMinimap: " << currentMiniMap << L"__________________________________\n\n";
+
+	
+	for (auto member : game->playerTeam->members)
+	{
+		std::wcout << L"=" << member->getName()<< L"=\n" << L"HP: " << member->getStats().health
+			<< "/" << member->getStats().maxHealth << L"\nMP: " << member->getStats().mana << "/"
+			<< member->getStats().maxMana << "" << "\n";
+	}
+	_getch();
 }

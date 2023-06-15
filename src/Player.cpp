@@ -61,6 +61,10 @@ Position Player::calculateNewPosition(Command command)
 		this->interactionRequested = true;
 		break;
 
+	case Command::OpenMenu:
+		deltaX = 0;
+		break;
+
 	case Command::EndGame:
 		this->isExitRequested = true;
 		break;
