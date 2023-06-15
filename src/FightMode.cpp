@@ -162,8 +162,15 @@ void FightMode::handle(Game* game)
                     Ability* chosenAbility = nullptr;
                     chosenAbility = entitiesOrder[i]->chooseAbility();
 
-                    //Go back to "choseAction"
-                    if (chosenAbility == nullptr)
+					//If user has not enough Mana, go back to "chooseAction"
+					if (chosenAbility->cost > entitiesOrder[i]->getMana())
+					{
+						uiManager->showDialog(L"You do not have enough Mana.", true);
+						continue;
+					}
+
+					//Go back to "chooseAction"
+					if (chosenAbility == nullptr)
                     {
                         uiManager->showDialog(L"Choosing Ability canceled.", true);
                         continue;
@@ -176,7 +183,12 @@ void FightMode::handle(Game* game)
                     }
                     else
                     {
-                        Entity* target = entitiesOrder[i]->chooseTarget(oponentTeam);
+						Entity* target = nullptr;
+						while (target == nullptr)
+						{
+							target = entitiesOrder[i]->chooseTarget(oponentTeam);
+						}
+
                         entitiesOrder[i]->useAbilityOnTarget(chosenAbility, entitiesOrder[i], target);
                     }
                 }
