@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Ability.cpp" />
     <ClCompile Include="Ally.cpp" />
+    <ClCompile Include="AllyAbility.cpp" />
     <ClCompile Include="BlacksmithField.cpp" />
     <ClCompile Include="BlockField.cpp" />
     <ClCompile Include="DefaultAttack.cpp" />
@@ -138,6 +139,8 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ExitField.cpp" />
     <ClCompile Include="FireballAttack.cpp" />
+    <ClCompile Include="HammerSmashAttack.cpp" />
+    <ClCompile Include="HealAllAbility.cpp" />
     <ClCompile Include="MeteorAttack.cpp" />
     <ClCompile Include="SlashAttack.cpp" />
     <ClCompile Include="SpinAttack.cpp" />
@@ -162,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="Ability.h" />
     <ClInclude Include="Ally.h" />
+    <ClInclude Include="AllyAbility.h" />
     <ClInclude Include="BlacksmithField.h" />
     <ClInclude Include="BlockField.h" />
     <ClInclude Include="BoundaryField.h" />
@@ -172,6 +176,8 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ExitField.h" />
     <ClInclude Include="FireballAttack.h" />
+    <ClInclude Include="HammerSmashAttack.h" />
+    <ClInclude Include="HealAllAbility.h" />
     <ClInclude Include="MeteorAttack.h" />
     <ClInclude Include="SlashAttack.h" />
     <ClInclude Include="SpinAttack.h" />

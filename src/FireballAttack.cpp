@@ -10,7 +10,7 @@ FireballAttack::FireballAttack(Entity* entity)
 
 void FireballAttack::action(Entity* user, Entity* target)
 {
-	int damage = user->getStats().spAttack + MAGICIAN_COST;
+	int damage = user->getStats().spAttack + user->getStats().level;
 	attack(damage, this->cost, true, user, target);
 }
 

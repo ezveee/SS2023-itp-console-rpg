@@ -156,6 +156,15 @@
     <ClCompile Include="SpinAttack.cpp">
       <Filter>Source Files\Fight</Filter>
     </ClCompile>
+    <ClCompile Include="HammerSmashAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="HealAllAbility.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="AllyAbility.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h">
@@ -255,6 +264,15 @@
       <Filter>Header Files\Fight</Filter>
     </ClInclude>
     <ClInclude Include="FireballAttack.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="AllyAbility.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="HammerSmashAttack.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="HealAllAbility.h">
       <Filter>Header Files\Fight</Filter>
     </ClInclude>
   </ItemGroup>
