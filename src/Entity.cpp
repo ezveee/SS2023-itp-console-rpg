@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "levelStats.h"
 
 bool Entity::isAlive()
 {
@@ -58,6 +59,33 @@ void Entity::useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam)
 	}
 
 	user->modifyMana(-ability->cost);
+}
+
+void Entity::setLevel(int level, bool isPhysicalClass)
+{
+	this->stat.level = level;
+	Stats currentStat;
+
+	if (isPhysicalClass)
+		currentStat = physicalClass;
+	else
+		currentStat = specialClass;
+
+	for (int i = 0; i < level; i++)
+	{
+		this->stat.maxHealth += currentStat.maxHealth;
+		this->stat.maxMana += currentStat.maxMana;
+		this->stat.accuracy += currentStat.accuracy;
+		this->stat.attack += currentStat.attack;
+		this->stat.defense += currentStat.defense;
+		this->stat.spAttack += currentStat.spAttack;
+		this->stat.spDefense += currentStat.spDefense;
+		this->stat.speed += currentStat.speed;
+		this->stat.critical += currentStat.critical;
+	}
+
+	this->stat.health = this->stat.maxHealth;
+	this->stat.mana = this->stat.maxMana;
 }
 
 int Entity::getSpeed() const { return this->stat.speed; }

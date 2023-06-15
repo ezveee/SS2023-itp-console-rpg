@@ -275,6 +275,9 @@
     <ClInclude Include="HealAllAbility.h">
       <Filter>Header Files\Fight</Filter>
     </ClInclude>
+    <ClInclude Include="levelStats.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Maps\City_1_1.txt">

@@ -18,5 +18,12 @@ class Enemy : public Entity
 		fightAction chooseAction() override;
 		Ability* chooseAbility() override;
 		Entity* chooseTarget(Team* targetTeam) override;
+
+		int getGoldReward();
+		int getExperienceReward();
+
+	private:
+		int goldReward;
+		int experienceReward;
 };
 

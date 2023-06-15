@@ -21,7 +21,7 @@ void FightMode::randomEnemyEncounter()
 
 }
 
-Team* FightMode::createEnemyTeam(int pTeamSize)
+Team* FightMode::createEnemyTeam(int pTeamSize, int playerLevel)
 {
     //1 Player-Team-Size, 1-2 enemies
     //2 Player-Team-Size, 2-3 enemies 
@@ -35,18 +35,29 @@ Team* FightMode::createEnemyTeam(int pTeamSize)
     Team* enemyTeam = new Team();
 
     EnemyType type;
+	bool isPhysicalType;
+
+	//Randomize Enemy Level (= playerLevel || playerLevel - 1)
+	int level = 1;
+	if(playerLevel > 1)
+		level = rand() % 2 + playerLevel - 1;
 
     for (int i = 0; i < enemyTeamSize; i++)
     {
 		int randomNum = rand() % 2;
-		if (randomNum == 0) {
+		if (randomNum == 0) 
+		{
 			type = Goblin;
+			isPhysicalType = true;
 		}
-		else {
+		else 
+		{
 			type = Slime;
+			isPhysicalType = false;
 		}
 
         Enemy* enemy = new Enemy(enemyTeam, type);
+		enemy->setLevel(level, isPhysicalType);
     }
 
     return enemyTeam;
@@ -105,7 +116,7 @@ void FightMode::handle(Game* game)
 {
 	UIManager* uiManager = game->getUIManager();
 	
-	Team* enemyTeam = this->createEnemyTeam(game->playerTeam->members.size());
+	Team* enemyTeam = this->createEnemyTeam(game->playerTeam->members.size(), game->playerTeam->members[0]->getStats().level);
 
     std::vector<Entity*> entitiesOrder = this->setFightOrder(game->playerTeam, enemyTeam);
 
@@ -269,4 +280,20 @@ void FightMode::handle(Game* game)
     delete enemyTeam;
 
 	game->nextGameMode = new MoveMode(game);
+}
+
+void FightMode::giveOutRewards(Entity* player, Team* enemyTeam)
+{
+	Player* playerInstance = dynamic_cast<Player*>(player);
+
+	for (int i = 0; i < enemyTeam->members.size(); i++)
+	{
+		Enemy* enemy = dynamic_cast<Enemy*>(enemyTeam->members[i]);
+
+		if(enemy == nullptr)
+			throw std::runtime_error("Error: Entity is not a Enemy (FightMode)");
+
+		playerInstance->modifyGold(enemy->getGoldReward());
+		playerInstance->setExpUntilLevelUp(enemy->getExperienceReward());
+	}
 }

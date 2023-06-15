@@ -53,6 +53,8 @@ class Entity
 		void useAbilityOnTarget(Ability* ability, Entity* user, Entity* target);
 		void useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam);
 
+		void setLevel(int level, bool isPhysicalClass);
+
 		int getSpeed() const;
 		int getHealth() const;
 		int getMana() const;

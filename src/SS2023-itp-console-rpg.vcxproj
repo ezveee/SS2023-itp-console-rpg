@@ -178,6 +178,7 @@
     <ClInclude Include="FireballAttack.h" />
     <ClInclude Include="HammerSmashAttack.h" />
     <ClInclude Include="HealAllAbility.h" />
+    <ClInclude Include="levelStats.h" />
     <ClInclude Include="MeteorAttack.h" />
     <ClInclude Include="SlashAttack.h" />
     <ClInclude Include="SpinAttack.h" />

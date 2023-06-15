@@ -13,6 +13,9 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 	{
 	case Slime:
 		this->name = L"Slime";
+		this->goldReward = 10;
+		this->experienceReward = 10;
+
 		enemyStats.maxHealth = 8;
 		enemyStats.maxMana = 12;
 		enemyStats.accuracy = 2;
@@ -26,6 +29,9 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 		break;
 	case Goblin:
 		this->name = L"Goblin";
+		this->goldReward = 15;
+		this->experienceReward = 15;
+
 		enemyStats.maxMana = 10;
 		enemyStats.maxHealth = 10;
 		enemyStats.accuracy = 2;
@@ -149,3 +155,6 @@ Entity* Enemy::chooseTarget(Team* targetTeam)
 		return lowestHealth;
 	}
 }
+
+int Enemy::getGoldReward() { return this->goldReward; }
+int Enemy::getExperienceReward() { return this->experienceReward; }

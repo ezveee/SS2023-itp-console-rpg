@@ -20,72 +20,72 @@ Ally::Ally(Team* playerTeam, RoleClass role)
     struct Stats allyStats = {};
     switch (role)
     {
-	case Warrior:
-        this->name = L"Warrior";
+		case Warrior:
+			this->name = L"Warrior";
 
-        allyStats.maxHealth		= 12;
-        allyStats.maxMana		= 9;
-        allyStats.accuracy		= 2;
-        allyStats.attack		= 3;
-        allyStats.defense		= 12;
-        allyStats.spAttack		= 1;
-        allyStats.spDefense		= 8;
-        allyStats.speed			= 2;
-        allyStats.critical		= 2;
+			allyStats.maxHealth		= 12;
+			allyStats.maxMana		= 9;
+			allyStats.accuracy		= 2;
+			allyStats.attack		= 3;
+			allyStats.defense		= 12;
+			allyStats.spAttack		= 1;
+			allyStats.spDefense		= 8;
+			allyStats.speed			= 2;
+			allyStats.critical		= 2;
 
-		this->abilities.push_back(new SlashAttack(this));
-		this->abilities.push_back(new SpinAttack(this));
+			this->abilities.push_back(new SlashAttack(this));
+			this->abilities.push_back(new SpinAttack(this));
 
-		break;
-	case Magician:
-        this->name = L"Magician";
+			break;
+		case Magician:
+			this->name = L"Magician";
 
-        allyStats.maxHealth		= 10;
-        allyStats.maxMana		= 14;
-        allyStats.accuracy		= 2;
-        allyStats.attack		= 2;
-        allyStats.defense		= 8;
-        allyStats.spAttack		= 2;
-        allyStats.spDefense		= 12;
-        allyStats.speed			= 1;
-        allyStats.critical		= 1;
+			allyStats.maxHealth		= 10;
+			allyStats.maxMana		= 14;
+			allyStats.accuracy		= 2;
+			allyStats.attack		= 2;
+			allyStats.defense		= 8;
+			allyStats.spAttack		= 2;
+			allyStats.spDefense		= 12;
+			allyStats.speed			= 1;
+			allyStats.critical		= 1;
 
-		this->abilities.push_back(new FireballAttack(this));
-		this->abilities.push_back(new MeteorAttack(this));
+			this->abilities.push_back(new FireballAttack(this));
+			this->abilities.push_back(new MeteorAttack(this));
 
-		break;
-	case Assassin:
-		this->name = L"Assassin";
+			break;
+		case Assassin:
+			this->name = L"Assassin";
 
-		allyStats.maxHealth = 10;
-		allyStats.maxMana = 9;
-		allyStats.accuracy = 1;
-		allyStats.attack = 3;
-		allyStats.defense = 10;
-		allyStats.spAttack = 2;
-		allyStats.spDefense = 10;
-		allyStats.speed = 3;
-		allyStats.critical = 3;
+			allyStats.maxHealth = 10;
+			allyStats.maxMana = 9;
+			allyStats.accuracy = 1;
+			allyStats.attack = 3;
+			allyStats.defense = 10;
+			allyStats.spAttack = 2;
+			allyStats.spDefense = 10;
+			allyStats.speed = 3;
+			allyStats.critical = 3;
 
-		break;
-	case Healer:
-		this->name = L"Healer";
+			break;
+		case Healer:
+			this->name = L"Healer";
 
-		allyStats.maxHealth = 12;
-		allyStats.maxMana = 12;
-		allyStats.accuracy = 2;
-		allyStats.attack = 2;
-		allyStats.defense = 10;
-		allyStats.spAttack = 4;
-		allyStats.spDefense = 10;
-		allyStats.speed = 1;
-		allyStats.critical = 1;
+			allyStats.maxHealth = 12;
+			allyStats.maxMana = 12;
+			allyStats.accuracy = 2;
+			allyStats.attack = 2;
+			allyStats.defense = 10;
+			allyStats.spAttack = 4;
+			allyStats.spDefense = 10;
+			allyStats.speed = 1;
+			allyStats.critical = 1;
 
-		this->abilities.push_back(new HammerSmashAttack(this));
-		this->abilities.push_back(new HealAllAbility(this));
-		break;
-	default:
-		this->name = L"Default ally";
+			this->abilities.push_back(new HammerSmashAttack(this));
+			this->abilities.push_back(new HealAllAbility(this));
+			break;
+		default:
+			this->name = L"Default ally";
 	}
 
 	this->stat = allyStats;
