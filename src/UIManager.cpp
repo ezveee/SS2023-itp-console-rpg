@@ -29,8 +29,10 @@ void UIManager::showStats()
         std::wstring name = playerTeam->members[index]->getName();
         std::wstring health = std::to_wstring(playerTeam->members[index]->getHealth());
         std::wstring maxHealth = std::to_wstring(playerTeam->members[index]->getStats().maxHealth);
+		std::wstring mana = std::to_wstring(playerTeam->members[index]->getMana());
+		std::wstring maxMana = std::to_wstring(playerTeam->members[index]->getStats().maxMana);
 
-        pTeamOutput += L"\t" + name + L" [" + health + L"/" + maxHealth + L"]\n";
+        pTeamOutput += L"\t" + name + L" [" + health + L"/" + maxHealth + L"]" + L" [" + mana + L"/" + maxMana + L"]\n";
     }
     std::wcout << pTeamOutput << std::endl;
 
@@ -168,42 +170,3 @@ void UIManager::setTeams(Team* playerTeam, Team* enemyTeam)
     this->playerTeam = playerTeam;
     this->enemyTeam = enemyTeam;
 }
-
-//std::wstring output =
-//"+----------------------------------------------------------------------+\n"
-//"|                                                                      |\n"
-//"|  +--------------------+                      +--------------------+  |\n"
-//"|  |Ally 1              |                      |Enemy 1             |  |\n"
-//"|  |xxx/xxx HP          |                      |xxx/xxx MANA        |  |\n"
-//"|  |xxx/xxx MANA        |      \        /      |xxx/xxx MANA        |  |\n"
-//"|  +--------------------+       \      /       +--------------------+  |\n"
-//"|  |Ally 2              |        \    /        |Enemy 1             |  |\n"
-//"|  |xxx/xxx HP          |         \  /         |xxx/xxx MANA        |  |\n"
-//"|  |xxx/xxx MANA        |          \/          |xxx/xxx MANA        |  |\n"
-//"|  +--------------------+                      +--------------------+  |\n"
-//"|  |Ally 3              |      +---------      |Enemy 1             |  |\n"
-//"|  |xxx/xxx HP          |      |               |xxx/xxx MANA        |  |\n"
-//"|  |xxx/xxx MANA        |      +--------+      |xxx/xxx MANA        |  |\n"
-//"|  +--------------------+               |      +--------------------+  |\n"
-//"|                              ---------+      |Enemy 1             |  |\n"
-//"|                                              |xxx/xxx MANA        |  |\n"
-//"|                                              |xxx/xxx MANA        |  |\n"
-//"|                                              +--------------------+  |\n"
-//"|                                                                      |\n"
-//"|  +-------------------------------++-------------------------------+  |\n"
-//"|  |                               ||                               |  |\n"
-//"|  |><><><><| A T T A C K |><><><><||><><><|  A B I L I T Y  |><><><|  |\n"
-//"|  |                               ||                               |  |\n"
-//"|  +-------------------------------++-------------------------------+  |\n"
-//"|  |                               ||                               |  |\n"
-//"|  |><><><><><| I T E M |><><><><><||><><><><><|  R U N  |><><><><><|  |\n"
-//"|  |                               ||                               |  |\n"
-//"|  +--+----------------------------++----------------------------+--+  |\n"
-//"|  |><|  Lorem ipsum dolor sit amet, consetetur sadipscing elit  |><|  |\n"
-//"|  |><|  r, sed diam nonumy eirmod tempor invidunt ut labore et  |><|  |\n"
-//"|  |><|   dolore magna aliquyam erat, sed diam voluptua. At ver  |><|  |\n"
-//"|  |><|  o eos et accusam et justo duo dolores et ea rebum. ...  |><|  |\n"
-//"|  |><|    Zeilen: Max 54 Zeichen -> Textbox: Max 270 Zeichen    |><|  |\n"
-//"|  +--+----------------------------------------------------------+--+  |\n"
-//"|                                                                      |\n"
-//"+----------------------------------------------------------------------+\n";

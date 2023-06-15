@@ -32,8 +32,8 @@ bool BoundaryField::isEnterable()
 {
 	if (!this->enterable)
 	{
-		std::wcout << TEXTBOXBORDER_UPPER_LOWER << L"\nyou are unable to pass by here for now,\ntry talking to people to find out what\nyou need to do in order to progress\n"
-		<< TEXTBOXBORDER_UPPER_LOWER;
+		Game* game = game->getInstance();
+		game->getUIManager()->showDialog(L"you are unable to pass by here for now, try talking to people to find out what you need to do in order to progress", true);
 		_getch();
 	}
 	return this->enterable;

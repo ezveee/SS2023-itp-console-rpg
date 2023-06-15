@@ -244,7 +244,9 @@ void FightMode::handle(Game* game)
                 }
 				uiManager->showStats();
                 _getch();
-				game->player->modifyHealth(1);
+
+				if(!enemyTeam->isTeamAlive() || !game->playerTeam->isTeamAlive())
+					game->player->modifyHealth(1);
 
                 fighting = false;
                 entitiesOrder.clear();

@@ -41,7 +41,8 @@ void MoveMode::handle(Game* game)
 	{
 		game->player->setPosition(newPosition.x, newPosition.y);
 
-		++moveCounter;
+		if(!currentScreen->getIsSafe())
+			++moveCounter;
 		
 		currentScreen->getWorldField(newPosition.x, newPosition.y)->onEnter(game);
 
