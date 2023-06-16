@@ -12,9 +12,9 @@
 └─────────┴─────┴┘
 
 ##################
+#                #
 #                b
-#                b
-#                b
+#                #
 #           #    #
 # ##      ####   #
 #####    ####    #
@@ -25,4 +25,4 @@
 #########aaaaaaaa#
 
 a: Transition;Area_2_3;Y:1
-b: Transition;Dungeon_1;X:1;Y:1
+b: Transition;Dungeon_1_1;X:1

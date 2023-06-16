@@ -24,8 +24,7 @@
 #   ###          #
 #bbb###bbbbb###bb#
 
-a: Transition;Area_1_4;Y:10
+a: Transition;Area_1_2;Y:10
 b: Transition;Village_2;Y:1
 H: House
 S: Shop
-n: Npc;Village_npc_1
