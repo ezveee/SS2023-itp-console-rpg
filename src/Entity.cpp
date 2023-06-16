@@ -71,7 +71,7 @@ void Entity::setLevel(int level, bool isPhysicalClass)
 	else
 		currentStat = specialClass;
 
-	for (int i = 0; i < level; i++)
+	for (int i = 0; i < level - 1; i++)
 	{
 		this->stat.maxHealth += currentStat.maxHealth;
 		this->stat.maxMana += currentStat.maxMana;

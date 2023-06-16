@@ -3,6 +3,8 @@
 #include <sstream>
 #include "conio.h"
 
+#include "Player.h"
+
 void UIManager::showStats()
 {
     //If any Team-Pointer is a nullptr, Error
@@ -72,7 +74,16 @@ void UIManager::showChooseAction(Ally* user, int selection)
     if (selection == Block)
         std::wcout << "> ";
     std::wcout << "Block" << std::endl;
-    std::wcout << std::endl;
+
+	Player* player = dynamic_cast<Player*>(user);
+	if (player != nullptr)
+	{
+		if(selection == Run)
+			std::wcout << "> ";
+		std::wcout << "Run" << std::endl;
+	}
+
+	std::wcout << std::endl;
 
     this->showStats();
 }

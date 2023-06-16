@@ -114,6 +114,8 @@ fightAction Ally::chooseAction()
 	Game* game = Game::getInstance();
 	UIManager* uiManager = game->getUIManager();
 
+	Player* player = dynamic_cast<Player*>(this);
+
     int selection = 0;
     bool choosingAction = true;
     char input = '\0';
@@ -138,7 +140,14 @@ fightAction Ally::chooseAction()
         else if (input == 's' || input == 'S' || input == ARROWKEY_DOWN)
         {
             selection++;
-            if (selection > Block)
+
+
+			if (player != nullptr)
+			{
+				if (selection > Run)
+					selection = Run;
+			}
+			else if (selection > Block)
                 selection = Block;
         }
 

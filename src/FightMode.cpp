@@ -131,6 +131,10 @@ void FightMode::handle(Game* game)
     bool fighting = true;
     uiManager->setTeams(game->playerTeam, enemyTeam);
 
+	//For Blocking
+	bool isBlocking = false;
+	Entity* blockUser = nullptr;
+
     //Fight is lasting until one Team is dead
     while (fighting)
     {
@@ -142,6 +146,15 @@ void FightMode::handle(Game* game)
             while (choosingAnAction)
             {
                 system("cls");
+
+				if (isBlocking == true && entitiesOrder[i] == blockUser)
+				{
+					uiManager->showDialog(blockUser->getName() + L" has stopped blocking.", false);
+
+					isBlocking = false;
+					blockUser = nullptr;
+				}
+
                 //'#' means there is a line break
                 uiManager->showDialog(
                     entitiesOrder[i]->getName() + L" is next!\n" + 
@@ -165,6 +178,9 @@ void FightMode::handle(Game* game)
                     while (target == nullptr)
                     {
                         target = entitiesOrder[i]->chooseTarget(oponentTeam);
+
+						if (target == blockUser)
+							target = nullptr;
                     }
 
                     entitiesOrder[i]->useAbilityOnTarget(entitiesOrder[i]->getDefaultAttack(), entitiesOrder[i], target);
@@ -209,6 +225,9 @@ void FightMode::handle(Game* game)
 						while (target == nullptr)
 						{
 							target = entitiesOrder[i]->chooseTarget(oponentTeam);
+
+							if (target == blockUser)
+								target = nullptr;
 						}
 
                         entitiesOrder[i]->useAbilityOnTarget(chosenAbility, entitiesOrder[i], target);
@@ -216,11 +235,26 @@ void FightMode::handle(Game* game)
                 }
                 else if (chosenAction == UseItem)
                 {
-
-                }
+					uiManager->showDialog(L"You do not have any Items.", true);
+					continue;
+				}
                 else if (chosenAction == Block)
                 {
-
+					if (game->playerTeam->members.size() <= 1)
+					{
+						uiManager->showDialog(L"You cannot block right now because you are fighting alone.", true);
+						continue;
+					}
+					else if (isBlocking == true && blockUser != nullptr)
+					{
+						uiManager->showDialog(L"You cannot block right now. " + blockUser->getName() + L"is already blocking.", true);
+						continue;
+					}
+					else
+					{
+						blockUser = entitiesOrder[i];
+						isBlocking = true;
+					}
                 }
                 else if (chosenAction == Run)
                 {
@@ -250,6 +284,7 @@ void FightMode::handle(Game* game)
                 {
                     //Message: You've won!
                     uiManager->showDialog(L"You have won.", false);
+					giveOutRewards(game->playerTeam->members[0], enemyTeam);
                 }
                 //Check if Player-Team is Alive
                 if (!game->playerTeam->isTeamAlive())
@@ -285,6 +320,8 @@ void FightMode::handle(Game* game)
 void FightMode::giveOutRewards(Entity* player, Team* enemyTeam)
 {
 	Player* playerInstance = dynamic_cast<Player*>(player);
+	if(playerInstance == nullptr)
+		throw std::runtime_error("Error: Entity is not a Player (FightMode)");
 
 	for (int i = 0; i < enemyTeam->members.size(); i++)
 	{
