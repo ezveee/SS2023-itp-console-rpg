@@ -1,6 +1,9 @@
 #include "Enemy.h"
 #include <iostream>
 
+#include "SlashAttack.h"
+#include "SpinAttack.h"
+
 #define SMARTER_BEHAVIOR_LV 5
 
 Enemy::Enemy(Team* enemyTeam, EnemyType type) 
@@ -11,40 +14,59 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 	switch(type)
 	{
-	case Slime:
-		this->name = L"Slime";
-		this->goldReward = 10;
-		this->experienceReward = 10;
+		case Slime:
+			this->name = L"Slime";
+			this->goldReward = 10;
+			this->experienceReward = 10;
 
-		enemyStats.maxHealth = 8;
-		enemyStats.maxMana = 12;
-		enemyStats.accuracy = 2;
-		enemyStats.attack = 1;
-		enemyStats.defense = 8;
-		enemyStats.spAttack = 3;
-		enemyStats.spDefense = 10;
-		enemyStats.speed = 1;
-		enemyStats.critical = 1;
+			enemyStats.maxHealth = 8;
+			enemyStats.maxMana = 12;
+			enemyStats.accuracy = 2;
+			enemyStats.attack = 1;
+			enemyStats.defense = 8;
+			enemyStats.spAttack = 3;
+			enemyStats.spDefense = 10;
+			enemyStats.speed = 1;
+			enemyStats.critical = 1;
 
-		break;
-	case Goblin:
-		this->name = L"Goblin";
-		this->goldReward = 15;
-		this->experienceReward = 15;
+			break;
+		case Goblin:
+			this->name = L"Goblin";
+			this->goldReward = 15;
+			this->experienceReward = 15;
 
-		enemyStats.maxMana = 10;
-		enemyStats.maxHealth = 10;
-		enemyStats.accuracy = 2;
-		enemyStats.attack = 2;
-		enemyStats.defense = 10;
-		enemyStats.spAttack = 2;
-		enemyStats.spDefense = 8;
-		enemyStats.speed = 1;
-		enemyStats.critical = 1;
+			enemyStats.maxMana = 10;
+			enemyStats.maxHealth = 10;
+			enemyStats.accuracy = 2;
+			enemyStats.attack = 2;
+			enemyStats.defense = 10;
+			enemyStats.spAttack = 2;
+			enemyStats.spDefense = 8;
+			enemyStats.speed = 1;
+			enemyStats.critical = 1;
 
-		break;
-	default:
-		this->name = L"Default enemy";
+			break;
+		case GoblinKing:
+			this->name = L"Goblin King";
+			this->goldReward = 40;
+			this->experienceReward = 60;
+
+			enemyStats.level = 3;
+			enemyStats.maxMana = 12;
+			enemyStats.maxHealth = 16;
+			enemyStats.accuracy = 2;
+			enemyStats.attack = 2;
+			enemyStats.defense = 10;
+			enemyStats.spAttack = 2;
+			enemyStats.spDefense = 10;
+			enemyStats.speed = 2;
+			enemyStats.critical = 1;
+
+			this->abilities.push_back(new SlashAttack(this));
+			this->abilities.push_back(new SpinAttack(this));
+			break;
+		default:
+			this->name = L"Default enemy";
 	}
 
 	this->stat = enemyStats;
@@ -57,18 +79,18 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 Enemy::~Enemy()
 {
-	std::wcout << "\t- - - - - " << this->getName() << " - - - - -" << std::endl;
-	
-	std::wcout <<"\t> " << this->defaultAttack->getName() << ", was deleted" << std::endl;
+	//std::wcout << "\t- - - - - " << this->getName() << " - - - - -" << std::endl;
+	//
+	//std::wcout <<"\t> " << this->defaultAttack->getName() << ", was deleted" << std::endl;
 	delete this->defaultAttack;
 
 	for (int i = 0; i < this->abilities.size(); i++)
 	{
-		std::wcout << "\t> " << abilities[i]->getName() << ", was deleted" << std::endl;
+		//std::wcout << "\t> " << abilities[i]->getName() << ", was deleted" << std::endl;
 		delete this->abilities[i];
 	}
 	this->abilities.clear();
-	std::wcout << "\t- - - - - " << this->getName() << " deleted - - - - -" << std::endl;
+	//std::wcout << "\t- - - - - " << this->getName() << " deleted - - - - -" << std::endl;
 }
 
 fightAction Enemy::chooseAction()

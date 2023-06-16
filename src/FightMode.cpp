@@ -63,6 +63,18 @@ Team* FightMode::createEnemyTeam(int pTeamSize, int playerLevel)
     return enemyTeam;
 }
 
+Team* FightMode::createBossTeam()
+{
+	Team* bossTeam = new Team();
+
+	if (this->currentEnemyType == Boss01)
+	{
+		Enemy* enemy = new Enemy(bossTeam, GoblinKing);
+	}
+
+	return bossTeam;
+}
+
 std::vector<Entity*> FightMode::setFightOrder(Team* playerTeam, Team* enemyTeam)
 {
 	//If any Team is empty, Error
@@ -116,7 +128,17 @@ void FightMode::handle(Game* game)
 {
 	UIManager* uiManager = game->getUIManager();
 	
-	Team* enemyTeam = this->createEnemyTeam(game->playerTeam->members.size(), game->playerTeam->members[0]->getStats().level);
+	Team* enemyTeam = nullptr;
+
+	switch (this->currentEnemyType)
+	{
+		case Boss01:
+			enemyTeam = this->createBossTeam();
+			break;
+		default:
+			enemyTeam = this->createEnemyTeam(game->playerTeam->members.size(), game->playerTeam->members[0]->getStats().level);
+			break;
+	}
 
     std::vector<Entity*> entitiesOrder = this->setFightOrder(game->playerTeam, enemyTeam);
 
@@ -313,6 +335,7 @@ void FightMode::handle(Game* game)
 
     //delete Enemies
     delete enemyTeam;
+	currentEnemyType = DefaultEnemy;
 
 	game->nextGameMode = new MoveMode(game);
 }

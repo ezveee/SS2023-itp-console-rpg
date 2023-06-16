@@ -9,4 +9,3 @@ class SlashAttack : public Ability
 
         ~SlashAttack();
 };
-

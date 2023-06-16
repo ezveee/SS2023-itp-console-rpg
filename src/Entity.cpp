@@ -88,6 +88,11 @@ void Entity::setLevel(int level, bool isPhysicalClass)
 	this->stat.mana = this->stat.maxMana;
 }
 
+void Entity::setCritical(int value)
+{
+	this->stat.critical = value;
+}
+
 int Entity::getSpeed() const { return this->stat.speed; }
 int Entity::getHealth() const { return this->stat.health; };
 int Entity::getMana() const { return this->stat.mana; };

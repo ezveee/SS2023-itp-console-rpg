@@ -55,6 +55,8 @@ class Entity
 
 		void setLevel(int level, bool isPhysicalClass);
 
+		void setCritical(int value);
+
 		int getSpeed() const;
 		int getHealth() const;
 		int getMana() const;

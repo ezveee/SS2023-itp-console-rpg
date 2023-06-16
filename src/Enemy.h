@@ -5,7 +5,8 @@
 enum EnemyType
 {
 	Slime,
-	Goblin
+	Goblin,
+	GoblinKing
 };
 
 
@@ -21,6 +22,8 @@ class Enemy : public Entity
 
 		int getGoldReward();
 		int getExperienceReward();
+
+		bool isBoss = false;
 
 	private:
 		int goldReward;
