@@ -15,9 +15,18 @@
 #include "HouseField.h"
 #include "ExitField.h"
 #include "Player.h"
+#include "BoundaryField.h"
 
 Screen::Screen(const std::wstring& filename)
 {
+	size_t pos = filename.find('_');
+	std::wstring screenType = filename.substr(0, pos);
+
+	if (screenType == L"City" || screenType == L"Village")
+		this->isSafe = true;
+	else
+		this->isSafe = false;
+
 	load(filename);
 }
 
@@ -31,16 +40,6 @@ Screen::~Screen()
 				delete world[x][y];
 		}
 	}
-}
-
-void Screen::setMapName(std::wstring newMapName)
-{
-	mapName = newMapName;
-}
-
-std::wstring Screen::getMapName()
-{
-	return mapName;
 }
 
 WorldField* Screen::getWorldField(int x, int y) const
@@ -171,6 +170,11 @@ WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wc
 		return new NpcField(parameters);
 	}
 
+	if (fieldType == L"Boundary")
+	{
+		return new BoundaryField(parameters);
+	}
+
 	if (fieldType == L"Exit")
 	{
 		return new ExitField(parameters);
@@ -197,4 +201,9 @@ void Screen::display(Player* player) const
 		}
 		std::wcout << "\n";
 	}
+}
+
+bool Screen::getIsSafe()
+{
+	return this->isSafe;
 }

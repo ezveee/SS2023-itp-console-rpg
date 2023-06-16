@@ -4,7 +4,11 @@
 #include <stdexcept>
 #include "defines.h"
 
-Player::Player(Team* playerTeam, RoleClass role) : Ally(playerTeam, role)
+Player::Player(Team* playerTeam, RoleClass role, int gold, int expUntilLevelUp, int weaponLevel) :
+	Ally(playerTeam, role),
+	gold(gold),
+	expUntilLevelUp(expUntilLevelUp),
+	weaponLevel(weaponLevel)
 {
 	setPosition(PLAYER_START_X, PLAYER_START_Y);
 }
@@ -61,6 +65,10 @@ Position Player::calculateNewPosition(Command command)
 		this->interactionRequested = true;
 		break;
 
+	case Command::OpenMenu:
+		deltaX = 0;
+		break;
+
 	case Command::EndGame:
 		this->isExitRequested = true;
 		break;
@@ -86,45 +94,42 @@ void Player::setInteractionRequested()
 	this->interactionRequested = false;
 }
 
-//void Player::processMovement(UserInput input)
-//{
-//	int deltaX = 0;
-//	int deltaY = 0;
-//
-//	switch (input)
-//	{
-//	case UserInput::MoveUp:
-//		deltaY = -1;
-//		break;
-//
-//	case UserInput::MoveLeft:
-//		deltaX = -1;
-//		break;
-//
-//	case UserInput::MoveDown:
-//		deltaY = 1;
-//		break;
-//
-//	case UserInput::MoveRight:
-//		deltaX = 1;
-//		break;
-//
-//	case UserInput::EndGame:
-//		this->isExitRequested = true;
-//		return;
-//
-//	default:
-//		return;
-//	}
-//
-//	int newX = this->getPosition().x + deltaX;
-//	int newY = this->getPosition().y + deltaY;
-//
-//	this->setPosition(newX, newY);
-//
-//	/*if (newX >= 0 && newX < MAP_SIZE_X && newY >= 0 && newY < MAP_SIZE_Y)
-//	{
-//		this->setPosition(newX, newY);
-//	}*/
-//}
+bool Player::canProgress() const
+{
+	return this->progress;
+}
 
+void Player::setProgress()
+{
+	this->progress = !progress;
+}
+
+int Player::getGold()
+{
+	return this->gold;
+}
+
+void Player::modifyGold(int goldAmount)
+{
+	this->gold += goldAmount;
+}
+
+int Player::getExpUntilLevelUp()
+{
+	return this->expUntilLevelUp;
+}
+
+void Player::setExpUntilLevelUp(int expAmount)
+{
+	this->expUntilLevelUp = expAmount;
+}
+
+int Player::getWeaponLevel()
+{
+	return this->weaponLevel;
+}
+
+void Player::setWeaponLevel(int weaponLevel)
+{
+	this->weaponLevel = weaponLevel;
+}

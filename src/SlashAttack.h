@@ -1,11 +1,12 @@
 #pragma once
 #include "Ability.h"
 
-class DefaultAttack : public Ability
+class SlashAttack : public Ability
 {
     public:
-        DefaultAttack(Entity* entity);
+        SlashAttack(Entity* entity);
         void action(Entity* user, Entity* target) override;
 
-        ~DefaultAttack();
+        ~SlashAttack();
 };
+

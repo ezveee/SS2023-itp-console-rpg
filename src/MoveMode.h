@@ -14,6 +14,7 @@ public:
 
 	void handle(Game* game) override;
 	void interact(Screen* currentScreen, Game* game);
+	void openMenu(Game* game);
 
 	Screen* currentScreen;
 	Screen* nextScreen;

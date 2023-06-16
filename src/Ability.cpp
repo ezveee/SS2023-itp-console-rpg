@@ -2,11 +2,6 @@
 #include "Entity.h"
 #include "Game.h"
 
-void Ability::setLevel(Entity* entity)
-{
-	this->level = entity->getStats().level;
-}
-
 std::wstring Ability::getName() const { return this->name; };
 
 void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Entity* target)
@@ -59,7 +54,9 @@ void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Ent
 	}
 	else
 	{
-		dialog += user->getName() + L" misses " + target->getName() + L"!";
+		dialog +=
+			user->getName() + L" misses " + target->getName() + L"!\n" +
+			target->getName() + L"'s" + defOrSpDef + std::to_wstring(targetDef);
 	}
 
 	uiManager->showDialog(dialog, true);

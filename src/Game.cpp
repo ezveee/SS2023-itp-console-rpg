@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "Player.h"
+#include "defines.h"
 
 #include <fstream>
 #include <vector>
@@ -19,10 +20,9 @@ Game* Game::getInstance()
 
 Game::Game()
 {
+	instance = this;
+	this->generateMaps();
 	uiManager = new UIManager();
-
-	//add dialogue map
-	this->dialogueMap = this->getDialogues();
 
 	currentGameMode = new MoveMode(this);
 	nextGameMode = nullptr;
@@ -53,11 +53,71 @@ void Game::run()
 	delete currentGameMode;
 }
 
-std::map<std::wstring, std::wstring> Game::getDialogues()
+void Game::generateMaps()
 {
-	return
+	this->dialogues =
 	{
-		{L"Castle_npc", L"hello i am the castle npc\ni will give you directions\nto your next task!"},
-		{L"Village_npc_1", L"i will give you a tutorial\nfor now i am just here to test\nthe dialogue function"},
+		{L"Castle_npc", L"hello i am the castle npc, talk to me again to unlock the barrier to the next area!"},
 	};
+
+	this->storyNpcs =
+	{
+		{L"Castle_npc", this->boundaries.find(L"City_1_Gate")},
+	};
+
+	this->miniMaps =
+	{
+		{L"City_1", THUMBNAIL_MAP_CITY_1},
+		{L"City_2", THUMBNAIL_MAP_CITY_2},
+		{L"City_3", THUMBNAIL_MAP_CITY_3},
+		{L"Area_1", THUMBNAIL_MAP_AREA_1},
+		{L"Area_2", THUMBNAIL_MAP_AREA_2},
+		{L"Area_3", THUMBNAIL_MAP_AREA_3},
+		{L"Area_4", THUMBNAIL_MAP_AREA_4},
+
+	};
+
+	this->respawn =
+	{
+		{L"Area_1", L"Village_2"},
+		{L"Area_2", L"City_1_2"},
+		{L"Area_3", L"City_2_2"},
+		{L"Area_4", L"City_3_2"}
+	};
+}
+
+std::vector<std::wstring> Game::getSaveFile()
+{
+	std::wifstream file(L"./Savefiles/save.txt", std::ios::binary);
+
+	if (!file.is_open())
+	{
+		throw std::runtime_error("Could not open file ");
+	}
+
+	std::vector<std::wstring> lines;
+	std::wstring line;
+
+	while (std::getline(file, line))
+	{
+		lines.push_back(line.substr(0, line.length() - 1));
+	}
+	file.close();
+
+	return lines;
+}
+
+Player* Game::loadSaveFile(std::vector<std::wstring> lines)
+{
+	Player* newPlayer = new Player(this->playerTeam, Warrior, std::stoi(lines[2]), std::stoi(lines[4]), std::stoi(lines[5]));
+
+	//add loading for playerstats
+
+	for (int lineNr = 7; lineNr < lines.size(); ++lineNr)
+	{
+		size_t pos = lines[lineNr].find(';');
+		this->boundaries.insert(std::pair<std::wstring, bool>(lines[lineNr].substr(0, pos), stoi(lines[lineNr].substr(pos + 1))));
+	}
+
+	return newPlayer;
 }

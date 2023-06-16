@@ -1,6 +1,11 @@
 #pragma once
 #include <string>
 
+#define WARRIOR_COST 3 // + Level
+#define MAGICIAN_COST 4 // + Level
+#define ASSASSIN_COST 3 // + Level
+#define HEALER_COST 4 // + Level
+
 class Entity;
 
 class Ability
@@ -10,7 +15,6 @@ class Ability
 
         int cost;
         bool isAOE;
-        void setLevel(Entity* entity);
         std::wstring getName() const;
 
         virtual void action(Entity* user, Entity* target) = 0;
@@ -18,7 +22,6 @@ class Ability
 
     protected:
         std::wstring name;
-        int level;
 
     private:
         int modifyAccuracy(int userAccuracy);

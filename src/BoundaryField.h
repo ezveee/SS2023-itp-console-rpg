@@ -1,20 +1,20 @@
 #pragma once
 #include "WorldField.h"
-#include "defines.h"
+#include <iostream>
 
-class NpcField : public WorldField
+class BoundaryField : public WorldField
 {
 public:
-	NpcField(std::wstring& parameters);
-	virtual ~NpcField();
+	BoundaryField(std::wstring& parameters);
+	virtual ~BoundaryField();
 
 	void onEnter(Game* game) override;
 	void onInteract(Game* game) override;
 	bool isEnterable() override;
 	bool isInteractable() override;
-	bool isStoryNpc();
 
-	private:
-		std::wstring npcName;
-		bool storyNpc;
+private:
+	std::wstring boundaryName;
+	bool enterable;
 };
+

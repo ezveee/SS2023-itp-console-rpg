@@ -4,56 +4,91 @@
 #include "defines.h"
 #include "Game.h"
 
+#include "SlashAttack.h"
+#include "SpinAttack.h"
+
+#include "FireballAttack.h"
+#include "MeteorAttack.h"
+
+#include "HammerSmashAttack.h"
+#include "HealAllAbility.h"
+
 Ally::Ally(Team* playerTeam, RoleClass role)
 {
-    this->stat = { 
-        1, //level
-        0, //maxHealth
-        0, //health
-        0, //maxMana
-        0, //mana
-        0, //accuracy
-        0, //attack
-        0, //spAttack
-        0, //defense
-        0, //spDefense
-        0, //speed
-        0  //critical
-    };
-
 	this->defaultAttack = new DefaultAttack(this);
 
-    struct Stats allyStats = { 0,0,0,0,0,0,0,0,0,0,0,0 };
-    if (role == Warrior)
+    struct Stats allyStats = {};
+    switch (role)
     {
-        this->name = L"Warrior";
+		case Warrior:
+			this->name = L"Warrior";
 
-        allyStats.maxHealth = 12;
-        allyStats.maxMana = 8;
-        allyStats.accuracy = 2;
-        allyStats.attack = 2;
-        allyStats.defense = 12;
-        allyStats.spAttack = 1;
-        allyStats.spDefense = 8;
-        allyStats.speed = 1;
-        allyStats.critical = 1;
-    }
-    if (role == Magician)
-    {
-        this->name = L"Magician";
+			allyStats.maxHealth		= 12;
+			allyStats.maxMana		= 9;
+			allyStats.accuracy		= 2;
+			allyStats.attack		= 3;
+			allyStats.defense		= 12;
+			allyStats.spAttack		= 1;
+			allyStats.spDefense		= 8;
+			allyStats.speed			= 2;
+			allyStats.critical		= 2;
 
-        allyStats.maxHealth = 10;
-        allyStats.maxMana = 14;
-        allyStats.accuracy = 4;
-        allyStats.attack = 1;
-        allyStats.defense = 8;
-        allyStats.spAttack = 2;
-        allyStats.spDefense = 12;
-        allyStats.speed = 1;
-        allyStats.critical = 1;
-    }
+			this->abilities.push_back(new SlashAttack(this));
+			this->abilities.push_back(new SpinAttack(this));
 
-    this->setStats(allyStats);
+			break;
+		case Magician:
+			this->name = L"Magician";
+
+			allyStats.maxHealth		= 10;
+			allyStats.maxMana		= 14;
+			allyStats.accuracy		= 2;
+			allyStats.attack		= 2;
+			allyStats.defense		= 8;
+			allyStats.spAttack		= 2;
+			allyStats.spDefense		= 12;
+			allyStats.speed			= 1;
+			allyStats.critical		= 1;
+
+			this->abilities.push_back(new FireballAttack(this));
+			this->abilities.push_back(new MeteorAttack(this));
+
+			break;
+		case Assassin:
+			this->name = L"Assassin";
+
+			allyStats.maxHealth = 10;
+			allyStats.maxMana = 9;
+			allyStats.accuracy = 1;
+			allyStats.attack = 3;
+			allyStats.defense = 10;
+			allyStats.spAttack = 2;
+			allyStats.spDefense = 10;
+			allyStats.speed = 3;
+			allyStats.critical = 3;
+
+			break;
+		case Healer:
+			this->name = L"Healer";
+
+			allyStats.maxHealth = 12;
+			allyStats.maxMana = 12;
+			allyStats.accuracy = 2;
+			allyStats.attack = 2;
+			allyStats.defense = 10;
+			allyStats.spAttack = 4;
+			allyStats.spDefense = 10;
+			allyStats.speed = 1;
+			allyStats.critical = 1;
+
+			this->abilities.push_back(new HammerSmashAttack(this));
+			this->abilities.push_back(new HealAllAbility(this));
+			break;
+		default:
+			this->name = L"Default ally";
+	}
+
+	this->stat = allyStats;
 
 	this->stat.health = this->stat.maxHealth;
 	this->stat.mana = this->stat.maxMana;
@@ -79,6 +114,8 @@ fightAction Ally::chooseAction()
 	Game* game = Game::getInstance();
 	UIManager* uiManager = game->getUIManager();
 
+	Player* player = dynamic_cast<Player*>(this);
+
     int selection = 0;
     bool choosingAction = true;
     char input = '\0';
@@ -103,7 +140,14 @@ fightAction Ally::chooseAction()
         else if (input == 's' || input == 'S' || input == ARROWKEY_DOWN)
         {
             selection++;
-            if (selection > Block)
+
+
+			if (player != nullptr)
+			{
+				if (selection > Run)
+					selection = Run;
+			}
+			else if (selection > Block)
                 selection = Block;
         }
 

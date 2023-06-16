@@ -19,7 +19,7 @@ class FightMode : public GameMode
 
 		void randomEnemyEncounter();
 
-		Team* createEnemyTeam(int pTeamSize);
+		Team* createEnemyTeam(int pTeamSize, int playerLevel);
 
 		std::vector<Entity*> setFightOrder(Team* playerTeam, Team* enemyTeam);
 
@@ -30,7 +30,9 @@ class FightMode : public GameMode
 
 		//FightUI* getFightUI() const { return this->fightUI; };
 
-	private:
+		void giveOutRewards(Entity* player, Team* enemyTeam);
+
+	//private:
 		//vector<Ally*> playerTeam;
 		/*FightUI* fightUI;
 		static FightMode* instance;*/

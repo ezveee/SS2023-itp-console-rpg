@@ -17,7 +17,8 @@ int main()
 	Game* game = Game::getInstance();
 
 	game->playerTeam = new Team();
-	game->player = new Player(game->playerTeam, Warrior);
+	game->player = game->loadSaveFile(game->getSaveFile());
+	//game->player = new Player(game->playerTeam, Warrior);
 
 	game->run();
 }

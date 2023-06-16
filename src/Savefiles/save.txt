@@ -1,0 +1,11 @@
+Albert
+warrior
+200
+1
+50
+1
+0
+Village_Gate;0
+City_1_Gate;0
+City_2_Gate;0
+City_3_Gate;0

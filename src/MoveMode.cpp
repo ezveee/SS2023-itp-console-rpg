@@ -5,6 +5,7 @@
 #include "Command.h"
 #include "WorldField.h"
 #include <iostream>
+#include <conio.h>
 
 MoveMode::MoveMode(Game* game)
 {
@@ -25,6 +26,8 @@ void MoveMode::handle(Game* game)
 	system("CLS");
 	currentScreen->display(game->player);
 	Command command = currentUserInput->getUserInput();
+	if (command == Command::OpenMenu)
+		openMenu(game);
 
 	Position newPosition = game->player->calculateNewPosition(command);
 
@@ -38,7 +41,8 @@ void MoveMode::handle(Game* game)
 	{
 		game->player->setPosition(newPosition.x, newPosition.y);
 
-		++moveCounter;
+		if(!currentScreen->getIsSafe())
+			++moveCounter;
 		
 		currentScreen->getWorldField(newPosition.x, newPosition.y)->onEnter(game);
 
@@ -49,33 +53,60 @@ void MoveMode::handle(Game* game)
 			nextScreen = nullptr;
 		}
 	}
-
-	if (moveCounter >= stepsUntilEncounter)
+	if(!currentScreen->getIsSafe())
 	{
-		moveCounter = 0;
-		game->getUIManager()->showDialog(L"Enemy encountered!", true);
-		game->nextGameMode = new FightMode();
+		if (moveCounter >= stepsUntilEncounter)
+		{
+			moveCounter = 0;
+			game->getUIManager()->showDialog(L"Enemy encountered!", true);
+			game->nextGameMode = new FightMode();
+		}
 	}
 }
 
 void MoveMode::interact(Screen* currentScreen, Game* game)
 {
 	Position currentPosition = game->player->getPosition();
-	if (currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y)->isInteractable())
+	for (auto field : {
+		currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y),
+		currentScreen->getWorldField(currentPosition.x, currentPosition.y - 1),
+		currentScreen->getWorldField(currentPosition.x + 1, currentPosition.y),
+		currentScreen->getWorldField(currentPosition.x, currentPosition.y + 1)
+		})
 	{
-		currentScreen->getWorldField(currentPosition.x - 1, currentPosition.y)->onInteract(game);
+		if (field->isInteractable())
+		{
+			field->onInteract(game);
+		}
 	}
-	if (currentScreen->getWorldField(currentPosition.x, currentPosition.y - 1)->isInteractable())
+}
+
+void MoveMode::openMenu(Game* game)
+{
+	system("CLS");
+	std::wstring currentMiniMap;
+	size_t pos = game->currentScreenName.find('_');
+
+	if (game->currentScreenName.substr(0, pos) == L"Village")
+		currentMiniMap = THUMBNAIL_MAP_VILLAGE;
+	else{
+		auto iterator = game->miniMaps.find(game->currentScreenName.substr(0, 6));
+		if (iterator == game->miniMaps.end())
+		{
+			throw std::invalid_argument("Unknown map name key.");
+		}
+		currentMiniMap = iterator->second;
+	}
+
+	std::wcout << L"Your current Position:\n" << game->currentScreenName << "\n"
+		<< "\nMinimap: " << currentMiniMap << L"__________________________________\n\n";
+
+	
+	for (auto member : game->playerTeam->members)
 	{
-		currentScreen->getWorldField(currentPosition.x, currentPosition.y - 1)->onInteract(game);
+		std::wcout << L"=" << member->getName()<< L"=\n" << L"HP: " << member->getStats().health
+			<< "/" << member->getStats().maxHealth << L"\nMP: " << member->getStats().mana << "/"
+			<< member->getStats().maxMana << "" << "\n";
 	}
-	if (currentScreen->getWorldField(currentPosition.x + 1, currentPosition.y)->isInteractable())
-	{
-		currentScreen->getWorldField(currentPosition.x + 1, currentPosition.y)->onInteract(game);
-	}
-	if (currentScreen->getWorldField(currentPosition.x, currentPosition.y + 1)->isInteractable())
-	{
-		currentScreen->getWorldField(currentPosition.x, currentPosition.y + 1)->onInteract(game);
-	}
-	else return;
+	_getch();
 }

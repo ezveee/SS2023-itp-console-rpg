@@ -21,6 +21,7 @@ class Ally : public Entity
 		Entity* chooseTarget(Team* targetTeam) override;
 
 	protected:
-		int experience;
+		//int experience;
+		RoleClass role;
 };
 
