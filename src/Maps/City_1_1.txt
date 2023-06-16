@@ -24,6 +24,6 @@
 ##################
 ##################
 
-a: Transition;Castle;X:5;Y:4;
+a: Transition;Castle;X:9;Y:10
 b: Transition;City_1_2;X:1
 n: Npc;Castle_npc;1
