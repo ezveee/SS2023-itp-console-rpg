@@ -21,8 +21,8 @@ class Player : public Ally
 		void setProgress();
 		int getGold();
 		void modifyGold(int goldAmount);
-		int getExpUntilLevelUp();
-		void setExpUntilLevelUp(int expAmount);
+		int getExp();
+		void setExp(int expAmount);
 		int getWeaponLevel();
 		void setWeaponLevel(int weaponLevel);
 
@@ -32,7 +32,7 @@ class Player : public Ally
 		bool interactionRequested = false;
 		bool progress;
 		int gold;
-		int expUntilLevelUp;
+		int exp;
 		int weaponLevel;
 };
 

@@ -4,10 +4,10 @@
 #include <stdexcept>
 #include "defines.h"
 
-Player::Player(Team* playerTeam, RoleClass role, int gold, int expUntilLevelUp, int weaponLevel) :
+Player::Player(Team* playerTeam, RoleClass role, int gold, int exp, int weaponLevel) :
 	Ally(playerTeam, role),
 	gold(gold),
-	expUntilLevelUp(expUntilLevelUp),
+	exp(exp),
 	weaponLevel(weaponLevel)
 {
 	setPosition(PLAYER_START_X, PLAYER_START_Y);
@@ -114,14 +114,14 @@ void Player::modifyGold(int goldAmount)
 	this->gold += goldAmount;
 }
 
-int Player::getExpUntilLevelUp()
+int Player::getExp()
 {
-	return this->expUntilLevelUp;
+	return this->exp;
 }
 
-void Player::setExpUntilLevelUp(int expAmount)
+void Player::setExp(int expAmount)
 {
-	this->expUntilLevelUp = expAmount;
+	this->exp += expAmount;
 }
 
 int Player::getWeaponLevel()
