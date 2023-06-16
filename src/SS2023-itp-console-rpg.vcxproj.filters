@@ -58,6 +58,21 @@
     <Filter Include="Source Files\Fight">
       <UniqueIdentifier>{4c7d2346-9056-43d1-8c35-63805b0927ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Maps\Area3">
+      <UniqueIdentifier>{355ceb44-7cf1-4307-a4a6-d37c1c160acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\Area4">
+      <UniqueIdentifier>{7bc76ee8-d02f-42e0-b995-640608c824ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\Dungeon1">
+      <UniqueIdentifier>{54abbebf-0348-4040-8ff1-92d6a60d7d16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\Dungeon2">
+      <UniqueIdentifier>{35a0cc4e-2853-4f32-993d-5b6d4c27515d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Maps\Dungeon3">
+      <UniqueIdentifier>{fe826b2b-1d7a-45a3-9812-2699e4049557}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SS2023-itp-console-rpg.cpp">
@@ -318,6 +333,120 @@
     </Text>
     <Text Include="Maps\Area_1_5.txt">
       <Filter>Maps\Area1</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_1.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_2.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_3.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_4.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_5.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_6.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_7.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_8.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_9.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_10.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_3_11.txt">
+      <Filter>Maps\Area3</Filter>
+    </Text>
+    <Text Include="Maps\Area_4_1.txt">
+      <Filter>Maps\Area4</Filter>
+    </Text>
+    <Text Include="Maps\Area_4_2.txt">
+      <Filter>Maps\Area4</Filter>
+    </Text>
+    <Text Include="Maps\Area_4_3.txt">
+      <Filter>Maps\Area4</Filter>
+    </Text>
+    <Text Include="Maps\Area_4_4.txt">
+      <Filter>Maps\Area4</Filter>
+    </Text>
+    <Text Include="Maps\Area_4_5.txt">
+      <Filter>Maps\Area4</Filter>
+    </Text>
+    <Text Include="Maps\Area_4_6.txt">
+      <Filter>Maps\Area4</Filter>
+    </Text>
+    <Text Include="Maps\Area_4_7.txt">
+      <Filter>Maps\Area4</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_1_1.txt">
+      <Filter>Maps\Dungeon1</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_1_2.txt">
+      <Filter>Maps\Dungeon1</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_1_3.txt">
+      <Filter>Maps\Dungeon1</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_1_4.txt">
+      <Filter>Maps\Dungeon1</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_2_1.txt">
+      <Filter>Maps\Dungeon2</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_2_2.txt">
+      <Filter>Maps\Dungeon2</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_2_3.txt">
+      <Filter>Maps\Dungeon2</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_2_4.txt">
+      <Filter>Maps\Dungeon2</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_2_5.txt">
+      <Filter>Maps\Dungeon2</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_1.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_2.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_3.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_4.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_5.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_6.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_7.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_8.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_9.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Dungeon_3_10.txt">
+      <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Castle.txt">
+      <Filter>Maps</Filter>
     </Text>
   </ItemGroup>
 </Project>

@@ -12,7 +12,7 @@ MoveMode::MoveMode(Game* game)
 	currentScreen = new Screen(game->currentScreenName);
 	nextScreen = nullptr;
 
-	stepsUntilEncounter = rand() % 9 + 8;
+	stepsUntilEncounter = /*rand() % 9 + 8*/10000;
 }
 
 MoveMode::~MoveMode()
