@@ -54,6 +54,7 @@ class Entity
 		void useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam);
 
 		void setLevel(int level, bool isPhysicalClass);
+		virtual std::wstring getRole();
 
 		int getSpeed() const;
 		int getHealth() const;

@@ -4,7 +4,7 @@
 SlashAttack::SlashAttack(Entity* entity)
 {
 	this->name = L"Slash";
-	this->cost = WARRIOR_COST + entity->getStats().level;
+	this->cost = (WARRIOR_COST-2) + entity->getStats().level;
 	this->isAOE = false;
 }
 

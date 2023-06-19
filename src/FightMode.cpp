@@ -331,6 +331,6 @@ void FightMode::giveOutRewards(Entity* player, Team* enemyTeam)
 			throw std::runtime_error("Error: Entity is not a Enemy (FightMode)");
 
 		playerInstance->modifyGold(enemy->getGoldReward());
-		playerInstance->setExp(enemy->getExperienceReward());
+		playerInstance->modifyExp(enemy->getExperienceReward());
 	}
 }

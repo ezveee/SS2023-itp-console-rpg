@@ -2,10 +2,9 @@
 #include "Player.h"
 #include "defines.h"
 
-#include <fstream>
-#include <vector>
 #include <iostream>
 #include <time.h>
+#include <conio.h>
 
 
 Game* Game::instance = nullptr;
@@ -21,7 +20,6 @@ Game* Game::getInstance()
 Game::Game()
 {
 	instance = this;
-	this->generateMaps();
 	uiManager = new UIManager();
 
 	currentGameMode = new MoveMode(this);
@@ -38,7 +36,7 @@ void Game::run()
 {
 	srand(time(NULL));
 
-	while (!player->getIsExitRequested())
+	while (!this->player->getIsExitRequested())
 	{
 		currentGameMode->handle(this);
 
@@ -86,38 +84,87 @@ void Game::generateMaps()
 	};
 }
 
-std::vector<std::wstring> Game::getSaveFile()
-{
-	std::wifstream file(L"./Savefiles/save.txt", std::ios::binary);
-
-	if (!file.is_open())
-	{
-		throw std::runtime_error("Could not open file ");
-	}
-
-	std::vector<std::wstring> lines;
-	std::wstring line;
-
-	while (std::getline(file, line))
-	{
-		lines.push_back(line.substr(0, line.length() - 1));
-	}
-	file.close();
-
-	return lines;
-}
 
 Player* Game::loadSaveFile(std::vector<std::wstring> lines)
 {
-	Player* newPlayer = new Player(this->playerTeam, Warrior, std::stoi(lines[2]), std::stoi(lines[4]), std::stoi(lines[5]));
-
+	Player* newPlayer = new Player(this->playerTeam, lines[0], (RoleClass)std::stoi(lines[1]), std::stoi(lines[2]), std::stoi(lines[3]), std::stoi(lines[4]), std::stoi(lines[5]), std::stoi(lines[6]), std::stoi(lines[7]));
+	this->currentScreenName = lines[8];
 	//add loading for playerstats
 
-	for (int lineNr = 7; lineNr < lines.size(); ++lineNr)
+	for (int lineNr = 9; lineNr < lines.size(); ++lineNr)
 	{
 		size_t pos = lines[lineNr].find(';');
 		this->boundaries.insert(std::pair<std::wstring, bool>(lines[lineNr].substr(0, pos), stoi(lines[lineNr].substr(pos + 1))));
 	}
 
 	return newPlayer;
+}
+
+Player* Game::createNewGame()
+{
+	int classSelection = 0;
+	bool confirmed = false;
+	std::wstring playerName;
+	char input = 'w';
+	do
+	{
+		do
+		{
+			system("CLS");
+			std::wcout << "=============~*+-+*~=============\n Pick a class for your hero\n=================================\n\n\n";
+
+			if (classSelection == 0) std::wcout << ">";
+			std::wcout << "Warrior\n";
+
+			if (classSelection == 1) std::wcout << ">";
+			std::wcout << "Healer\n";
+
+			if (classSelection == 2) std::wcout << ">";
+			std::wcout << "Magician\n";
+
+			if (classSelection == 3) std::wcout << ">";
+			std::wcout << "Assassin\n";
+
+			input = _getch();
+		
+			switch (input)
+			{
+				case 'w':
+				case 'W':
+				case ARROWKEY_UP: if (classSelection != 0)classSelection--;
+					break;
+				case 's':
+				case 'S':
+				case ARROWKEY_DOWN: if (classSelection != 3)classSelection++;
+					break;
+				default:break;
+			}
+		} while (input != '\r' && input != ' ');
+		std::wcout << "=============~*+-+*~=============\n Pick a name for your hero\n=================================\n";
+		std::wcout << "Your name: ";
+		std::wcin >> playerName;
+
+		std::wcout << L"Are you happy with your choices?(y/n)\n";
+		char choice = _getch();
+		switch (choice)
+		{
+			case 'y':
+			case 'Y':
+			case '\r': confirmed = true;
+				break;
+			case 'n':
+			case 'N':
+			case ESCAPEKEY: break;
+			default: continue;
+		}
+	} while (!confirmed);
+	this->boundaries =
+	{
+		{L"Village_Gate",0},
+		{L"City_1_Gate", 0},
+		{L"City_2_Gate", 0},
+		{L"City_3_Gate", 0},
+
+	};
+	return new Player(playerTeam, playerName, (RoleClass)classSelection, 1, 0, 0, 60, 1, 0);
 }

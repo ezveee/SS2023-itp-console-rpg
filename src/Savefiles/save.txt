@@ -1,10 +1,12 @@
-Albert
-warrior
-200
+Hero
+0
 1
+200
 50
+60
 1
 0
+City_1_2
 Village_Gate;0
 City_1_Gate;0
 City_2_Gate;0

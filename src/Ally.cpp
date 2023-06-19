@@ -13,15 +13,16 @@
 #include "HammerSmashAttack.h"
 #include "HealAllAbility.h"
 
-Ally::Ally(Team* playerTeam, RoleClass role)
+Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 {
 	this->defaultAttack = new DefaultAttack(this);
+	this->role = role;
 
     struct Stats allyStats = {};
     switch (role)
     {
 		case Warrior:
-			this->name = L"Warrior";
+			this->name = name;
 
 			allyStats.maxHealth		= 12;
 			allyStats.maxMana		= 9;
@@ -38,7 +39,7 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 
 			break;
 		case Magician:
-			this->name = L"Magician";
+			this->name = name;
 
 			allyStats.maxHealth		= 10;
 			allyStats.maxMana		= 14;
@@ -55,7 +56,7 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 
 			break;
 		case Assassin:
-			this->name = L"Assassin";
+			this->name = name;
 
 			allyStats.maxHealth = 10;
 			allyStats.maxMana = 9;
@@ -69,7 +70,7 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 
 			break;
 		case Healer:
-			this->name = L"Healer";
+			this->name = name;
 
 			allyStats.maxHealth = 12;
 			allyStats.maxMana = 12;
@@ -251,4 +252,15 @@ Entity* Ally::chooseTarget(Team* targetTeam)
                 selection = (targetTeam->members.size() - 1);
         }
     }
+}
+
+std::wstring Ally::getRole()
+{
+	switch (this->role)
+	{
+		case Warrior: return L"Warrior";
+		case Magician: return L"Magician";
+		case Healer: return L"Healer";
+		case Assassin: return L"Assassin";
+	}
 }

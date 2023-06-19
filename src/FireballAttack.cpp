@@ -4,7 +4,7 @@
 FireballAttack::FireballAttack(Entity* entity)
 {
 	this->name = L"Fireball";
-	this->cost = MAGICIAN_COST + entity->getStats().level;
+	this->cost = (MAGICIAN_COST-2) + entity->getStats().level;
 	this->isAOE = false;
 }
 

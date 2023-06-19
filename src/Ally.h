@@ -13,15 +13,15 @@ enum RoleClass
 class Ally : public Entity
 {
 	public:
-		Ally(Team* playerTeam, RoleClass role);
+		Ally(Team* playerTeam, RoleClass role, std::wstring name, int level);
 		~Ally();
 
 		fightAction chooseAction() override;
 		Ability* chooseAbility() override;
 		Entity* chooseTarget(Team* targetTeam) override;
+		std::wstring getRole() override;
 
 	protected:
-		//int experience;
 		RoleClass role;
 };
 

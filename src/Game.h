@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "UIManager.h"
 #include <vector>
+#include <fstream>
 
 #include "FightMode.h"
 #include "MoveMode.h"
@@ -21,8 +22,8 @@ public:
 	UIManager* getUIManager() const { return this->uiManager; };
 
 	void generateMaps();
-	std::vector<std::wstring> getSaveFile();
 	Player* loadSaveFile(std::vector<std::wstring> lines);
+	Player* createNewGame();
 
 	Player* player;
 	Team* playerTeam;
@@ -36,7 +37,7 @@ public:
 	std::map<std::wstring, std::wstring> miniMaps;
 	std::map<std::wstring, std::wstring> respawn;
 
-	std::wstring currentScreenName = L"City_1_1";
+	std::wstring currentScreenName = L"Village_2";
 
 private:
 	static Game* instance;
