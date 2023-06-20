@@ -2,13 +2,13 @@
 
 #include "Entity.h"
 
-enum RoleClass
+/*enum RoleClass
 {
 	Warrior,
 	Healer,
 	Magician,
 	Assassin
-};
+};*/
 
 class Ally : public Entity
 {
@@ -19,7 +19,8 @@ class Ally : public Entity
 		fightAction chooseAction() override;
 		Ability* chooseAbility() override;
 		Entity* chooseTarget(Team* targetTeam) override;
-		std::wstring getRole() override;
+		std::wstring getRoleString() override;
+		RoleClass getRole() override;
 
 	protected:
 		RoleClass role;

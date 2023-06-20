@@ -442,9 +442,6 @@
     <Text Include="Maps\Area_4_7.txt">
       <Filter>Maps\Area4</Filter>
     </Text>
-    <Text Include="Maps\Castle.txt">
-      <Filter>Maps</Filter>
-    </Text>
     <Text Include="Savefiles\save.txt">
       <Filter>Savefiles</Filter>
     </Text>
@@ -504,6 +501,9 @@
     </Text>
     <Text Include="Maps\Dung_3_10.txt">
       <Filter>Maps\Dungeon3</Filter>
+    </Text>
+    <Text Include="Maps\Castle.txt">
+      <Filter>Maps\City1</Filter>
     </Text>
   </ItemGroup>
 </Project>

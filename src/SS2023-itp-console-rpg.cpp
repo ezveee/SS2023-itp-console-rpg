@@ -30,9 +30,6 @@ int main()
 		game->player = game->loadSaveFile(getSaveFile());
 		game->generateMaps();
 		game->currentGameMode = new MoveMode(game);
-
-		new Ally(game->playerTeam, Magician, L"Maya", 1);
-		new Ally(game->playerTeam, Healer, L"Meena", 1);
 	}
 
 	game->run();

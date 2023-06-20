@@ -5,6 +5,7 @@
 #include <iostream>
 #include <time.h>
 #include <conio.h>
+#include <vector>
 
 
 Game* Game::instance = nullptr;
@@ -87,7 +88,36 @@ void Game::generateMaps()
 
 Player* Game::loadSaveFile(std::vector<std::wstring> lines)
 {
-	Player* newPlayer = new Player(this->playerTeam, lines[0], (RoleClass)std::stoi(lines[1]), std::stoi(lines[2]), std::stoi(lines[3]), std::stoi(lines[4]), std::stoi(lines[5]), std::stoi(lines[6]), std::stoi(lines[7]));
+	std::vector<std::wstring> names;
+	std::vector<int> roles;
+
+	
+	while (true)
+	{
+		size_t pos = lines[0].find(';');
+		names.push_back(lines[0].substr(0, pos));
+		lines[0] = lines[0].substr(pos + 1);
+		if (lines[0] == L"" || lines[0] == L";")
+			break;
+	}
+	
+	while (true)
+	{
+		size_t pos = lines[1].find(';');
+		roles.push_back(std::stoi(lines[1].substr(0, pos)));
+		lines[1] = lines[1].substr(pos + 1);
+		if (lines[1] == L"" || lines[1] == L";")
+			break;
+	}
+
+	Player* newPlayer = new Player(this->playerTeam, names[0], (RoleClass)roles[0], std::stoi(lines[2]), std::stoi(lines[3]), std::stoi(lines[4]), std::stoi(lines[5]), std::stoi(lines[6]), std::stoi(lines[7]));
+
+	for (int i = 1; i < names.size(); i++)
+	{
+		Ally* newAlly = new Ally(this->playerTeam, (RoleClass)roles[i], names[i], std::stoi(lines[2]));
+		newAlly->setLevel(std::stoi(lines[2]), (RoleClass)roles[i] == Warrior || (RoleClass)roles[i] == Assassin ? true : false);
+	}
+
 	this->currentScreenName = lines[8];
 	//add loading for playerstats
 
@@ -166,5 +196,39 @@ Player* Game::createNewGame()
 		{L"City_3_Gate", 0},
 
 	};
-	return new Player(playerTeam, playerName, (RoleClass)classSelection, 1, 0, 0, 60, 1, 0);
+	return new Player(playerTeam, playerName, (RoleClass)classSelection, 1, 0, 0, 40, 1, 0);
+}
+
+void Game::makeSaveFile()
+{
+	std::wofstream file(L"./Savefiles/save.txt", std::ios::binary);
+	if (!file.is_open())
+	{
+		throw std::runtime_error("Could not open file ");
+	}
+	file.trunc;
+
+	for (auto member : this->playerTeam->members)
+	{
+		file << member->getName() << ";";
+	}
+	file << " \n";
+	for (auto member : this->playerTeam->members)
+	{
+		file << member->getRole() << ";";
+	}
+	file << " \n";
+	file << this->player->getStats().level << " \n";
+	file << this->player->getGold() << " \n";
+	file << this->player->getExp() << " \n";
+	file << this->player->getNextExpRequirement() << " \n";
+	file << this->player->getWeaponLevel() << " \n";
+	file << this->player->canProgress() << " \n";
+	file << this->currentScreenName << " \n";
+
+	for (auto pair : this->boundaries) {
+		file << pair.first << ";" << pair.second << " \n";
+	}
+	file.close();
+	this->getUIManager()->showDialog(L"Game successfully saved!", true);
 }

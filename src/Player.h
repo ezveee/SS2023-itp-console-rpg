@@ -23,6 +23,7 @@ class Player : public Ally
 		void modifyGold(int goldAmount);
 		int getExp();
 		void modifyExp(int expAmount);
+		int getNextExpRequirement();
 		int getWeaponLevel();
 		void weaponLevelUp();
 
@@ -34,6 +35,6 @@ class Player : public Ally
 		int gold;
 		int exp;
 		int weaponLevel;
-		int nextExpRequirement = 60;
+		int nextExpRequirement;
 };
 

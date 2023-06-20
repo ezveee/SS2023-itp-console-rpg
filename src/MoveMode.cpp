@@ -105,7 +105,7 @@ void MoveMode::openMenu(Game* game)
 
 	for (auto member : game->playerTeam->members){
 		std::wcout << L"=" << member->getName() << L"=\n"
-		<< L"Level " << member->getStats().level << " " << member->getRole() << "\n"
+		<< L"Level " << member->getStats().level << " " << member->getRoleString() << "\n"
 		<< L"HP: " << member->getStats().health << "/" << member->getStats().maxHealth << "\n"
 		<< L"MP: " << member->getStats().mana << "/" << member->getStats().maxMana << "\n\n";
 	}

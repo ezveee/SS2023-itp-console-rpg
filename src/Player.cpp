@@ -10,9 +10,11 @@ Player::Player(Team* playerTeam, std::wstring name, RoleClass role, int level, i
 	Ally(playerTeam, role, name, level),
 	gold(gold),
 	exp(exp),
+	nextExpRequirement(nextExpRequirement),
 	weaponLevel(weaponLevel),
 	progress(canProgress)
 {
+	this->setLevel(level, role == Warrior || role == Assassin ? true : false);
 	setPosition(PLAYER_START_X, PLAYER_START_Y);
 }
 
@@ -132,13 +134,12 @@ void Player::modifyExp(int expAmount)
 
 		for (auto& member : game->playerTeam->members)
 		{
-			bool isPhysical = (member->getRole() == L"Warrior" || member->getRole() == L"Assassin");
+			bool isPhysical = (member->getRole() == Warrior || member->getRole() == Assassin);
 			member->setLevel((member->getStats().level) + 1, isPhysical);
 			std::wcout << member->getName() << L" is level " << member->getStats().level << L" now\n";
 			_getch();
 		}
 		this->exp = this->exp - this->nextExpRequirement;
-		std::wcout << "current exp amount " << this->exp << "\n";
 		this->nextExpRequirement = pow(((game->playerTeam->members[0]->getStats().level) / 0.2), 2);
 		std::wcout << "you need " << this->nextExpRequirement << " more exp to level up again\n";
 	}
@@ -152,4 +153,9 @@ int Player::getWeaponLevel()
 void Player::weaponLevelUp()
 {
 	this->weaponLevel + 1;
+}
+
+int Player::getNextExpRequirement()
+{
+	return this->nextExpRequirement;
 }

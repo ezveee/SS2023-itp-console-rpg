@@ -24,6 +24,7 @@ public:
 	void generateMaps();
 	Player* loadSaveFile(std::vector<std::wstring> lines);
 	Player* createNewGame();
+	void makeSaveFile();
 
 	Player* player;
 	Team* playerTeam;
