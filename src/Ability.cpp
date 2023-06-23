@@ -70,8 +70,5 @@ int Ability::modifyAccuracy(int userAccuracy)
 
 bool Ability::doesAttackHit(int modifiedAccuracy, int targetDefense)
 {
-	if (modifiedAccuracy >= targetDefense)
-		return true;
-
-	return false;
+	return modifiedAccuracy >= targetDefense;
 }

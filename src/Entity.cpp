@@ -102,3 +102,5 @@ Stats Entity::getStats() const { return this->stat; };
 Ability* Entity::getDefaultAttack() const { return this->defaultAttack; }
 
 std::vector<Ability*> Entity::getAbilities() const { return this->abilities; };
+std::wstring Entity::getRoleString() { return L"placeholder"; };
+RoleClass Entity::getRole() { return Warrior; };

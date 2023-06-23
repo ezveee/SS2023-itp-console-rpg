@@ -4,7 +4,7 @@
 HammerSmashAttack::HammerSmashAttack(Entity* entity)
 {
 	this->name = L"Hammer Smash";
-	this->cost = HEALER_COST + entity->getStats().level;
+	this->cost = (HEALER_COST-1) + entity->getStats().level;
 	this->isAOE = false;
 }
 

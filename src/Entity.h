@@ -12,6 +12,14 @@
 class Team;
 class Ability;
 
+enum RoleClass
+{
+	Warrior,
+	Healer,
+	Magician,
+	Assassin
+};
+
 enum fightAction {
 	Default = 0,
 	UseAbility,
@@ -54,6 +62,8 @@ class Entity
 		void useAbilityOnTeam(Ability* ability, Entity* user, Team* targetTeam);
 
 		void setLevel(int level, bool isPhysicalClass);
+		virtual std::wstring getRoleString();
+		virtual RoleClass getRole();
 
 		void setCritical(int value);
 

@@ -16,16 +16,17 @@
 #include "HammerSmashAttack.h"
 #include "HealAllAbility.h"
 
-Ally::Ally(Team* playerTeam, RoleClass role)
+Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 {
 	this->defaultAttack = new DefaultAttack(this);
+	this->role = role;
 
 
     struct Stats allyStats = {};
     switch (role)
     {
 		case Warrior:
-			this->name = L"Warrior";
+			this->name = name;
 
 			allyStats.maxHealth		= 12;
 			allyStats.maxMana		= 9;
@@ -42,14 +43,14 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 
 			break;
 		case Magician:
-			this->name = L"Magician";
+			this->name = name;
 
 			allyStats.maxHealth		= 10;
 			allyStats.maxMana		= 14;
 			allyStats.accuracy		= 2;
 			allyStats.attack		= 2;
 			allyStats.defense		= 8;
-			allyStats.spAttack		= 2;
+			allyStats.spAttack		= 4;
 			allyStats.spDefense		= 12;
 			allyStats.speed			= 1;
 			allyStats.critical		= 1;
@@ -59,7 +60,7 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 
 			break;
 		case Assassin:
-			this->name = L"Assassin";
+			this->name = name;
 
 			allyStats.maxHealth = 10;
 			allyStats.maxMana = 9;
@@ -75,14 +76,14 @@ Ally::Ally(Team* playerTeam, RoleClass role)
 			this->abilities.push_back(new ShadowSlashAttack(this));
 			break;
 		case Healer:
-			this->name = L"Healer";
+			this->name = name;
 
 			allyStats.maxHealth = 12;
 			allyStats.maxMana = 12;
 			allyStats.accuracy = 2;
 			allyStats.attack = 2;
 			allyStats.defense = 10;
-			allyStats.spAttack = 4;
+			allyStats.spAttack = 3;
 			allyStats.spDefense = 10;
 			allyStats.speed = 1;
 			allyStats.critical = 1;
@@ -138,38 +139,23 @@ fightAction Ally::chooseAction()
         //'w', 'W', UpArrow
         else if (input == 'w' || input == 'W' || input == ARROWKEY_UP)
         {
-            selection--;
-            if (selection < Default)
-                selection = Default;
+            if (selection != Default)
+				selection--;
         }
         //'s', 'S', DownArrow
         else if (input == 's' || input == 'S' || input == ARROWKEY_DOWN)
         {
-            selection++;
-
-
 			if (player != nullptr)
 			{
-				if (selection > Run)
-					selection = Run;
+				if (selection != Run)
+					selection++;
 			}
-			else if (selection > Block)
-                selection = Block;
+			else if (selection != Block)
+				selection++;
         }
 
     }
-
-    switch (selection)
-    {
-        case Default:
-            return Default;
-        case UseAbility:
-            return UseAbility;
-        case UseItem:
-            return UseItem;
-        case Block:
-            return Block;
-    }
+	return (fightAction)selection;
 }
 
 Ability* Ally::chooseAbility()
@@ -258,3 +244,20 @@ Entity* Ally::chooseTarget(Team* targetTeam)
         }
     }
 }
+
+std::wstring Ally::getRoleString()
+{
+	switch (this->role)
+	{
+		case Warrior: return L"Warrior";
+		case Magician: return L"Magician";
+		case Healer: return L"Healer";
+		case Assassin: return L"Assassin";
+	}
+}
+
+RoleClass Ally::getRole()
+{
+	return this->role;
+}
+

@@ -13,7 +13,7 @@ MoveMode::MoveMode(Game* game)
 	currentScreen = new Screen(game->currentScreenName);
 	nextScreen = nullptr;
 
-	stepsUntilEncounter = /*rand() % 9 + 8*/10000;
+	stepsUntilEncounter = rand() % 9 + 8;
 }
 
 MoveMode::~MoveMode()
@@ -99,14 +99,26 @@ void MoveMode::openMenu(Game* game)
 	}
 
 	std::wcout << L"Your current Position:\n" << game->currentScreenName << "\n"
-		<< "\nMinimap: " << currentMiniMap << L"__________________________________\n\n";
+		<< "\nMinimap: " << currentMiniMap << L"________________________________________\n\n";
+	std::wcout << game->player->getGold() << L"G\n" << "Weapon lvl: " << game->player->getWeaponLevel() << "\n\n";
 
-	
-	for (auto member : game->playerTeam->members)
-	{
-		std::wcout << L"=" << member->getName()<< L"=\n" << L"HP: " << member->getStats().health
-			<< "/" << member->getStats().maxHealth << L"\nMP: " << member->getStats().mana << "/"
-			<< member->getStats().maxMana << "" << "\n";
+
+	for (auto member : game->playerTeam->members){
+		std::wcout << L"=" << member->getName() << L"=\n"
+		<< L"Level " << member->getStats().level << " " << member->getRoleString() << "\n"
+		<< L"HP: " << member->getStats().health << "/" << member->getStats().maxHealth << "\n"
+		<< L"MP: " << member->getStats().mana << "/" << member->getStats().maxMana << "\n\n";
 	}
+
+	std::wcout << "\n";
+
+	for (auto member : game->playerTeam->members){
+		
+	}
+	std::wcout << "\n";
+	for (auto member : game->playerTeam->members){
+		
+	}
+	std::wcout << "\n";
 	_getch();
 }

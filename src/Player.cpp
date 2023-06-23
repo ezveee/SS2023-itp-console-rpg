@@ -1,15 +1,20 @@
 #include "Player.h"
+#include "Game.h"
 #include <iostream>
-
+#include <conio.h>
 #include <stdexcept>
 #include "defines.h"
+#include <cmath>
 
-Player::Player(Team* playerTeam, RoleClass role, int gold, int expUntilLevelUp, int weaponLevel) :
-	Ally(playerTeam, role),
+Player::Player(Team* playerTeam, std::wstring name, RoleClass role, int level, int gold, int exp, int nextExpRequirement, int weaponLevel, bool canProgress) :
+	Ally(playerTeam, role, name, level),
 	gold(gold),
-	expUntilLevelUp(expUntilLevelUp),
-	weaponLevel(weaponLevel)
+	exp(exp),
+	nextExpRequirement(nextExpRequirement),
+	weaponLevel(weaponLevel),
+	progress(canProgress)
 {
+	this->setLevel(level, role == Warrior || role == Assassin ? true : false);
 	setPosition(PLAYER_START_X, PLAYER_START_Y);
 }
 
@@ -114,14 +119,30 @@ void Player::modifyGold(int goldAmount)
 	this->gold += goldAmount;
 }
 
-int Player::getExpUntilLevelUp()
+int Player::getExp()
 {
-	return this->expUntilLevelUp;
+	return this->exp;
 }
 
-void Player::setExpUntilLevelUp(int expAmount)
+void Player::modifyExp(int expAmount)
 {
-	this->expUntilLevelUp = expAmount;
+	this->exp += expAmount;
+	std::wcout << expAmount << " exp points gained\n";
+	if (this->exp >= this->nextExpRequirement)
+	{
+		Game* game = Game::getInstance();
+
+		for (auto& member : game->playerTeam->members)
+		{
+			bool isPhysical = (member->getRole() == Warrior || member->getRole() == Assassin);
+			member->setLevel((member->getStats().level) + 1, isPhysical);
+			std::wcout << member->getName() << L" is level " << member->getStats().level << L" now\n";
+			_getch();
+		}
+		this->exp = this->exp - this->nextExpRequirement;
+		this->nextExpRequirement = pow(((game->playerTeam->members[0]->getStats().level) / 0.2), 2);
+		std::wcout << "you need " << this->nextExpRequirement << " more exp to level up again\n";
+	}
 }
 
 int Player::getWeaponLevel()
@@ -129,7 +150,12 @@ int Player::getWeaponLevel()
 	return this->weaponLevel;
 }
 
-void Player::setWeaponLevel(int weaponLevel)
+void Player::weaponLevelUp()
 {
-	this->weaponLevel = weaponLevel;
+	this->weaponLevel + 1;
+}
+
+int Player::getNextExpRequirement()
+{
+	return this->nextExpRequirement;
 }
