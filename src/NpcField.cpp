@@ -6,7 +6,11 @@ NpcField::NpcField(std::wstring& parameters)
 {
 	size_t pos = parameters.find(';');
 	npcName = parameters.substr(0, pos);
-	storyNpc = parameters[pos + 1];
+	//storyNpc = parameters[pos + 1];
+	if (parameters[pos + 1] == L'0')
+		storyNpc = false;
+	else
+		storyNpc = true;
 }
 
 NpcField::~NpcField() = default;
