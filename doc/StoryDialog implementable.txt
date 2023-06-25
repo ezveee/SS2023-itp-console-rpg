@@ -55,7 +55,7 @@ Choose your ally's class:
 
 {L"Messenger", L"\n\n[ALLY 2 CLASS NAME] of extraordinary skill. They shall accompany the two of you in your quest.\n\nIn the meantime, a stranger enters the room. They walk up next to the messenger and stretch out their hand towards you as a greeting.\n\n[ALLY 2 CLASS NAME]: Greetings. My name is-\n\n"},
 
-HERES TO MONDAY AT 23:58 WHEN I RECEIVE A MESSAGE THAT IT'S NOT POSSIBLE TO IMPLEMENT <3
+I HOPE THIS IS DOABLE IDK HOW TO DO THAT SCENE ANY OTHER WAY
  
 Please name your ally: [FROM HERE ON OUT REFERRED TO AS ALLY 2, OK]
 
