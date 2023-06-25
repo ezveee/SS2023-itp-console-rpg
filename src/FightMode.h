@@ -9,7 +9,9 @@
 
 enum enemyType {
 	DefaultEnemy = 0,
-	Boss01
+	Boss01,
+	Boss02,
+	Boss03
 };
 
 class FightMode : public GameMode
@@ -25,7 +27,7 @@ class FightMode : public GameMode
 		void randomEnemyEncounter();
 
 		Team* createEnemyTeam(int pTeamSize, int playerLevel);
-		Team* createBossTeam();
+		Team* createBossTeam(int playerLevel);
 
 		std::vector<Entity*> setFightOrder(Team* playerTeam, Team* enemyTeam);
 

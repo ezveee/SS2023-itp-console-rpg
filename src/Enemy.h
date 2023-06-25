@@ -6,7 +6,9 @@ enum EnemyType
 {
 	Slime,
 	Goblin,
-	GoblinKing
+	GoblinKing,
+	RebellionGeneral,
+	RebellionLeader
 };
 
 

@@ -3,6 +3,10 @@
 
 #include "SlashAttack.h"
 #include "SpinAttack.h"
+#include "ShadowSlashAttack.h"
+#include "HammerSmashAttack.h"
+#include "MeteorAttack.h"
+#include "HealAllAbility.h"
 
 #define SMARTER_BEHAVIOR_LV 5
 
@@ -51,11 +55,11 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 			this->goldReward = 40;
 			this->experienceReward = 60;
 
-			enemyStats.level = 3;
-			enemyStats.maxMana = 12;
-			enemyStats.maxHealth = 16;
-			enemyStats.accuracy = 2;
-			enemyStats.attack = 2;
+			enemyStats.level = 5;
+			enemyStats.maxMana = 20;
+			enemyStats.maxHealth = 30;
+			enemyStats.accuracy = 4;
+			enemyStats.attack = 4;
 			enemyStats.defense = 10;
 			enemyStats.spAttack = 2;
 			enemyStats.spDefense = 10;
@@ -64,6 +68,47 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 			this->abilities.push_back(new SlashAttack(this));
 			this->abilities.push_back(new SpinAttack(this));
+			break;
+		case RebellionGeneral:
+			this->name = L"Rebellion General";
+			this->goldReward = 100;
+			this->experienceReward = 200;
+
+			enemyStats.level = 10;
+			enemyStats.maxMana = 25;
+			enemyStats.maxHealth = 40;
+			enemyStats.accuracy = 5;
+			enemyStats.attack = 5;
+			enemyStats.defense = 12;
+			enemyStats.spAttack = 5;
+			enemyStats.spDefense = 12;
+			enemyStats.speed = 3;
+			enemyStats.critical = 2;
+
+			this->abilities.push_back(new ShadowSlashAttack(this));
+			this->abilities.push_back(new HammerSmashAttack(this));
+			this->abilities.push_back(new MeteorAttack(this));
+			break;
+		case RebellionLeader:
+			this->name = L"Rebellion Leader";
+			this->goldReward = 10000;
+			this->experienceReward = 300;
+
+			enemyStats.level = 15;
+			enemyStats.maxMana = 30;
+			enemyStats.maxHealth = 50;
+			enemyStats.accuracy = 6;
+			enemyStats.attack = 6;
+			enemyStats.defense = 13;
+			enemyStats.spAttack = 6;
+			enemyStats.spDefense = 13;
+			enemyStats.speed = 4;
+			enemyStats.critical = 2;
+
+			this->abilities.push_back(new SlashAttack(this));
+			this->abilities.push_back(new ShadowSlashAttack(this));
+			this->abilities.push_back(new MeteorAttack(this));
+			this->abilities.push_back(new HealAllAbility(this));
 			break;
 		default:
 			this->name = L"Default enemy";
@@ -111,21 +156,10 @@ Ability* Enemy::chooseAbility()
 	if (abilities.size() == 0)
 		return this->defaultAttack;
 
+	int randomOrNot = rand() % 2;
 
-	//If this->stat.level is lower than "SMARTER_BEHAVIOR_LV" ...
-	if (this->stat.level < SMARTER_BEHAVIOR_LV)
-	{
-		//Return a random Ability, unless its too expensive
-		for (int i = 0; i < abilities.size(); i++)
-		{
-			int randomInt = rand() % (abilities.size());
-
-			if(abilities[randomInt]->cost <= this->getMana())
-				return abilities[randomInt];
-		}
-		return this->defaultAttack;
-	}
-	else
+	//If this has SMARTER_BEHAVIOR_LV ...
+	if (this->stat.level >= SMARTER_BEHAVIOR_LV && randomOrNot == 0)
 	{
 		//Return the Ability with the highest manaCost, if possible
 		Ability* highestCost = this->defaultAttack;
@@ -139,6 +173,18 @@ Ability* Enemy::chooseAbility()
 			}
 		}
 		return highestCost;
+	}
+	//Return a random Ability, unless its too expensive
+	else
+	{
+		for (int i = 0; i < abilities.size(); i++)
+		{
+			int randomInt = rand() % (abilities.size());
+
+			if(abilities[randomInt]->cost <= this->getMana())
+				return abilities[randomInt];
+		}
+		return this->defaultAttack;
 	}
 }
 

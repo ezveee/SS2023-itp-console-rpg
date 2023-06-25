@@ -63,13 +63,31 @@ Team* FightMode::createEnemyTeam(int pTeamSize, int playerLevel)
     return enemyTeam;
 }
 
-Team* FightMode::createBossTeam()
+Team* FightMode::createBossTeam(int playerLevel)
 {
 	Team* bossTeam = new Team();
 
 	if (this->currentEnemyType == Boss01)
 	{
-		Enemy* enemy = new Enemy(bossTeam, GoblinKing);
+		new Enemy(bossTeam, GoblinKing);
+	}
+	if (this->currentEnemyType == Boss02)
+	{
+		new Enemy(bossTeam, RebellionGeneral);
+		// + 2 Slimes
+		Enemy* temp = new Enemy(bossTeam, Slime);
+		temp->setLevel(playerLevel, false);
+		temp = new Enemy(bossTeam, Slime);
+		temp->setLevel(playerLevel, false);
+	}
+	if (this->currentEnemyType == Boss03)
+	{
+		new Enemy(bossTeam, RebellionLeader);
+
+		Enemy* temp = new Enemy(bossTeam, Goblin);
+		temp->setLevel(playerLevel, true);
+		temp = new Enemy(bossTeam, Goblin);
+		temp->setLevel(playerLevel, true);
 	}
 
 	return bossTeam;
@@ -130,15 +148,10 @@ void FightMode::handle(Game* game)
 	
 	Team* enemyTeam = nullptr;
 
-	switch (this->currentEnemyType)
-	{
-		case Boss01:
-			enemyTeam = this->createBossTeam();
-			break;
-		default:
-			enemyTeam = this->createEnemyTeam(game->playerTeam->members.size(), game->playerTeam->members[0]->getStats().level);
-			break;
-	}
+	if (this->currentEnemyType != DefaultEnemy)
+		enemyTeam = this->createBossTeam(game->playerTeam->members[0]->getStats().level);
+	else
+		enemyTeam = this->createEnemyTeam(game->playerTeam->members.size(), game->playerTeam->members[0]->getStats().level);
 
     std::vector<Entity*> entitiesOrder = this->setFightOrder(game->playerTeam, enemyTeam);
 
@@ -157,9 +170,13 @@ void FightMode::handle(Game* game)
 	bool isBlocking = false;
 	Entity* blockUser = nullptr;
 
+	int roundCount = 0;
+
     //Fight is lasting until one Team is dead
     while (fighting)
     {
+		roundCount++;
+
         //Attack
         for (int i = 0; i < entitiesOrder.size(); i++)
         {
@@ -236,9 +253,11 @@ void FightMode::handle(Game* game)
 							oponentTeam = game->playerTeam;
 					}
 
+
                     //Use Ability on Oponent-Team
                     if (chosenAbility->isAOE)
                     {
+						uiManager->showDialog(entitiesOrder[i]->getName() + L" attacks with " + chosenAbility->getName(), false);
                         entitiesOrder[i]->useAbilityOnTeam(chosenAbility, entitiesOrder[i], oponentTeam);
                     }
                     else
@@ -251,8 +270,9 @@ void FightMode::handle(Game* game)
 							if (target == blockUser)
 								target = nullptr;
 						}
-
-                        entitiesOrder[i]->useAbilityOnTarget(chosenAbility, entitiesOrder[i], target);
+												
+						uiManager->showDialog(entitiesOrder[i]->getName() + L" attacks with " + chosenAbility->getName(), false);
+						entitiesOrder[i]->useAbilityOnTarget(chosenAbility, entitiesOrder[i], target);
                     }
                 }
                 else if (chosenAction == UseItem)
@@ -331,6 +351,37 @@ void FightMode::handle(Game* game)
                 entitiesOrder.clear();
             }
         }
+
+		//Boss03 Mechanic: Spawns a Goblin every 3 rounds
+		if (fighting == true && currentEnemyType == Boss03)
+		{
+			for (auto it = enemyTeam->members.begin() + 1; it != enemyTeam->members.end();)
+			{
+				if (!(*it)->isAlive())
+				{
+					uiManager->showDialog((*it)->getName() + L" got removed from the Fight.", true);
+					delete* it;
+					it = enemyTeam->members.erase(it);
+				}
+				else
+				{
+					++it;
+				}
+			}
+
+			if (roundCount % 3 == 0)
+			{
+				if (enemyTeam->members.size() < 4)
+				{
+					Enemy* newEnemy = new Enemy(enemyTeam, Goblin);
+
+					uiManager->showDialog(newEnemy->getName() + L" joined the Fight!", true);
+
+					newEnemy->setLevel(game->player->getStats().level, true);
+					entitiesOrder.push_back(newEnemy);
+				}
+			}
+		}
     }
 
     //delete Enemies
