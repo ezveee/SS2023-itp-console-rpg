@@ -5,7 +5,7 @@ Nicole;Kyrill;Alena;
 0 
 225 
 1 
-0 
+1 
 Village_2
 0 
 City_1_Gate;0 

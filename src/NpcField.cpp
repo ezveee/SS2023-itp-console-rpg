@@ -56,7 +56,7 @@ void NpcField::onInteract(Game* game)
 			game->player->setProgress();
 			dialogueIterator = game->dialogues.find(npcName);
 			if (npcName != L"King")
-				dialogueIterator->second = L"Thanks for helping me out\n";
+				dialogueIterator->second = L"Off you go now!\n";
 		}
 	}
 }
