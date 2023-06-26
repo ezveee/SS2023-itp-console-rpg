@@ -51,7 +51,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 			break;
 		case GoblinKing:
-			this->name = L"Goblin King";
+			this->name = L"Rebellion General";
 			this->goldReward = 40;
 			this->experienceReward = 60;
 
@@ -70,7 +70,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 			this->abilities.push_back(new SpinAttack(this));
 			break;
 		case RebellionGeneral:
-			this->name = L"Rebellion General";
+			this->name = L"Rebellion Leader";
 			this->goldReward = 100;
 			this->experienceReward = 200;
 
@@ -90,7 +90,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 			this->abilities.push_back(new MeteorAttack(this));
 			break;
 		case RebellionLeader:
-			this->name = L"Rebellion Leader";
+			this->name = L"Evil King";
 			this->goldReward = 10000;
 			this->experienceReward = 300;
 

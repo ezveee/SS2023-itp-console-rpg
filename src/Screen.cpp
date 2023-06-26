@@ -16,13 +16,14 @@
 #include "ExitField.h"
 #include "Player.h"
 #include "BoundaryField.h"
+#include "BossField.h"
 
 Screen::Screen(const std::wstring& filename)
 {
 	size_t pos = filename.find('_');
 	std::wstring screenType = filename.substr(0, pos);
 
-	if (screenType == L"City" || screenType == L"Village")
+	if (screenType == L"City" || screenType == L"Village" || screenType == L"Castle")
 		this->isSafe = true;
 	else
 		this->isSafe = false;
@@ -173,6 +174,11 @@ WorldField* Screen::createWorldField(std::map<wchar_t, std::wstring>& legend, wc
 	if (fieldType == L"Boundary")
 	{
 		return new BoundaryField(parameters);
+	}
+
+	if (fieldType == L"BossField")
+	{
+		return new BossField(parameters);
 	}
 
 	if (fieldType == L"Exit")

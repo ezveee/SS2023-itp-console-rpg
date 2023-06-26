@@ -327,6 +327,11 @@ void FightMode::handle(Game* game)
                     //Message: You've won!
                     uiManager->showDialog(L"You have won.", false);
 					giveOutRewards(game->playerTeam->members[0], enemyTeam);
+					if (currentEnemyType != DefaultEnemy)
+					{
+						game->player->setBossProgression();
+						game->player->setProgress();
+					}
                 }
                 //Check if Player-Team is Alive
                 if (!game->playerTeam->isTeamAlive())

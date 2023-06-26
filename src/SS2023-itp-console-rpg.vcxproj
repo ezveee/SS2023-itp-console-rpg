@@ -132,6 +132,7 @@
     <ClCompile Include="AllyAbility.cpp" />
     <ClCompile Include="BlacksmithField.cpp" />
     <ClCompile Include="BlockField.cpp" />
+    <ClCompile Include="BossField.cpp" />
     <ClCompile Include="CriticalStrikeAttack.cpp" />
     <ClCompile Include="DefaultAttack.cpp" />
     <ClCompile Include="BoundaryField.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="AllyAbility.h" />
     <ClInclude Include="BlacksmithField.h" />
     <ClInclude Include="BlockField.h" />
+    <ClInclude Include="BossField.h" />
     <ClInclude Include="BoundaryField.h" />
     <ClInclude Include="CriticalStrikeAttack.h" />
     <ClInclude Include="DefaultAttack.h" />

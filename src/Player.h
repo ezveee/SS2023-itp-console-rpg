@@ -7,7 +7,7 @@
 class Player : public Ally
 {
 	public:
-		Player(Team* playerTeam, std::wstring name,RoleClass role, int level, int gold, int exp, int nextExpRequirement, int weaponLevel, bool canProgress);
+		Player(Team* playerTeam, std::wstring name,RoleClass role, int level, int gold, int exp, int nextExpRequirement, int weaponLevel, bool canProgress, int bossProgression);
 		virtual ~Player();
 
 		bool getIsExitRequested() const;
@@ -26,6 +26,8 @@ class Player : public Ally
 		int getNextExpRequirement();
 		int getWeaponLevel();
 		void weaponLevelUp();
+		int getBossProgression();
+		void setBossProgression();
 
 	private:
 		Position position;
@@ -36,5 +38,6 @@ class Player : public Ally
 		int exp;
 		int weaponLevel;
 		int nextExpRequirement;
+		int bossProgression;
 };
 

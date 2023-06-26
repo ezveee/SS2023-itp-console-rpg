@@ -6,13 +6,14 @@
 #include "defines.h"
 #include <cmath>
 
-Player::Player(Team* playerTeam, std::wstring name, RoleClass role, int level, int gold, int exp, int nextExpRequirement, int weaponLevel, bool canProgress) :
+Player::Player(Team* playerTeam, std::wstring name, RoleClass role, int level, int gold, int exp, int nextExpRequirement, int weaponLevel, bool canProgress, int bossProgression) :
 	Ally(playerTeam, role, name, level),
 	gold(gold),
 	exp(exp),
 	nextExpRequirement(nextExpRequirement),
 	weaponLevel(weaponLevel),
-	progress(canProgress)
+	progress(canProgress),
+	bossProgression(bossProgression)
 {
 	this->setLevel(level, role == Warrior || role == Assassin ? true : false);
 	setPosition(PLAYER_START_X, PLAYER_START_Y);
@@ -152,10 +153,20 @@ int Player::getWeaponLevel()
 
 void Player::weaponLevelUp()
 {
-	this->weaponLevel + 1;
+	this->weaponLevel += 1;
 }
 
 int Player::getNextExpRequirement()
 {
 	return this->nextExpRequirement;
+}
+
+int Player::getBossProgression()
+{
+	return this->bossProgression;
+}
+
+void Player::setBossProgression()
+{
+	this->bossProgression += 1;
 }

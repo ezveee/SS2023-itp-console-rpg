@@ -92,25 +92,21 @@ Player* Game::loadSaveFile(std::vector<std::wstring> lines)
 	std::vector<int> roles;
 
 	
-	while (true)
+	do
 	{
 		size_t pos = lines[0].find(';');
 		names.push_back(lines[0].substr(0, pos));
 		lines[0] = lines[0].substr(pos + 1);
-		if (lines[0] == L"" || lines[0] == L";")
-			break;
-	}
+	} while (lines[0] != L"" && lines[0] != L";");
 	
-	while (true)
+	do
 	{
 		size_t pos = lines[1].find(';');
 		roles.push_back(std::stoi(lines[1].substr(0, pos)));
 		lines[1] = lines[1].substr(pos + 1);
-		if (lines[1] == L"" || lines[1] == L";")
-			break;
-	}
+	} while (lines[1] != L"" && lines[1] != L";");
 
-	Player* newPlayer = new Player(this->playerTeam, names[0], (RoleClass)roles[0], std::stoi(lines[2]), std::stoi(lines[3]), std::stoi(lines[4]), std::stoi(lines[5]), std::stoi(lines[6]), std::stoi(lines[7]));
+	Player* newPlayer = new Player(this->playerTeam, names[0], (RoleClass)roles[0], std::stoi(lines[2]), std::stoi(lines[3]), std::stoi(lines[4]), std::stoi(lines[5]), std::stoi(lines[6]), std::stoi(lines[7]), std::stoi(lines[9]));
 
 	for (int i = 1; i < names.size(); i++)
 	{
@@ -121,7 +117,7 @@ Player* Game::loadSaveFile(std::vector<std::wstring> lines)
 	this->currentScreenName = lines[8];
 	//add loading for playerstats
 
-	for (int lineNr = 9; lineNr < lines.size(); ++lineNr)
+	for (int lineNr = 10; lineNr < lines.size(); ++lineNr)
 	{
 		size_t pos = lines[lineNr].find(';');
 		this->boundaries.insert(std::pair<std::wstring, bool>(lines[lineNr].substr(0, pos), stoi(lines[lineNr].substr(pos + 1))));
@@ -196,7 +192,7 @@ Player* Game::createNewGame()
 		{L"City_3_Gate", 0},
 
 	};
-	return new Player(playerTeam, playerName, (RoleClass)classSelection, 1, 0, 0, 40, 1, 0);
+	return new Player(this->playerTeam, playerName, (RoleClass)classSelection, 1, 0, 0, 40, 1, 0, 0);
 }
 
 void Game::makeSaveFile()
@@ -225,6 +221,7 @@ void Game::makeSaveFile()
 	file << this->player->getWeaponLevel() << " \n";
 	file << this->player->canProgress() << " \n";
 	file << this->currentScreenName << " \n";
+	file << this->player->getBossProgression() << " \n";
 
 	for (auto pair : this->boundaries) {
 		file << pair.first << ";" << pair.second << " \n";

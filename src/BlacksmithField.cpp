@@ -22,6 +22,7 @@ void BlacksmithField::onEnter(Game* game)
 		if ((input == 'y' || input == 'Y' || input == '\r') && game->player->getGold() >= currCost)
 		{
 			game->player->weaponLevelUp();
+			game->player->modifyGold(currCost * (-1));
 			game->getUIManager()->showDialog(L"You have successfully upgraded your weapon",true);
 			return;
 		}

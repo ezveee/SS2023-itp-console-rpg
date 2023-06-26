@@ -60,11 +60,6 @@ void MoveMode::handle(Game* game)
 			moveCounter = 0;
 			game->getUIManager()->showDialog(L"Enemy encountered!", true);
 
-			//Starting a Bossfight
-			//FightMode* fightMode = new FightMode();
-			//fightMode->currentEnemyType = Boss03;
-			//game->nextGameMode = fightMode;
-
 			game->nextGameMode = new FightMode();
 		}
 	}
