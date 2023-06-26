@@ -21,8 +21,9 @@
 ######       #####
 #######      #####
 ######      ######
-######      ######
+######GGGGGG######
 ######bbbbbb######
 
 a: Transition;Area_2_5;Y:10
 b: Transition;City_2_1;Y:1
+G: Boundary;City_2_Gate_1

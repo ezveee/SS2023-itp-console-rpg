@@ -12,7 +12,7 @@
 └────────────────┘
 
 #######aaaaaa#####
-#######          #
+#######GGGGGG    #
 ####HH#          #
 ##S#        N    #
 ##            ####
@@ -26,6 +26,7 @@
 
 a: Transition;Area_1_2;Y:10
 b: Transition;Village_2;Y:1
+G: Boundary;Village_Gate
 H: House
 S: Shop
 N: Npc;Village_S1_O1;0

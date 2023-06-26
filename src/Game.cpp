@@ -56,7 +56,12 @@ void Game::generateMaps()
 {
 	this->dialogues =
 	{
-		{L"Castle_npc", L"hello i am the castle npc, talk to me again to unlock the barrier to the next area!"},
+		// STORY RELEVANT
+		{L"King", L"You enter the castle. The inside is just as intricately decorated as the outside, with not one speck of dust on the floor, the corners void of spiderwebs. The king is sitting atop his throne, looking pointedly at you as you take in your surroundings. You have never seen the king in person. All of your childhood, you've only heard stories of his greatness and seen paintings of his likeness. In person, he looks even more intimidating, each detail sharper than a painting could ever capture. As you approach the throne and kneel in front of him, he gets up and approaches you.\n\nKing: Stand up, " + player->getName() + L". You've answered my call, a wise decision indeed. I hope your journey to my castle helped you train for what is to come as the journey that lies before you is even more treacherous than anything you've experienced before. Now, you might wonder why I have called you here, " + player->getName() + L". It has to do with this.\n\nHe shows you an ancient scroll, the fragile parchment yellowed, signifying its old age.\n\nKing: The situation of this realm is dire. Once prosperous and thriving, it now teeters on the edge of ruin. Darkness threatens to engulf us, the fabric of the land is unraveling. This scroll tells of a way to stop the decay. It tells of an ancient artifact hidden somewhere in this very kingdom. I've sent many of my own strongest soldiers to search for it but in vain. I was about to give up any hope of finding it, when I once again picked up and read the scroll. In it, it mentions the child of a great warrior, a legendary " + player->getRoleString() + L" from the same renowned bloodline, who has the ability to find the artifact. That child is you, " + player->getName() + L". I have fought alongside your father, I knew his extraordinary strength, his skill with the blade. I see that same potential in you. Now, are you ready to take on this quest, a treacherous task through the most forsaken places this kingdom has to offer? Your help will bring you a lifetime of glory.\n\nYou nod, signaling that you are ready to take on the quest bestowed upon you.\n\nKing: Very well, I am glad you will be of help to me. Before you set out, let me entrust you with one of my closest allies, one of the best with skills unrivaled both in- and outside of this kingdom. They shall accompany you on this journey and aid you with the battles that await.\n\nKing: Now make haste. Go with my blessing. The destiny of our land rests in your hands."},
+		{L"Village_Guard", L""},
+		{L"City_2_Guard", L""},
+		{L"City_3_Guard", L""},
+		
 		// VILLAGE
 		{L"Village_S1_H1", L"Inside the townhall there is a gathering...\nCouncil leader: Hey, you! You too are invited to partake in the gathering! Today we're discussing our communities matters."},
 		{L"Village_S1_H2", L"Inside is an old man...\nOld man: Back in my day we...\nYou had to listen to a long lecture about the past..."},
@@ -169,7 +174,17 @@ void Game::generateMaps()
 
 	this->storyNpcs =
 	{
-		{L"Castle_npc", this->boundaries.find(L"City_1_Gate")},
+		{L"Village_Guard", this->boundaries.find(L"Village_Gate")},
+		{L"King", this->boundaries.find(L"City_1_Gate")},
+		{L"City_2_Guard", this->boundaries.find(L"City_2_Gate_1")},
+		{L"Messenger", this->boundaries.find(L"City_2_Gate_2")},
+	
+
+		/*
+			boundaries
+				at end of every city
+				at start of most cities
+		*/
 	};
 
 	this->miniMaps =
@@ -300,11 +315,14 @@ Player* Game::createNewGame()
 	{
 		{L"Village_Gate",0},
 		{L"City_1_Gate", 0},
-		{L"City_2_Gate", 0},
-		{L"City_3_Gate", 0},
+		{L"City_2_Gate_1", 0},
+		{L"City_2_Gate_2", 0},
+		{L"City_3_Gate_1", 0},
+		{L"City_3_Gate_2", 0},
+		
 
 	};
-	return new Player(playerTeam, playerName, (RoleClass)classSelection, 1, 0, 0, 40, 1, 0);
+	return new Player(playerTeam, playerName, (RoleClass)classSelection, 1, 0, 0, 40, 1, 1);
 }
 
 void Game::makeSaveFile()

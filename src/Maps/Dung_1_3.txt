@@ -24,5 +24,5 @@
 ##############  ##
 ##############aa##
 
-a: Transition;Dungeon_1_2;Y:1
-b: Transition;Dungeon_1_4;X:1
+a: Transition;Dung_1_2;Y:1
+b: Transition;Dung_1_4;X:1

@@ -89,6 +89,8 @@ void MoveMode::openMenu(Game* game)
 
 	if (game->currentScreenName.substr(0, pos) == L"Village")
 		currentMiniMap = THUMBNAIL_MAP_VILLAGE;
+	if (game->currentScreenName.substr(0, pos) == L"Castle")
+		currentMiniMap = THUMBNAIL_MAP_CITY_1;
 	else{
 		auto iterator = game->miniMaps.find(game->currentScreenName.substr(0, 6));
 		if (iterator == game->miniMaps.end())
