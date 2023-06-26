@@ -7,7 +7,7 @@
 │ |  .       .   │
 │ |          _   │
 │  \__ .    / \  │
-│     |    |   \_│
+│ ☻   |    |   \_│
 │     |    |     │
 └─────┴────┴─────┘
 
@@ -20,10 +20,11 @@
 #                c
 #                c
 #                c
-#                c
+# N              c
 #                c
 ######bbbbbb######
 
 a: Transition;Area_2_4;Y:10
 b: Transition;Area_2_8;Y:1
 c: Transition;Area_2_6;X:1
+N: Npc;City_2_Guard;1

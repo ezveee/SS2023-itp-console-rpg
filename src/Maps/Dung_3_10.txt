@@ -24,5 +24,5 @@ a   #     #     ##
 ##################
 ##################
 
-a: Transition;Dungeon_3_9;X:16
-b: Transition;Dungeon_3_6;Y:10
+a: Transition;Dung_3_9;X:16
+b: Transition;Dung_3_6;Y:10

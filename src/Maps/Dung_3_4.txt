@@ -25,6 +25,6 @@ a  #         #   c
 ##############dd##
 
 a: Transition;Area_4_5;X:16
-b: Transition;Dungeon_3_1;Y:10
-c: Transition;Dungeon_3_5;X:1
-d: Transition;Dungeon_3_8;Y:1
+b: Transition;Dung_3_1;Y:10
+c: Transition;Dung_3_5;X:1
+d: Transition;Dung_3_8;Y:1

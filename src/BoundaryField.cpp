@@ -13,7 +13,6 @@ BoundaryField::BoundaryField(std::wstring& parameters)
 	{
 		throw std::invalid_argument("Unknown boundary name key.");
 	}
-	bool test = iterator->second;
 	enterable = iterator->second;
 }
 BoundaryField::~BoundaryField() = default;

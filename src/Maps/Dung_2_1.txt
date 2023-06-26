@@ -25,4 +25,4 @@
 #######aaaaaaaaa##
 
 a: Transition;Area_3_2;Y:1
-b: Transition;Dungeon_2_2;X:1
+b: Transition;Dung_2_2;X:1
