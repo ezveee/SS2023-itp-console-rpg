@@ -180,6 +180,12 @@
     <ClCompile Include="AllyAbility.cpp">
       <Filter>Source Files\Fight</Filter>
     </ClCompile>
+    <ClCompile Include="CriticalStrikeAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowSlashAttack.cpp">
+      <Filter>Source Files\Fight</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h">
@@ -292,6 +298,12 @@
     </ClInclude>
     <ClInclude Include="levelStats.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CriticalStrikeAttack.h">
+      <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowSlashAttack.h">
+      <Filter>Header Files\Fight</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

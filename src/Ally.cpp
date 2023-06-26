@@ -10,6 +10,9 @@
 #include "FireballAttack.h"
 #include "MeteorAttack.h"
 
+#include "CriticalStrikeAttack.h"
+#include "ShadowSlashAttack.h"
+
 #include "HammerSmashAttack.h"
 #include "HealAllAbility.h"
 
@@ -17,6 +20,7 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 {
 	this->defaultAttack = new DefaultAttack(this);
 	this->role = role;
+
 
     struct Stats allyStats = {};
     switch (role)
@@ -68,6 +72,8 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 			allyStats.speed = 3;
 			allyStats.critical = 3;
 
+			this->abilities.push_back(new CriticalStrikeAttack(this));
+			this->abilities.push_back(new ShadowSlashAttack(this));
 			break;
 		case Healer:
 			this->name = name;
@@ -97,15 +103,15 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 
 Ally::~Ally()
 {
-    std::wcout << L"- - - - - " << this->getName() << L" - - - - -" << std::endl;
+    //std::wcout << L"- - - - - " << this->getName() << L" - - - - -" << std::endl;
     this->defaultAttack;
     for (int i = 0; i < this->abilities.size(); i++)
     {
-        std::wcout << abilities[i]->getName() << L", was deleted" << std::endl;
+        //std::wcout << abilities[i]->getName() << L", was deleted" << std::endl;
         delete this->abilities[i];
     }
     this->abilities.clear();
-    std::wcout << L"- - - - - " << this->getName() << L" deleted - - - - -" << std::endl;
+    //std::wcout << L"- - - - - " << this->getName() << L" deleted - - - - -" << std::endl;
 }
 
 fightAction Ally::chooseAction()

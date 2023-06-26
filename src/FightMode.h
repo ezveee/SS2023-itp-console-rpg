@@ -7,6 +7,13 @@
 #include "Team.h"
 #include "GameMode.h"
 
+enum enemyType {
+	DefaultEnemy = 0,
+	Boss01,
+	Boss02,
+	Boss03
+};
+
 class FightMode : public GameMode
 {
 	public:
@@ -20,6 +27,7 @@ class FightMode : public GameMode
 		void randomEnemyEncounter();
 
 		Team* createEnemyTeam(int pTeamSize, int playerLevel);
+		Team* createBossTeam(int playerLevel);
 
 		std::vector<Entity*> setFightOrder(Team* playerTeam, Team* enemyTeam);
 
@@ -31,6 +39,8 @@ class FightMode : public GameMode
 		//FightUI* getFightUI() const { return this->fightUI; };
 
 		void giveOutRewards(Entity* player, Team* enemyTeam);
+
+		enemyType currentEnemyType = DefaultEnemy;
 
 	//private:
 		//vector<Ally*> playerTeam;

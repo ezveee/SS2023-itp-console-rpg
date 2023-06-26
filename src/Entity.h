@@ -65,6 +65,8 @@ class Entity
 		virtual std::wstring getRoleString();
 		virtual RoleClass getRole();
 
+		void setCritical(int value);
+
 		int getSpeed() const;
 		int getHealth() const;
 		int getMana() const;

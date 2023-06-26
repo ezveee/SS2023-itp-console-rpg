@@ -132,6 +132,7 @@
     <ClCompile Include="AllyAbility.cpp" />
     <ClCompile Include="BlacksmithField.cpp" />
     <ClCompile Include="BlockField.cpp" />
+    <ClCompile Include="CriticalStrikeAttack.cpp" />
     <ClCompile Include="DefaultAttack.cpp" />
     <ClCompile Include="BoundaryField.cpp" />
     <ClCompile Include="EmptyField.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="HammerSmashAttack.cpp" />
     <ClCompile Include="HealAllAbility.cpp" />
     <ClCompile Include="MeteorAttack.cpp" />
+    <ClCompile Include="ShadowSlashAttack.cpp" />
     <ClCompile Include="SlashAttack.cpp" />
     <ClCompile Include="SpinAttack.cpp" />
     <ClCompile Include="UIManager.cpp" />
@@ -169,6 +171,7 @@
     <ClInclude Include="BlacksmithField.h" />
     <ClInclude Include="BlockField.h" />
     <ClInclude Include="BoundaryField.h" />
+    <ClInclude Include="CriticalStrikeAttack.h" />
     <ClInclude Include="DefaultAttack.h" />
     <ClInclude Include="defines.h" />
     <ClInclude Include="EmptyField.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="HealAllAbility.h" />
     <ClInclude Include="levelStats.h" />
     <ClInclude Include="MeteorAttack.h" />
+    <ClInclude Include="ShadowSlashAttack.h" />
     <ClInclude Include="SlashAttack.h" />
     <ClInclude Include="SpinAttack.h" />
     <ClInclude Include="UIManager.h" />
