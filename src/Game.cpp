@@ -220,14 +220,14 @@ Player* Game::loadSaveFile(std::vector<std::wstring> lines)
 		size_t pos = lines[0].find(';');
 		names.push_back(lines[0].substr(0, pos));
 		lines[0] = lines[0].substr(pos + 1);
-	} while (lines[0] != L"" && lines[0] != L";");
+	} while (lines[0] != L" " && lines[0] != L";");
 	
 	do
 	{
 		size_t pos = lines[1].find(';');
 		roles.push_back(std::stoi(lines[1].substr(0, pos)));
 		lines[1] = lines[1].substr(pos + 1);
-	} while (lines[1] != L"" && lines[1] != L";");
+	} while (lines[1] != L" " && lines[1] != L";");
 
 	Player* newPlayer = new Player(this->playerTeam, names[0], (RoleClass)roles[0], std::stoi(lines[2]), std::stoi(lines[3]), std::stoi(lines[4]), std::stoi(lines[5]), std::stoi(lines[6]), std::stoi(lines[7]), std::stoi(lines[9]));
 

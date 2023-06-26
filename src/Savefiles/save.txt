@@ -1,12 +1,12 @@
 Nicole;Kyrill;Alena; 
 2;1;0; 
-6  
+6 
 1500 
 0 
 225 
 1 
 0 
-Village_2 
+Village_2
 0 
 City_1_Gate;0 
 City_2_Gate_1;0 
