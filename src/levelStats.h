@@ -24,7 +24,7 @@ Stats specialClass
 	0,
 	2,	//MaxMana
 	0,
-	2,	//Accuracy
+	1,	//Accuracy
 	1,	//Attack
 	1,	//Defense
 	2,	//Sp. Attack

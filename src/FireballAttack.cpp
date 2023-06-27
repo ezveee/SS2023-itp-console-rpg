@@ -6,6 +6,7 @@ FireballAttack::FireballAttack(Entity* entity)
 	this->name = L"Fireball";
 	this->cost = (MAGICIAN_COST-2) + entity->getStats().level;
 	this->isAOE = false;
+	this->info = L"Hits a single enemy with a fireball";
 }
 
 void FireballAttack::action(Entity* user, Entity* target)

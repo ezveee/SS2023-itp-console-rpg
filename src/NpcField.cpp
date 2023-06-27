@@ -1,4 +1,5 @@
 #include "NpcField.h"
+#include "Screen.h"
 #include <iostream>
 #include <conio.h>
 
@@ -29,18 +30,30 @@ void NpcField::onInteract(Game* game)
 	{
 		throw std::invalid_argument("Unknown npc name key.");
 	}
+
+	if (this->isStoryNpc())
+	{
+		auto iterator = game->storyNpcs.find(npcName);
+		if (iterator == game->storyNpcs.end())
+		{
+			throw std::invalid_argument("Unknown npc name key.");
+		}
+		if (iterator->second->second)
+			dialogueIterator->second = std::next(dialogueIterator)->second;
+	}
+
 	std::wstring currentDialogue = dialogueIterator->second;
 
 	game->getUIManager()->showDialog(currentDialogue, true);
-
 	if (npcName == L"King")
 	{
-		if (game->playerTeam->members.size() <= 1)
-		{
-			addAlly(game);
-			game->player->setProgress();
-			dialogueIterator->second = L"Be off now.\n";
-		}
+		
+	}
+
+	if (( npcName == L"King" && game->playerTeam->members.size() <= 1 ) || ( npcName == L"Messenger" && game->playerTeam->members.size() <= 2))
+	{
+		addAlly(game);
+		game->player->setProgress();
 	}
 
 	if (this->isStoryNpc() && game->player->canProgress())
@@ -53,10 +66,10 @@ void NpcField::onInteract(Game* game)
 		if (!iterator->second->second)
 		{
 			iterator->second->second = true;
+			((MoveMode*)game->currentGameMode)->nextScreen = new Screen(game->currentScreenName);
 			game->player->setProgress();
 			dialogueIterator = game->dialogues.find(npcName);
-			if (npcName != L"King")
-				dialogueIterator->second = L"Off you go now!\n";
+			dialogueIterator->second = std::next(dialogueIterator)->second;
 		}
 	}
 }
@@ -116,7 +129,7 @@ void addAlly(Game* game)
 			default:break;
 			}
 		} while (input != '\r' && input != ' ');
-		std::wcout << "=============~*+-+*~=============\n Pick a name for your hero\n=================================\n";
+		std::wcout << "=============~*+-+*~=============\n Pick a name for your ally\n=================================\n";
 		std::wcout << "Your ally's name: ";
 		std::wcin >> allyName;
 

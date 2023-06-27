@@ -53,7 +53,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 		case GoblinKing:
 			this->name = L"Rebellion General";
 			this->goldReward = 40;
-			this->experienceReward = 60;
+			this->experienceReward = 400;
 
 			enemyStats.level = 5;
 			enemyStats.maxMana = 20;
@@ -72,7 +72,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 		case RebellionGeneral:
 			this->name = L"Rebellion Leader";
 			this->goldReward = 100;
-			this->experienceReward = 200;
+			this->experienceReward = 700;
 
 			enemyStats.level = 10;
 			enemyStats.maxMana = 25;
@@ -92,7 +92,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 		case RebellionLeader:
 			this->name = L"Evil King";
 			this->goldReward = 10000;
-			this->experienceReward = 300;
+			this->experienceReward = 1000;
 
 			enemyStats.level = 15;
 			enemyStats.maxMana = 30;

@@ -15,7 +15,6 @@ Player::Player(Team* playerTeam, std::wstring name, RoleClass role, int level, i
 	progress(canProgress),
 	bossProgression(bossProgression)
 {
-	this->setLevel(level, role == Warrior || role == Assassin ? true : false);
 	setPosition(PLAYER_START_X, PLAYER_START_Y);
 }
 

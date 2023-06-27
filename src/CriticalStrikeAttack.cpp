@@ -6,6 +6,7 @@ CriticalStrikeAttack::CriticalStrikeAttack(Entity* entity)
 	this->name = L"Critical Strike";
 	this->cost = ASSASSIN_COST + entity->getStats().level;
 	this->isAOE = false;
+	this->info = L"High chance of dealing crit damage to one enemy";
 }
 
 void CriticalStrikeAttack::action(Entity* user, Entity* target)

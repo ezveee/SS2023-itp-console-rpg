@@ -12,9 +12,10 @@ void BossField::onEnter(Game* game)
 	//Starting a Bossfight
 	if(bossNr > game->player->getBossProgression())
 	{
-	FightMode* fightMode = new FightMode();
-	fightMode->currentEnemyType = (enemyType)bossNr;
-	game->nextGameMode = fightMode;
+		game->getUIManager()->showDialog(L"You encounter the boss of this dungeon!", true);
+		FightMode* fightMode = new FightMode();
+		fightMode->currentEnemyType = (enemyType)bossNr;
+		game->nextGameMode = fightMode;
 	}
 }
 

@@ -13,7 +13,7 @@ MoveMode::MoveMode(Game* game)
 	currentScreen = new Screen(game->currentScreenName);
 	nextScreen = nullptr;
 
-	stepsUntilEncounter = rand() % 9 + 8;
+	stepsUntilEncounter = rand() % 9 + 10;
 }
 
 MoveMode::~MoveMode()
@@ -90,7 +90,7 @@ void MoveMode::openMenu(Game* game)
 
 	if (game->currentScreenName.substr(0, pos) == L"Village")
 		currentMiniMap = THUMBNAIL_MAP_VILLAGE;
-	if (game->currentScreenName.substr(0, pos) == L"Castle")
+	else if (game->currentScreenName.substr(0, pos) == L"Castle")
 		currentMiniMap = THUMBNAIL_MAP_CITY_1;
 	else{
 		auto iterator = game->miniMaps.find(game->currentScreenName.substr(0, 6));

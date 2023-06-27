@@ -1,7 +1,7 @@
 ﻿┌────────────────┐
 │ _/__\     ¦    │
 │/_\‼‼| .   +-+  │
-│|S|        ☺ ¦_ │
+│|S|        ☻ ¦_ │
 │ _¦     .    /_\│
 │/_\          |_|│
 │|_| :.       ¦  │
@@ -29,5 +29,5 @@ b: Transition;Village_2;Y:1
 G: Boundary;Village_Gate
 H: House
 S: Shop
-N: Npc;Village_S1_O1;0
+N: Npc;Village_Guard;1
 O: Npc;Village_S1_O2;0

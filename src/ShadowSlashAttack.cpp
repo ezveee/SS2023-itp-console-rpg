@@ -6,6 +6,7 @@ ShadowSlashAttack::ShadowSlashAttack(Entity* entity)
 	this->name = L"Shadow Slash";
 	this->cost = ASSASSIN_COST + entity->getStats().level;
 	this->isAOE = false;
+	this->info = L"A sneaky slash, strong against physical type enemies";
 }
 
 void ShadowSlashAttack::action(Entity* user, Entity* target)
