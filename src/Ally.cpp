@@ -96,8 +96,7 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 	}
 
 	this->stat = allyStats;
-	this->setLevel(level, (role == Warrior || role == Assassin) ? true : false);
-
+	this->setLevel(level, (role == Warrior || role == Assassin));
     playerTeam->addMember(this);
 }
 

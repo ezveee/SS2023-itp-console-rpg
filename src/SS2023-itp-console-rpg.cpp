@@ -61,6 +61,7 @@ std::vector<std::wstring> getSaveFile()
 bool startingScreen()
 {
 	std::wstring title = LR"(
+																
 =======================================================~*+--+*~=========================================================
 ------------------------------------------------------------------------------------------------------------------------
     _______   ___      __       __       _______ .__   __.  __  ___ __ .__   __.  _______  _______   ______  .___  ___. 
@@ -76,7 +77,7 @@ bool startingScreen()
 	std::wcout << title << std::endl;
 	char selection = 'w';
 	bool createNewGame = true;
-	std::wcout << "	>New Game\n	Load Game\n";
+	std::wcout << "						      >New Game\n\n						      Load Game\n";
 	do {
 		selection = _getch();
 		system("CLS");
@@ -85,12 +86,12 @@ bool startingScreen()
 		{
 		case 'w':
 		case 'W':
-		case ARROWKEY_UP: std::wcout << "	>New Game\n	Load Game\n";
+		case ARROWKEY_UP: std::wcout << "						      >New Game\n\n						      Load Game\n";
 			createNewGame = true;
 			break;
 		case 's':
 		case 'S':
-		case ARROWKEY_DOWN: std::wcout << "	New Game\n	>Load Game\n";
+		case ARROWKEY_DOWN: std::wcout << "						      New Game\n\n						      >Load Game\n";
 			createNewGame = false;
 			break;
 		}

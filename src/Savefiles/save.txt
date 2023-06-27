@@ -1,5 +1,5 @@
-urmum;rawruwuxd; 
-2;2; 
+Hero;Ally; 
+2;0; 
 7 
 960 
 230 

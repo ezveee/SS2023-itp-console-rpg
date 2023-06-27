@@ -124,7 +124,7 @@ void addAlly(Game* game)
 			default:break;
 			}
 		} while (input != '\r' && input != ' ');
-		std::wcout << "=============~*+-+*~=============\n Pick a name for your ally\n=================================\n";
+		std::wcout << "\n=============~*+-+*~=============\n Pick a name for your ally\n=================================\n";
 		std::wcout << "Your ally's name: ";
 		std::wcin >> allyName;
 
