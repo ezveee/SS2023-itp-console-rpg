@@ -186,6 +186,9 @@
     <ClCompile Include="ShadowSlashAttack.cpp">
       <Filter>Source Files\Fight</Filter>
     </ClCompile>
+    <ClCompile Include="BossField.cpp">
+      <Filter>Source Files\WorldFields</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="defines.h">
@@ -304,6 +307,9 @@
     </ClInclude>
     <ClInclude Include="ShadowSlashAttack.h">
       <Filter>Header Files\Fight</Filter>
+    </ClInclude>
+    <ClInclude Include="BossField.h">
+      <Filter>Header Files\WorldFields</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

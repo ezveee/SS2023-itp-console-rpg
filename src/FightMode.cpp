@@ -327,6 +327,7 @@ void FightMode::handle(Game* game)
                     //Message: You've won!
                     uiManager->showDialog(L"You have won.", false);
 					giveOutRewards(game->playerTeam->members[0], enemyTeam);
+
 					if (currentEnemyType != DefaultEnemy)
 					{
 						game->player->setBossProgression();
@@ -346,6 +347,7 @@ void FightMode::handle(Game* game)
 					game->currentScreenName = iterator->second;
 					game->player->setPosition(5, 5);
                 }
+				std::wcout << std::endl;
 				uiManager->showStats();
                 _getch();
 

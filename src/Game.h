@@ -37,6 +37,7 @@ public:
 	std::map<std::wstring, std::map<std::wstring, bool>::iterator> storyNpcs;
 	std::map<std::wstring, std::wstring> miniMaps;
 	std::map<std::wstring, std::wstring> respawn;
+	std::map<int, std::wstring> bossDialogues;
 
 	std::wstring currentScreenName = L"Village_2";
 

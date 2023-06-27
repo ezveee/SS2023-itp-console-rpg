@@ -1,4 +1,4 @@
-#include "Game.h"
+﻿#include "Game.h"
 #include "Player.h"
 #include "defines.h"
 
@@ -47,6 +47,14 @@ void Game::run()
 			currentGameMode = nextGameMode;
 			nextGameMode = nullptr;
 		}
+		if (this->player->getBossProgression() >= 3)
+		{
+			system("CLS");
+			this->getUIManager()->showDialog(L"As the king lies before you on the floor, you gaze down at him. You realize that this is not the powerful, benevolent man he made himself out to be, but a pathetic shell of a man that used you to further his power. He let the kingdom fall apart as power was more important than the satisfaction of his citizens.\n\nKing: Hand it... over, " + this->player->getName() + L". This is far... from over... I need it, NEED it. My power, my control... it's... it's leaving me... I need it... I have to secure my reign... I have to... use it... I have to... control anyone who dares to say something against me... I need it... Give it to me...\n\n" + this->playerTeam->members[1]->getName() + L": What shall we do with him now? Kill him?\n\n" + this->playerTeam->members[2]->getName() + L": No, that is the easy way out for him. He shall be incarcerated for the rest of his life, damned to think for eternity about his injustices toward the folk.\n\nYou store away the artifact inside a pocket. Together, your allies and you carried him back to the big city. You made sure the artifact was secure, protecting it and never letting it leave your vicinity. In the city, the now former king confessed to his crimes and was convicted to life in prison.\n\nThe throne, now vacant, was quickly handed over to someone else. At first, the folk wanted you to take over the throne as you were the one who saved them, but you turned down the offer, instead advocating for the now-former leader of the Rebellion to rule the country.\n\nUnder his rule, he made you and your allies his advisors. Peace and fulfillment returned to the country as the dire situation stabilized. The new king ensured that no voice went unheard.\n\nAll is well.", true);
+			system("CLS");
+			this->getUIManager()->showDialog(L"Thank you for playing our game :)", true);
+			this->player->setExitRequested();
+		}
 	}
 
 	delete currentGameMode;
@@ -57,11 +65,17 @@ void Game::generateMaps()
 	this->dialogues =
 	{
 		// STORY RELEVANT
-		{L"King", L"You enter the castle. The inside is just as intricately decorated as the outside, with not one speck of dust on the floor, the corners void of spiderwebs. The king is sitting atop his throne, looking pointedly at you as you take in your surroundings. You have never seen the king in person. All of your childhood, you've only heard stories of his greatness and seen paintings of his likeness. In person, he looks even more intimidating, each detail sharper than a painting could ever capture. As you approach the throne and kneel in front of him, he gets up and approaches you.\n\nKing: Stand up, " + player->getName() + L". You've answered my call, a wise decision indeed. I hope your journey to my castle helped you train for what is to come as the journey that lies before you is even more treacherous than anything you've experienced before. Now, you might wonder why I have called you here, " + player->getName() + L". It has to do with this.\n\nHe shows you an ancient scroll, the fragile parchment yellowed, signifying its old age.\n\nKing: The situation of this realm is dire. Once prosperous and thriving, it now teeters on the edge of ruin. Darkness threatens to engulf us, the fabric of the land is unraveling. This scroll tells of a way to stop the decay. It tells of an ancient artifact hidden somewhere in this very kingdom. I've sent many of my own strongest soldiers to search for it but in vain. I was about to give up any hope of finding it, when I once again picked up and read the scroll. In it, it mentions the child of a great warrior, a legendary " + player->getRoleString() + L" from the same renowned bloodline, who has the ability to find the artifact. That child is you, " + player->getName() + L". I have fought alongside your father, I knew his extraordinary strength, his skill with the blade. I see that same potential in you. Now, are you ready to take on this quest, a treacherous task through the most forsaken places this kingdom has to offer? Your help will bring you a lifetime of glory.\n\nYou nod, signaling that you are ready to take on the quest bestowed upon you.\n\nKing: Very well, I am glad you will be of help to me. Before you set out, let me entrust you with one of my closest allies, one of the best with skills unrivaled both in- and outside of this kingdom. They shall accompany you on this journey and aid you with the battles that await.\n\nKing: Now make haste. Go with my blessing. The destiny of our land rests in your hands."},
-		{L"Village_Guard", L"Oh, you want to go to the city? Alright, I will open the gates for you."},
-		{L"City_2_Guard", L""},
-		{L"City_3_Guard", L""},
-		
+		{L"King", L"You enter the castle. The inside is just as intricately decorated as the outside, with not one speck of dust on the floor, the corners void of spiderwebs. The king is sitting atop his throne, looking pointedly at you as you take in your surroundings. You have never seen the king in person. All of your childhood, you've only heard stories of his greatness and seen paintings of his likeness. In person, he looks even more intimidating, each detail sharper than a painting could ever capture. As you approach the throne and kneel in front of him, he gets up and approaches you.\n\nKing: Stand up, " + player->getName() + L". You've answered my call, a wise decision indeed. I hope your journey to my castle helped you train for what is to come as the journey that lies before you is even more treacherous than anything you've experienced before. Now, you might wonder why I have called you here, " + player->getName() + L". It has to do with this.\n\nHe shows you an ancient scroll, the fragile parchment yellowed, signifying its old age.\n\nKing: The situation of this realm is dire.Once prosperous and thriving, it now teeters on the edge of ruin.Darkness threatens to engulf us, the fabric of the land is unraveling.This scroll tells of a way to stop the decay.It tells of an ancient artifact hidden somewhere in this very kingdom.I've sent many of my own strongest soldiers to search for it but in vain. I was about to give up any hope of finding it, when I once again picked up and read the scroll. In it, it mentions the child of a great warrior, a legendary " + player->getRoleString() + L" from the same renowned bloodline, who has the ability to find the artifact. That child is you, " + player->getName() + L". I have fought alongside your father, I knew his extraordinary strength, his skill with the blade. I see that same potential in you. Now, are you ready to take on this quest, a treacherous task through the most forsaken places this kingdom has to offer? Your help will bring you a lifetime of glory.\n\nYou nod, signaling that you are ready to take on the quest bestowed upon you.\n\nKing: Very well, I am glad you will be of help to me. Before you set out, let me entrust you with one of my closest allies, one of the best with skills unrivaled both in- and outside of this kingdom. They shall accompany you on this journey and aid you with the battles that await.\n\nKing: Now make haste. Go with my blessing. The destiny of our land rests in your hands."},
+		{L"King_2", L"Off you go now brave " + this->player->getRoleString() + L"!"},
+		{L"Village_Guard", L"You approach the village guard...\nGuard: Oh, you want to go to the city? Alright, I will open the gates for you. Also, a little bit of advice that will help you on your adventure, talk to ☻ to find out how to progress."},
+		{L"Village_Guard_2", L"Off you go now, good luck on your travels."},
+		{L"City_2_Guard", L"You approch the guard standing outside of the city...\nGuard: Our mayor will not allow anyone to enter until the rebellion leader that resides in the northern dungeon is dealt with. You look like you know a thing or two about battles...tell you what, if you defeat him i shall let you pass."},
+		{L"City_2_Guard_2", L"Guard: Wow, you actually did it! Thank you so much, you can now visit our city whenever. I also heard theres a messenger who wants to talk to you, i think i saw him in the eastern part of the city, you should go see what he wants, it seemed important."},
+		{L"Messenger", L"You are the " + this->player->getRoleString() + L" the king sent to save us all right? Oh great " + this->player->getName() + L" I have another person here who wants to join you in your endeavors...i sort of seem to have forgotten their name...and their profession actually now that I think of it but you two will figure that out once you get aquainted right? Wonderful!"},
+		{L"Messenger_2", L"Good luck on your adventure, may you save the world together!"},
+		{L"City_3_Guard", L"You approch the guard standing outside of the city...\nGuard: Ever since that rebellion leader has made its headquarters in the north western cave we've had to increase our security, so I'm afraid I can't let you pass...if only someone would do something about it. I guess that responsibilty falls on us common guards once again, since it doesn't seem like the king plans on doing anything about it...No, what am I saying? I'm sure he knows what he is doing and we should never doubt his leadership, long live the king!"},
+		{L"City_3_Guard_2", L"Guard: I can't believe it, you actually managed to beat the leader? on the behalf of our humble city I thank you...about what I said earlier...lately i feel like...nevermind I really can't afford to lose this job right now"},
+
 		// VILLAGE
 		{L"Village_S1_H1", L"Inside the townhall there is a gathering...\nCouncil leader: Hey, you! You too are invited to partake in the gathering! Today we're discussing our communities matters."},
 		{L"Village_S1_H2", L"Inside is an old man...\nOld man: Back in my day we...\nYou had to listen to a long lecture about the past..."},
@@ -81,8 +95,8 @@ void Game::generateMaps()
 		{L"City_1_S1_O1", L"You approach one of the guards...\nGuard: You have to thank the king for the peace in this country. His rule created the peace you know today."},
 		{L"City_1_S1_O2", L"You approach the captain of the guard...\nGuard Captain: There is no need for heightened security, this city is the safest around."},
 		{L"City_1_S1_O3", L"You approach the guard by the entrance to the castle...\nGuard: Stop! Do you have permission to enter? You show him the king's invitation...\nGuard: You may proceed."},
-		{L"City_1_S1_O4", L"You approach one of the two guards standing next to each other...\nGuard: The threats in this town are at an all time minimum. There is no easier time to be a guard on duty than now."},
-		{L"City_1_S1_O5", L"You approach the other guard...\nGuard: Our daily life is filled with peace and prosperity. There is no need for the cityfolk to resort to violence."},
+		{L"City_1_S1_O4", L"You approach the other guard...\nGuard: Our daily life is filled with peace and prosperity.There is no need for the cityfolk to resort to violence."},
+		{L"City_1_S1_O5", L"You approach one of the two guards standing next to each other...\nGuard: The threats in this town are at an all time low. There is no easier time to be a guard on duty than now."},
 
 		{L"City_1_S2_H1", L"Inside is a fishmonger looking to sell his fresh catch...\nFishmonger: Fresh fish! Fresh fish, caught in the bountiful rivers north of town! Buy fish now, it's fresh!"},
 		{L"City_1_S2_H2", L"Inside is the town baker...\nBaker: Freshly baked goods! Indulge in some freshly baked goods!"},
@@ -196,6 +210,9 @@ void Game::generateMaps()
 		{L"Area_2", THUMBNAIL_MAP_AREA_2},
 		{L"Area_3", THUMBNAIL_MAP_AREA_3},
 		{L"Area_4", THUMBNAIL_MAP_AREA_4},
+		{L"Dung_1", THUMBNAIL_MAP_DUNG_1},
+		{L"Dung_2", THUMBNAIL_MAP_DUNG_2},
+		{L"Dung_3", THUMBNAIL_MAP_DUNG_3}
 
 	};
 
@@ -204,7 +221,17 @@ void Game::generateMaps()
 		{L"Area_1", L"Village_2"},
 		{L"Area_2", L"City_1_2"},
 		{L"Area_3", L"City_2_2"},
-		{L"Area_4", L"City_3_2"}
+		{L"Area_4", L"City_3_2"},
+		{L"Dung_1", L"City_1_2"},
+		{L"Dung_2", L"City_2_2"},
+		{L"Dung_3", L"City_3_2"}
+	};
+
+	this->bossDialogues =
+	{
+		{1,L"Rebellion General: You are making a foolish decision, kid. The king is not your friend, he is our common enemy. A despicable man with deplorable intentions.\n\nYou think back to the folk living in the city. They seemed happy under the king's rule.\n\nRebellion General: He has gotten into your head and charmed you the way he charmed everyone else. Do not believe a word he says.\n\nYou do not believe a word the Rebellion General says.\n\nRebellion General: Very well, so be it. I cannot change your mind. But let me tell you, you will see the misery the king has left us in when you step out into the real world. The king's propaganda does not reach outside of the walls of the big city in the way he hopes it does. What you search for is not here. What you search for is hidden away, impossible to find."},
+		{2,L"Rebellion Leader: The king is fooling you, kid.Stop this search.We can protect you from the king's wrath. We will help you. The king should under no circumstances gain access to the artifact.\n\nThe king's intentions could not be that bad, could they? He is an honest man, putting the needs of his citizens before his own needs, mostly at least.The artifact will help him. It will lend him the strength to eliminate the struggles and worries of his folk once and for all.\n\nRebellion Leader: You do not understand the power you are toying with, kid. The king will use the artifact to subdue the dissatisfied and eradicate the ones who are brave enough to speak out about it. He has no remorse, no conscience. All he wants is to have more and more power. Join us, join our force, and help us defeat the king. With you and your allies on our side, we stand a chance to bring peace back to the country.\n\nThere is peace in the country. Why does the Rebellion Leader act as if there was not? \n\nRebellion Leader: Very well, it seems you won't change your mind. I will not try to persuade you further, but you are currently on the wrong side of history. I hope your journey through this land will open your eyes to that."},
+		{3,L"You finally found the artifact, as you hold it in your hands, you hear heavy footsteps behind you. Cradling it to your chest, you take out your weapon and point it in the direction of the sounds. From the shadows, the king emerges, a pleasant yet almost chilling smile on his face. He approaches you with opened arms. You lower your weapon.\n\nKing: Very well done, " + this->player->getName() + L". Now, would you be so kind as to hand the artifact over? Your journey is over. It is time to bring peace back to the land and defeat those who oppose me once and for all.\n\nYou hesitate, not quite ready to hand over the artifact. The king's smile fades slightly.\n\nKing: Now, " + this->player->getName() + L", don't be foolish. Hand over the artifact. It is the only way to bring this country back to glory, the only way to regain control.\n\nAs he approaches you further, you take a step back. This angers the king, his smile now entirely replaced by a frown, his eyebrows knit together, a dark expression on his face. Yet, you can't shake what you've heard from citizens around the kingdom, you can't shake the talk of his injustices, his malevolence toward the common folk in favor of keeping the wealthy happy.\n\nKing: Give it to me, "+this->player->getName() + L". You don't understand the immense power you are toying around with. You lack the competence to handle the artifact. Give it to me, or I have no choice but to take it from you with force.\n\nIn an instant, you know what the right thing to do is. You decide that there is no way that the king should have the artifact. You once again raise your weapon, pointing it directly toward the king's chest.\n\nKing: Very well, so be it. But do not expect to emerge from this battle alive."}
 	};
 }
 
@@ -220,25 +247,23 @@ Player* Game::loadSaveFile(std::vector<std::wstring> lines)
 		size_t pos = lines[0].find(';');
 		names.push_back(lines[0].substr(0, pos));
 		lines[0] = lines[0].substr(pos + 1);
-	} while (lines[0] != L" " && lines[0] != L";");
+	} while (lines[0] != L"" && lines[0] != L";" && lines[1] != L"");
 	
 	do
 	{
 		size_t pos = lines[1].find(';');
 		roles.push_back(std::stoi(lines[1].substr(0, pos)));
 		lines[1] = lines[1].substr(pos + 1);
-	} while (lines[1] != L" " && lines[1] != L";");
+	} while (lines[1] != L"" && lines[1] != L";" && lines[1] != L"");
 
 	Player* newPlayer = new Player(this->playerTeam, names[0], (RoleClass)roles[0], std::stoi(lines[2]), std::stoi(lines[3]), std::stoi(lines[4]), std::stoi(lines[5]), std::stoi(lines[6]), std::stoi(lines[7]), std::stoi(lines[9]));
 
 	for (int i = 1; i < names.size(); i++)
 	{
 		Ally* newAlly = new Ally(this->playerTeam, (RoleClass)roles[i], names[i], std::stoi(lines[2]));
-		newAlly->setLevel(std::stoi(lines[2]), (RoleClass)roles[i] == Warrior || (RoleClass)roles[i] == Assassin ? true : false);
 	}
 
 	this->currentScreenName = lines[8];
-	//add loading for playerstats
 
 	for (int lineNr = 10; lineNr < lines.size(); ++lineNr)
 	{
@@ -260,7 +285,7 @@ Player* Game::createNewGame()
 		do
 		{
 			system("CLS");
-			std::wcout << "=============~*+-+*~=============\n Pick a class for your hero\n=================================\n\n\n";
+			std::wcout << "=============~*+-+*~=============\n Pick a class for your hero\n=================================\n" << std::endl;
 
 			if (classSelection == 0) std::wcout << ">";
 			std::wcout << "Warrior\n";
@@ -272,7 +297,7 @@ Player* Game::createNewGame()
 			std::wcout << "Magician\n";
 
 			if (classSelection == 3) std::wcout << ">";
-			std::wcout << "Assassin\n";
+			std::wcout << "Assassin\n" << std::endl;
 
 			input = _getch();
 		
@@ -289,7 +314,7 @@ Player* Game::createNewGame()
 				default:break;
 			}
 		} while (input != '\r' && input != ' ');
-		std::wcout << "=============~*+-+*~=============\n Pick a name for your hero\n=================================\n";
+		std::wcout << "=============~*+-+*~=============\n Pick a name for your hero\n=================================\n" << std::endl;
 		std::wcout << "Your name: ";
 		std::wcin >> playerName;
 

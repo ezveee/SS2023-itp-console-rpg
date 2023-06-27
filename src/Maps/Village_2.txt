@@ -1,5 +1,5 @@
 ﻿┌────────────────┐
-│   ☻ ¦   . /_\  │
+│   ☺ ¦   . /_\  │
 │ _+--+     |‼|  │
 │/_\ .        ¦☺ │
 │|B|          ¦_ │
@@ -32,4 +32,4 @@ J: House;Village_S2_H1
 N: Npc;Village_S2_O1;0
 O: Npc;Village_S2_O2;0
 P: Npc;Village_S2_O3;0
-Q: Npc;Village_Guard;1
+Q: Npc;Village_S1_O1;0

@@ -3,6 +3,7 @@
 #include "Game.h"
 
 std::wstring Ability::getName() const { return this->name; };
+std::wstring Ability::getInfo() const { return this->info; };
 
 void Ability::attack(int damage, int manaCost, bool isSpecial, Entity* user, Entity* target)
 {

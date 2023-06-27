@@ -7,6 +7,7 @@ HealAllAbility::HealAllAbility(Entity* entity)
 	this->name = L"Heal Team";
 	this->cost = HEALER_COST + entity->getStats().level;
 	this->isAOE = true;
+	this->info = L"Heals your entire Team";
 }
 
 void HealAllAbility::allyAction(Entity* user, Entity* target)

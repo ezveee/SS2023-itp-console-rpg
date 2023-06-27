@@ -28,7 +28,7 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 		case Warrior:
 			this->name = name;
 
-			allyStats.maxHealth		= 12;
+			allyStats.maxHealth		= 18;
 			allyStats.maxMana		= 9;
 			allyStats.accuracy		= 2;
 			allyStats.attack		= 3;
@@ -45,7 +45,7 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 		case Magician:
 			this->name = name;
 
-			allyStats.maxHealth		= 10;
+			allyStats.maxHealth		= 15;
 			allyStats.maxMana		= 14;
 			allyStats.accuracy		= 2;
 			allyStats.attack		= 2;
@@ -62,7 +62,7 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 		case Assassin:
 			this->name = name;
 
-			allyStats.maxHealth = 10;
+			allyStats.maxHealth = 15;
 			allyStats.maxMana = 9;
 			allyStats.accuracy = 1;
 			allyStats.attack = 3;
@@ -78,7 +78,7 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 		case Healer:
 			this->name = name;
 
-			allyStats.maxHealth = 12;
+			allyStats.maxHealth = 18;
 			allyStats.maxMana = 12;
 			allyStats.accuracy = 2;
 			allyStats.attack = 2;

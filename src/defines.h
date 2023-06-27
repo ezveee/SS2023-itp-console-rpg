@@ -8,15 +8,17 @@
 #define HORIZONTAL_BORDER				'-'
 #define VERTICAL_BORDER					'|'
 */
-#define TEXTBOXBORDER_UPPER_LOWER L"+*~---------------------------------~*+"
 #define THUMBNAIL_MAP_VILLAGE L"\n+-+\n|1|\n+-+\n|2|\n+-+\n"
 #define THUMBNAIL_MAP_CITY_1 L"\n+-+-+-+\n|1|2|3|\n+-+-+-+\n|4|5|6|\n+-+-+-+\n"
 #define THUMBNAIL_MAP_CITY_2 L"\n+-+-+\n|1|2|\n+-+-+\n|3|4|\n+-+-+\n"
-#define THUMBNAIL_MAP_CITY_3 L""
+#define THUMBNAIL_MAP_CITY_3 L"\n+-+\n|1|\n+-+-+\n|2|3|\n+-+-+\n"
 #define THUMBNAIL_MAP_AREA_1 L"\n    +-+-+\n    |1|2|\n+-+-+-+-+\n|3|4|5|6|\n+-+-+-+-+\n"
 #define THUMBNAIL_MAP_AREA_2 L"\n  +-+\n  |1|\n+-+-+\n|2|3|\n+-+-+\n|4|\n+-+-+-+\n|5|6|7|\n+-+-+-+\n|8|\n+-+\n"
 #define THUMBNAIL_MAP_AREA_3 L"\n   +--+--+\n   | 1| 2|\n   +--+--+--+--+--+\n   | 3| 4| 5| 6| 7|\n+--+--+--+--+--+--+\n| 8| 9|10|11|\n+--+--+--+--+\n"
 #define THUMBNAIL_MAP_AREA_4 L"\n+-+\n|1|\n+-+-+-+-+\n|2|3|4|5|\n+-+-+-+-+\n|6|7|\n+-+-+\n"
+#define THUMBNAIL_MAP_DUNG_1 L"\n  +-+-+\n  |3|4|\n+-+-+-+\n|1|2|\n+-+-+\n"
+#define THUMBNAIL_MAP_DUNG_2 L"\n+-+-+-+\n|1|2|3|\n+-+-+-+-+\n    |4|5|\n    +-+-+\n"
+#define THUMBNAIL_MAP_DUNG_3 L"\n   +--+--+--+\n   | 1| 2| 3|\n   +--+--+--+\n   | 4| 5| 6|\n+--+--+--+--+\n| 7| 8| 9|10|\n+--+--+--+--+\n"
 
 #define EMPTY_FIELD						' '
 #define LANDMARK_DUNGEON				'D'

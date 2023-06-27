@@ -1,7 +1,7 @@
 ﻿┌────────────────┐
 │ _/__\     ¦    │
 │/_\‼‼| .   +-+  │
-│|S|        ☺ ¦_ │
+│|S|        ☻ ¦_ │
 │ _¦     .    /_\│
 │/_\          |_|│
 │|_| :.       ¦  │
@@ -31,5 +31,5 @@ H: House;Village_S1_H1
 J: House;Village_S1_H2
 K: House;Village_S1_H3
 S: Shop
-N: Npc;Village_S1_O1;0
+N: Npc;Village_Guard;1
 O: Npc;Village_S1_O2;0
