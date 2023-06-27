@@ -45,10 +45,6 @@ void NpcField::onInteract(Game* game)
 	std::wstring currentDialogue = dialogueIterator->second;
 
 	game->getUIManager()->showDialog(currentDialogue, true);
-	if (npcName == L"King")
-	{
-		
-	}
 
 	if (( npcName == L"King" && game->playerTeam->members.size() <= 1 ) || ( npcName == L"Messenger" && game->playerTeam->members.size() <= 2))
 	{

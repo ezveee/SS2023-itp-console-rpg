@@ -42,6 +42,11 @@ bool Player::getIsExitRequested() const
 	return this->isExitRequested;
 }
 
+void Player::setExitRequested()
+{
+	this->isExitRequested = true;
+}
+
 Position Player::calculateNewPosition(Command command)
 {
 	int deltaX = 0;
@@ -117,6 +122,7 @@ int Player::getGold()
 void Player::modifyGold(int goldAmount)
 {
 	this->gold += goldAmount;
+	std::wcout << goldAmount << " gold earned\n\n";
 }
 
 int Player::getExp()
@@ -127,7 +133,7 @@ int Player::getExp()
 void Player::modifyExp(int expAmount)
 {
 	this->exp += expAmount;
-	std::wcout << expAmount << " exp points gained\n";
+	std::wcout << expAmount << " exp points gained\n\n";
 	if (this->exp >= this->nextExpRequirement)
 	{
 		Game* game = Game::getInstance();

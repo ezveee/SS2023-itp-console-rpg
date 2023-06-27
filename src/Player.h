@@ -11,6 +11,7 @@ class Player : public Ally
 		virtual ~Player();
 
 		bool getIsExitRequested() const;
+		void setExitRequested();
 		bool getInteractionRequested() const;
 		void setInteractionRequested();
 		Position calculateNewPosition(Command command);
