@@ -4,9 +4,9 @@
 Stats physicalClass
 {
 	0,	//Level
-	2,	//MaxHealth
+	4,	//MaxHealth
 	0,
-	1,	//MaxMana
+	2,	//MaxMana
 	0,
 	1,	//Accuracy
 	2,	//Attack
@@ -20,9 +20,9 @@ Stats physicalClass
 Stats specialClass
 {
 	0,	//Level
-	1,	//MaxHealth
+	3,	//MaxHealth
 	0,
-	2,	//MaxMana
+	3,	//MaxMana
 	0,
 	2,	//Accuracy
 	1,	//Attack

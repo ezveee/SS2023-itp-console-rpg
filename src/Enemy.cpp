@@ -23,7 +23,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 			this->goldReward = 10;
 			this->experienceReward = 10;
 
-			enemyStats.maxHealth = 8;
+			enemyStats.maxHealth = 12;
 			enemyStats.maxMana = 12;
 			enemyStats.accuracy = 2;
 			enemyStats.attack = 1;
@@ -39,8 +39,8 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 			this->goldReward = 15;
 			this->experienceReward = 15;
 
+			enemyStats.maxHealth = 14;
 			enemyStats.maxMana = 10;
-			enemyStats.maxHealth = 10;
 			enemyStats.accuracy = 2;
 			enemyStats.attack = 2;
 			enemyStats.defense = 10;
@@ -57,7 +57,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 			enemyStats.level = 5;
 			enemyStats.maxMana = 20;
-			enemyStats.maxHealth = 30;
+			enemyStats.maxHealth = 45;
 			enemyStats.accuracy = 4;
 			enemyStats.attack = 4;
 			enemyStats.defense = 10;
@@ -76,7 +76,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 			enemyStats.level = 10;
 			enemyStats.maxMana = 25;
-			enemyStats.maxHealth = 40;
+			enemyStats.maxHealth = 60;
 			enemyStats.accuracy = 5;
 			enemyStats.attack = 5;
 			enemyStats.defense = 12;
@@ -96,7 +96,7 @@ Enemy::Enemy(Team* enemyTeam, EnemyType type)
 
 			enemyStats.level = 15;
 			enemyStats.maxMana = 30;
-			enemyStats.maxHealth = 50;
+			enemyStats.maxHealth = 75;
 			enemyStats.accuracy = 6;
 			enemyStats.attack = 6;
 			enemyStats.defense = 13;

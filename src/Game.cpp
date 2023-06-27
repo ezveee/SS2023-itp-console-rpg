@@ -260,7 +260,7 @@ Player* Game::createNewGame()
 		do
 		{
 			system("CLS");
-			std::wcout << "=============~*+-+*~=============\n Pick a class for your hero\n=================================\n\n\n";
+			std::wcout << "=============~*+-+*~=============\n Pick a class for your hero\n=================================\n" << std::endl;
 
 			if (classSelection == 0) std::wcout << ">";
 			std::wcout << "Warrior\n";
@@ -272,7 +272,7 @@ Player* Game::createNewGame()
 			std::wcout << "Magician\n";
 
 			if (classSelection == 3) std::wcout << ">";
-			std::wcout << "Assassin\n";
+			std::wcout << "Assassin\n" << std::endl;
 
 			input = _getch();
 		
@@ -289,7 +289,7 @@ Player* Game::createNewGame()
 				default:break;
 			}
 		} while (input != '\r' && input != ' ');
-		std::wcout << "=============~*+-+*~=============\n Pick a name for your hero\n=================================\n";
+		std::wcout << "=============~*+-+*~=============\n Pick a name for your hero\n=================================\n" << std::endl;
 		std::wcout << "Your name: ";
 		std::wcin >> playerName;
 
