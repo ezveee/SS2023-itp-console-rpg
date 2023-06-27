@@ -192,6 +192,7 @@ void Game::generateMaps()
 		{L"King", this->boundaries.find(L"City_1_Gate")},
 		{L"City_2_Guard", this->boundaries.find(L"City_2_Gate_1")},
 		{L"Messenger", this->boundaries.find(L"City_2_Gate_2")},
+		{L"City_3_Guard", this->boundaries.find(L"City_3_Gate_1")},
 	
 
 		/*

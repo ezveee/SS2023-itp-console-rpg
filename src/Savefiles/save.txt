@@ -5,8 +5,8 @@ Nicole;Alena;Erik;
 0 
 225 
 1 
-0 
-Area_1_2 
+1 
+Area_3_7 
 1 
 City_1_Gate;1 
 City_2_Gate_1;1 

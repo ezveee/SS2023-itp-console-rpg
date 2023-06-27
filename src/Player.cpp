@@ -122,7 +122,7 @@ int Player::getGold()
 void Player::modifyGold(int goldAmount)
 {
 	this->gold += goldAmount;
-	std::wcout << goldAmount << " gold earned\n\n";
+	std::wcout << goldAmount << " gold earned\n";
 }
 
 int Player::getExp()
@@ -133,7 +133,7 @@ int Player::getExp()
 void Player::modifyExp(int expAmount)
 {
 	this->exp += expAmount;
-	std::wcout << expAmount << " exp points gained\n\n";
+	std::wcout << expAmount << " exp points gained\n";
 	if (this->exp >= this->nextExpRequirement)
 	{
 		Game* game = Game::getInstance();
