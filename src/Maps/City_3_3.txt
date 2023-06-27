@@ -17,16 +17,19 @@
 a        #H#     #
 a                #
 ####   ###       #
-##H#   ###    ####
-#             #H##
+##K#   ###    ####
+#             #J##
 ####            Gb
-##H# ###  ####  Gb
+##L# ###  ####  Gb
 a    ###  #### N #
 ##################
 
 a: Transition;City_3_2;X:16
 b: Transition;Area_4_1;X:1
 I: Inn
-H: House
+H: House;City_3_S1_H1
+J: House;City_3_S1_H2
+K: House;City_3_S1_H3
+L: House;City_3_S1_H4
 N: Npc;City_3_S3_O1;0
 G: Boundary;City_3_Gate_2

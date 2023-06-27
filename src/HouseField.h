@@ -11,4 +11,7 @@ public:
 	bool isEnterable() override;
 	void onInteract(Game* game) override;
 	bool isInteractable() override;
+
+private:
+	std::wstring houseName;
 };

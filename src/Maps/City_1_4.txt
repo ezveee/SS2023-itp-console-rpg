@@ -15,17 +15,19 @@
 #      O         b
 #                b
 ####     ###     b
-####     #H#     #
+####     #J#     #
 #    ##### ### ###
 #    ##H## ### ###
 # ###            b
 # ###     ###    #
-# ###     #H#    #
+# ###     #K#    #
 # ###     N      b
 #####aaaaa########
 
 a: Transition;Area_1_5;Y:1
 b: Transition;City_1_5;X:1
-H: House
+H: House;City_1_S4_H1
+J: House;City_1_S4_H2
+K: House;City_1_S4_H3
 N: Npc;City_1_S4_O1;0
 O: Npc;City_1_S4_O2;0

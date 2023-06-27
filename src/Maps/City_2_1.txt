@@ -13,12 +13,12 @@
 
 ######aaaaa#######
 #          ###   b
-#   ### N  #H#   b
+#   ### N  #K#   b
 #   ###          b
 #   ###          #
 #   #H#    ###   #
 #  O       #######
-#             #H##
+#             #J##
 #  ####          b
 #  #### ###  #####
 #       ###  #####
@@ -27,6 +27,8 @@
 a: Transition;Area_2_8;Y:10
 b: Transition;City_2_2;X:1
 c: Transition;City_2_3;Y:1
-H: House
+H: House;City_2_S1_H1
+J: House;City_2_S1_H2
+K: House;City_2_S1_H3
 N: Npc;City_2_S1_O1;0
 O: Npc;City_2_S1_O2;0

@@ -15,10 +15,10 @@
 ####    N        b
 ####             b
 #        ###     #
-####  ####H#     #
+####  ####J#     #
 ##H#  ###     ####
-#     ###     #H##
-####  #H####     #
+#     ###     #L##
+####  #K####     #
 ####     ###  ####
 #  ###      ######
 #  ###      ###  b
@@ -26,5 +26,8 @@
 
 a: Transition;City_2_1;Y:10
 b: Transition;City_2_4;X:1
-H: House
+H: House;City_2_S3_H1
+J: House;City_2_S3_H2
+K: House;City_2_S3_H3
+L: House;City_2_S3_H4
 N: Npc;City_2_S3_O1;0

@@ -13,7 +13,7 @@
 
 #aaa###aaaaa###aa#
 #   Q       ###  #
-#           #H#  #
+#           #J#  #
 ####           O #
 ##B#             #
 #             ####
@@ -26,8 +26,9 @@
 
 a: Transition;Village_1;Y:10
 B: Blacksmith
-H: House
 I: Inn
+H: House;Village_S2_H2
+J: House;Village_S2_H1
 N: Npc;Village_S2_O1;0
 O: Npc;Village_S2_O2;0
 P: Npc;Village_S2_O3;0

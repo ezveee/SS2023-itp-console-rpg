@@ -14,10 +14,10 @@
 #bb###bbbbbbbbbbb#
 a   N            c
 a           ###  c
-a           #H#  c
+a           #K#  c
 ######           c
 ######      ###  c
-##          #H#  c
+##          #J#  c
 a                c
 ####             c
 ##H#          ####
@@ -27,6 +27,8 @@ a        O    ####
 a: Transition;City_1_4;X:16
 b: Transition;City_1_2;Y:10
 c: Transition;City_1_6;X:1
-H: House
+H: House;City_1_S5_H1
+J: House;City_1_S5_H2
+K: House;City_1_S5_H3
 N: Npc;City_1_S5_O1;0
 O: Npc;City_1_S5_O2;0

@@ -2,16 +2,21 @@
 
 HouseField::HouseField(std::wstring& parameters)
 {
-	// evtl. Initialisierung mit Daten aus dem File.
+	houseName = parameters;
 }
 
 HouseField::~HouseField() = default;
 
 void HouseField::onEnter(Game* game)
 {
-	// Mapname & Koordinaten aus info auslesen
-	// Map laden
-	// Koordinaten setzen
+	auto dialogueIterator = game->dialogues.find(houseName);
+	if (dialogueIterator == game->dialogues.end())
+	{
+		throw std::invalid_argument("Unknown house name key.");
+	}
+	std::wstring currentDialogue = dialogueIterator->second;
+
+	game->getUIManager()->showDialog(currentDialogue, true);
 }
 
 bool HouseField::isEnterable()
@@ -21,12 +26,10 @@ bool HouseField::isEnterable()
 
 void HouseField::onInteract(Game* game)
 {
-	// Mapname & Koordinaten aus info auslesen
-	// Map laden
-	// Koordinaten setzen
+
 }
 
 bool HouseField::isInteractable()
 {
-	return true;
+	return false;
 }

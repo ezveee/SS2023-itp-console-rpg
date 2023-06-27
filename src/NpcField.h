@@ -14,7 +14,7 @@ public:
 	bool isInteractable() override;
 	bool isStoryNpc();
 
-	private:
-		std::wstring npcName;
-		bool storyNpc;
+private:
+	std::wstring npcName;
+	bool storyNpc;
 };

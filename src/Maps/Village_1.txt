@@ -20,14 +20,16 @@
 ####             #
 #    O           #
 ####          ####
-##H####       #H##
+##K####       #J##
 #   ###          #
 #bbb###bbbbb###bb#
 
 a: Transition;Area_1_2;Y:10
 b: Transition;Village_2;Y:1
 G: Boundary;Village_Gate
-H: House
+H: House;Village_S1_H1
+J: House;Village_S1_H2
+K: House;Village_S1_H3
 S: Shop
 N: Npc;Village_S1_O1;0
 O: Npc;Village_S1_O2;0

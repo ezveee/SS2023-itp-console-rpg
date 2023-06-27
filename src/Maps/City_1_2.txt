@@ -4,7 +4,7 @@
 │|S| . ☺      /_\│
 │ _¦        . |_|│
 │/_\   .   :  ¦  │
-│|_|          ¦_ │
+│|‼|          ¦_ │
 │             /_\│
 ├---_+        |‼|│
 │☺ /_\  .  ☺    :│
@@ -17,7 +17,7 @@
 ##S#   N      ####
 #             ####
 ####             b
-####             b
+##J#             b
 a             ####
 a             #H##
 #O ###     P     b
@@ -30,7 +30,8 @@ c: Transition;City_1_5;Y:1
 B: Blacksmith
 I: Inn
 S: Shop
-H: House
+H: House;City_1_S2_H1
+J: House;City_1_S2_H2
 N: Npc;City_1_S2_O1;0
 O: Npc;City_1_S2_O2;0
 P: Npc;City_1_S2_O3;0

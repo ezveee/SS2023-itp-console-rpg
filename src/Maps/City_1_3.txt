@@ -19,14 +19,15 @@ a #### #####     #
 a                #
 a   ####         #
 # O #HH# ###     #
-#        #H#     #
+#        #J#     #
 a                #
 a   P            #
 #b####b###bb####b#
 
 a: Transition;City_1_2;X:16
 b: Transition;City_1_6;Y:1
-H: House
+H: House;City_1_S3_H1
+J: House;City_1_S3_H2
 N: Npc;City_1_S3_O1;0
 O: Npc;City_1_S3_O2;0
 P: Npc;City_1_S3_O3;0
