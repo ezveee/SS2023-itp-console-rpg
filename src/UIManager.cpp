@@ -105,6 +105,8 @@ void UIManager::showChooseAbility(Ally* user, int selection)
         std::wcout << abilities[i]->getName() << " [" << abilities[i]->cost << "] -> " << abilities[i]->getInfo() << std::endl;
     }
 
+	std::wcout << std::endl;
+
 	this->showStats();
 }
 
