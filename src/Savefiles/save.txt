@@ -8,9 +8,6 @@ urmum;rawruwuxd;
 0 
 City_2_2 
 1 
-0 
-Area_1_2 
-1 
 City_1_Gate;1 
 City_2_Gate_1;1 
 City_2_Gate_2;0 
