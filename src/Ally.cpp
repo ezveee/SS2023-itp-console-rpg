@@ -103,7 +103,7 @@ Ally::Ally(Team* playerTeam, RoleClass role, std::wstring name, int level)
 Ally::~Ally()
 {
     //std::wcout << L"- - - - - " << this->getName() << L" - - - - -" << std::endl;
-    this->defaultAttack;
+    delete this->defaultAttack;
     for (int i = 0; i < this->abilities.size(); i++)
     {
         //std::wcout << abilities[i]->getName() << L", was deleted" << std::endl;
